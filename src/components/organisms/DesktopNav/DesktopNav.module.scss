@@ -1,0 +1,33 @@
+@use "../../../styles/variables" as *;
+
+.nav {
+  position: relative;
+  flex: 1;
+  display: none;
+
+  @media (min-width: $breakpoint-xl) {
+    display: block;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: relative;
+}
+
+.megaOverlay {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  z-index: $z-header - 1;
+}

@@ -1,0 +1,50 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-xl 0;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+}
+
+.label {
+  margin-bottom: $spacing-lg;
+  font-weight: $font-weight-medium;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-lg $spacing-2xl;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: $font-size-body;
+  font-weight: $font-weight-bold;
+  color: rgba($color-text, 0.35);
+  letter-spacing: $letter-spacing-tight;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+@media (max-width: #{$breakpoint-md - 1px}) {
+  .list {
+    gap: $spacing-md $spacing-lg;
+  }
+
+  .logo {
+    font-size: $font-size-body-sm;
+  }
+}

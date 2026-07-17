@@ -1,0 +1,72 @@
+@use "../../../styles/variables" as *;
+
+.linkWrapper {
+  display: block;
+  height: 100%;
+}
+
+.anchor {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: $spacing-lg;
+  border-radius: $radius-md;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 22px;
+  transition:
+    background $transition-base,
+    color $transition-base,
+    transform $transition-base;
+}
+
+.card:hover .iconWrap {
+  background: $gradient-primary;
+  color: $color-white;
+  transform: translateY(-2px);
+}
+
+.title {
+  margin-bottom: $spacing-sm;
+}
+
+.description {
+  flex: 1;
+  margin-bottom: $spacing-lg;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-accent;
+  margin-top: auto;
+  transition: gap $transition-base;
+
+  .card:hover & {
+    gap: $spacing-md;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .iconWrap {
+    transform: none;
+  }
+}

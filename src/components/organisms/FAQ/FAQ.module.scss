@@ -1,0 +1,51 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  padding: $spacing-3xl 0;
+  background: $color-surface;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.collapse {
+  :global(.ant-collapse-item) {
+    margin-bottom: $spacing-md;
+    border: 1px solid $color-border !important;
+    border-radius: $radius-md !important;
+    overflow: hidden;
+    background: $color-white;
+    transition: box-shadow $transition-base;
+
+    &:hover {
+      box-shadow: $shadow-sm;
+    }
+  }
+
+  :global(.ant-collapse-header) {
+    padding: $spacing-lg !important;
+    align-items: center !important;
+  }
+
+  :global(.ant-collapse-content-box) {
+    padding: 0 $spacing-lg $spacing-lg !important;
+  }
+
+  :global(.ant-collapse-expand-icon) {
+    color: $color-accent !important;
+  }
+}
+
+.question {
+  font-size: $font-size-body;
+  font-weight: $font-weight-semibold;
+  color: $color-text;
+}
+
+.answer {
+  margin: 0;
+  font-size: $font-size-body-sm;
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+}

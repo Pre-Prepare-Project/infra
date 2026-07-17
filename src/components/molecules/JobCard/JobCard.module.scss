@@ -1,0 +1,55 @@
+@use "../../../styles/variables" as *;
+
+.wrapper {
+  height: 100%;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.badge {
+  display: inline-block;
+  width: fit-content;
+  padding: $spacing-xs $spacing-sm;
+  margin-bottom: $spacing-md;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  background: rgba($color-primary, 0.08);
+  border-radius: $radius-full;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.title {
+  margin-bottom: $spacing-sm;
+}
+
+.description {
+  margin-bottom: $spacing-lg;
+  flex: 1;
+}
+
+.metaList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0 0 $spacing-lg;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: $font-size-body-sm;
+    color: $color-text-secondary;
+  }
+}
+
+.cta {
+  margin-top: auto;
+}

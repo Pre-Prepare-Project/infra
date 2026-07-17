@@ -1,0 +1,65 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  height: 100%;
+  text-align: center;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto $spacing-lg;
+  border-radius: $radius-full;
+  background: $gradient-primary;
+  color: $color-white;
+  font-size: $font-size-body;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.name {
+  margin-bottom: $spacing-xs;
+}
+
+.role {
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.department {
+  display: block;
+  margin-bottom: $spacing-md;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.bio {
+  line-height: $line-height-relaxed;
+}

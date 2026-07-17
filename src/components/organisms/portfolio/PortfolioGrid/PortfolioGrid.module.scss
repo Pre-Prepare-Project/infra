@@ -1,0 +1,62 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-2xl;
+}
+
+.filterBtn {
+  padding: $spacing-sm $spacing-lg;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  background: $color-white;
+  color: $color-text-secondary;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition:
+    background $transition-base,
+    border-color $transition-base,
+    color $transition-base;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.filterBtnActive {
+  background: $color-primary;
+  border-color: $color-primary;
+  color: $color-white;
+
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

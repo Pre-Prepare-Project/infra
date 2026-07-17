@@ -1,0 +1,10 @@
+@use "../../../styles/variables" as *;
+
+.grid {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.stats {
+  background: $color-surface-muted;
+}

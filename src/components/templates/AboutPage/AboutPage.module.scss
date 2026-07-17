@@ -1,0 +1,11 @@
+@use "../../../styles/variables" as *;
+
+.statsBand {
+  background: $color-surface-muted;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+}
+
+.timeline {
+  background: $color-background;
+}

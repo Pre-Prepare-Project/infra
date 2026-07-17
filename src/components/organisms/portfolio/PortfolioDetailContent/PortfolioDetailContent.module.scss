@@ -1,0 +1,150 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.overview {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3xl;
+  align-items: start;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: $spacing-4xl;
+  }
+}
+
+.overline {
+  display: block;
+  margin-bottom: $spacing-md;
+}
+
+.title {
+  margin-bottom: $spacing-lg;
+}
+
+.description {
+  margin-bottom: $spacing-xl;
+  line-height: $line-height-relaxed;
+}
+
+.metaCard {
+  height: 100%;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: $spacing-lg;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-full;
+  background: rgba($color-accent, 0.1);
+  color: $color-accent;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metaList {
+  margin: 0 0 $spacing-lg;
+}
+
+.metaItem {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-sm 0;
+  border-bottom: 1px solid $color-border;
+
+  dt {
+    font-size: $font-size-body-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+  }
+
+  dd {
+    margin: 0;
+    font-size: $font-size-body-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    text-align: right;
+  }
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-caption;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    background: rgba($color-primary, 0.08);
+    border-radius: $radius-full;
+  }
+}
+
+.details {
+  padding: $spacing-4xl 0;
+  background: $color-surface-muted;
+}
+
+.sectionHeader {
+  margin-bottom: $spacing-2xl;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.detailCard {
+  padding: $spacing-xl;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  height: 100%;
+
+  h4 {
+    margin-bottom: $spacing-md;
+  }
+}
+
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    font-size: $font-size-body-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.checkIcon {
+  color: $color-accent;
+  font-size: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}

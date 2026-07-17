@@ -1,0 +1,81 @@
+@use "../../../../styles/variables" as *;
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+}
+
+.card {
+  h5 {
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: $spacing-md;
+  border-radius: $radius-lg;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 22px;
+}
+
+.valueLink,
+.value {
+  display: block;
+  margin-bottom: $spacing-sm;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text;
+  text-decoration: none;
+}
+
+.valueLink:hover {
+  color: $color-primary;
+}
+
+.hoursCard {
+  h5 {
+    margin-bottom: $spacing-md;
+  }
+}
+
+.hoursList {
+  margin: 0;
+}
+
+.hoursItem {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-sm 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  dt {
+    font-size: $font-size-body-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+  }
+
+  dd {
+    margin: 0;
+    font-size: $font-size-body-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    text-align: right;
+  }
+}

@@ -1,0 +1,11 @@
+export { default as Testimonials } from "./Testimonials/Testimonials";
+export { default as BackToTop } from "./BackToTop/BackToTop";
+export { default as CTA } from "./CTA/CTA";
+export { default as DesktopNav } from "./DesktopNav/DesktopNav";
+export { default as FAQ } from "./FAQ/FAQ";
+export { default as Footer } from "./Footer/Footer";
+export { default as Header } from "./Header/Header";
+export { default as NavigationDrawer } from "./NavigationDrawer/NavigationDrawer";
+export { default as ScrollProgress } from "./ScrollProgress/ScrollProgress";
+export { default as Statistics } from "./Statistics/Statistics";
+export { default as Timeline } from "./Timeline/Timeline";

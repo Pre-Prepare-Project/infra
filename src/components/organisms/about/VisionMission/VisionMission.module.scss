@@ -1,0 +1,50 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-4xl 0;
+  background: $color-surface-muted;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  height: 100%;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: $spacing-lg;
+  border-radius: $radius-md;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 22px;
+  transition:
+    background $transition-base,
+    color $transition-base;
+
+  .card:hover & {
+    background: $gradient-primary;
+    color: $color-white;
+  }
+}
+
+.cardTitle {
+  margin-bottom: $spacing-md;
+}

@@ -1,0 +1,87 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.page {
+  background: $color-background;
+}
+
+.hero {
+  padding: $spacing-4xl $spacing-md $spacing-3xl;
+  background: $gradient-hero;
+  text-align: center;
+}
+
+.badge {
+  display: block;
+  margin-bottom: $spacing-md;
+}
+
+.subtitle {
+  max-width: 680px;
+  margin: $spacing-lg auto 0;
+}
+
+.section {
+  padding: $spacing-3xl 0;
+  border-top: 1px solid $color-border;
+}
+
+.label {
+  margin-bottom: $spacing-xl;
+  color: $color-text-secondary !important;
+  font-size: $font-size-body-sm !important;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+}
+
+.revealGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.staggerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.hoverGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.hoverCard {
+  height: 100%;
+}
+
+.counterGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

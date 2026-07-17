@@ -1,0 +1,63 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+@use "../../../styles/typography" as *;
+
+.heading {
+  color: $color-text;
+  margin: 0;
+}
+
+.displayXl {
+  @include heading-display-xl;
+}
+
+.displayLg {
+  @include heading-display-lg;
+}
+
+.h1 {
+  @include heading-1;
+}
+
+.h2 {
+  @include heading-2;
+}
+
+.h3 {
+  @include heading-3;
+}
+
+.h4 {
+  @include heading-4;
+}
+
+.h5 {
+  @include heading-5;
+}
+
+.h6 {
+  @include heading-6;
+}
+
+.gradientPrimary {
+  @include text-gradient-primary;
+}
+
+.gradientAccent {
+  background: $gradient-accent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignRight {
+  text-align: right;
+}

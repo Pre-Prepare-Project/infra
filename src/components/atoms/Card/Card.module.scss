@@ -1,0 +1,59 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.card {
+  overflow: hidden;
+  transition: box-shadow $transition-base, transform $transition-base, border-color $transition-base;
+
+  :global(.ant-card-body) {
+    padding: 0;
+  }
+}
+
+.paddingSm :global(.ant-card-body) {
+  padding: $spacing-md;
+}
+
+.paddingMd :global(.ant-card-body) {
+  padding: $spacing-lg;
+}
+
+.paddingLg :global(.ant-card-body) {
+  padding: $spacing-xl;
+}
+
+.default {
+  @include card-base;
+  box-shadow: $shadow-card;
+}
+
+.elevated {
+  @include card-base;
+  box-shadow: $shadow-lg;
+}
+
+.glass {
+  @include glass-effect;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+}
+
+.flat {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: none;
+}
+
+.accent {
+  @include card-base;
+  box-shadow: $shadow-card;
+  border-top: 3px solid $color-accent;
+}
+
+.hoverable {
+  &:hover {
+    box-shadow: $shadow-card-hover;
+    transform: translateY(-4px);
+  }
+}

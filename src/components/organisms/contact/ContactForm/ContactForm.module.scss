@@ -1,0 +1,44 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.formCard {
+  height: 100%;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+.field {
+  min-width: 0;
+}
+
+.select {
+  width: 100%;
+}
+
+.configNote {
+  margin: $spacing-lg 0 0;
+  padding: $spacing-md;
+  background: rgba($color-primary, 0.06);
+  border-radius: $radius-md;
+  font-size: $font-size-caption;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+
+  code {
+    font-size: inherit;
+    color: $color-primary;
+  }
+}

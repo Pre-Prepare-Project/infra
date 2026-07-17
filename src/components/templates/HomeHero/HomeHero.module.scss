@@ -1,0 +1,214 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.hero {
+  position: relative;
+  padding: $spacing-4xl $spacing-md $spacing-3xl;
+  background: $gradient-hero;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba($color-accent, 0.06);
+    pointer-events: none;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3xl;
+  align-items: center;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: $spacing-2xl;
+  }
+}
+
+.content {
+  max-width: 600px;
+}
+
+.badge {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  margin-bottom: $spacing-lg;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  background: rgba($color-primary, 0.08);
+  border-radius: $radius-full;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text;
+  margin-bottom: $spacing-lg;
+}
+
+.accent {
+  color: $color-accent;
+}
+
+.description {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-xl;
+}
+
+.actions {
+  margin-top: $spacing-md;
+}
+
+.visualWrap {
+  width: 100%;
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.visualGlow {
+  position: absolute;
+  inset: 10%;
+  background: $gradient-primary;
+  opacity: 0.12;
+  border-radius: $radius-xl;
+  filter: blur(40px);
+}
+
+.visualCard {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: $color-white;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-xl;
+  overflow: hidden;
+}
+
+.visualHeader {
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  background: $color-surface-muted;
+  border-bottom: 1px solid $color-border;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: $radius-full;
+  background: $color-border;
+
+  &:first-child {
+    background: $color-accent;
+  }
+
+  &:nth-child(2) {
+    background: $color-warning;
+  }
+
+  &:nth-child(3) {
+    background: $color-success;
+  }
+}
+
+.visualBody {
+  padding: $spacing-xl;
+}
+
+.metricRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+}
+
+.metric {
+  padding: $spacing-md;
+  background: rgba($color-primary, 0.04);
+  border-radius: $radius-md;
+  text-align: center;
+}
+
+.metricValue {
+  display: block;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  line-height: $line-height-tight;
+}
+
+.metricLabel {
+  display: block;
+  font-size: $font-size-caption;
+  color: $color-text-secondary;
+  margin-top: $spacing-xs;
+}
+
+.chartBars {
+  display: flex;
+  align-items: flex-end;
+  gap: $spacing-sm;
+  height: 100px;
+  margin-bottom: $spacing-md;
+}
+
+.bar {
+  flex: 1;
+  border-radius: $radius-sm $radius-sm 0 0;
+  background: $gradient-primary;
+
+  &:nth-child(1) {
+    height: 45%;
+    opacity: 0.5;
+  }
+
+  &:nth-child(2) {
+    height: 70%;
+    opacity: 0.65;
+  }
+
+  &:nth-child(3) {
+    height: 55%;
+    opacity: 0.6;
+  }
+
+  &:nth-child(4) {
+    height: 90%;
+    opacity: 0.85;
+  }
+
+  &:nth-child(5) {
+    height: 75%;
+    background: $gradient-accent;
+  }
+}
+
+.visualCaption {
+  margin: 0;
+  font-size: $font-size-caption;
+  color: $color-text-secondary;
+  text-align: center;
+}

@@ -1,0 +1,44 @@
+@use "../../../styles/variables" as *;
+
+.input,
+.textarea {
+  border-radius: $radius-sm !important;
+  border-color: $color-border !important;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    border-color: $color-secondary !important;
+  }
+
+  &:focus,
+  &:global(.ant-input-focused) {
+    border-color: $color-primary !important;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.12) !important;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.sizeSm {
+  height: $form-control-height-sm;
+}
+
+.sizeMd {
+  height: $form-control-height;
+}
+
+.sizeLg {
+  height: $form-control-height-lg;
+}
+
+.error {
+  border-color: $color-error !important;
+
+  &:focus,
+  &:global(.ant-input-focused) {
+    box-shadow: 0 0 0 3px rgba($color-error, 0.12) !important;
+  }
+}

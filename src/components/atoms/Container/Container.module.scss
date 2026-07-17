@@ -1,0 +1,22 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.container {
+  @include container;
+}
+
+.sizeSm {
+  max-width: 960px;
+}
+
+.sizeDefault {
+  max-width: $container-max-width;
+}
+
+.sizeLg {
+  max-width: 1440px;
+}
+
+.sizeFluid {
+  max-width: 100%;
+}

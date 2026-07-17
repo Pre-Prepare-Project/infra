@@ -1,0 +1,30 @@
+@use "../../../styles/variables" as *;
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-full;
+  background: rgba($color-white, 0.1);
+  color: $color-white;
+  font-size: 16px;
+  transition:
+    background $transition-base,
+    transform $transition-base;
+
+  &:hover {
+    background: $color-accent;
+    transform: translateY(-2px);
+  }
+}

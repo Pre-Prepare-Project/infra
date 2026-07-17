@@ -1,0 +1,124 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3xl;
+  align-items: start;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: $spacing-4xl;
+  }
+}
+
+.overline {
+  display: block;
+  margin-bottom: $spacing-md;
+}
+
+.title {
+  margin-bottom: $spacing-lg;
+}
+
+.paragraph {
+  margin-bottom: $spacing-lg;
+  line-height: $line-height-relaxed;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+  margin: $spacing-xl 0 0;
+  padding: $spacing-lg;
+  background: $color-surface-muted;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border;
+}
+
+.metaItem {
+  dt {
+    font-size: $font-size-caption;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-xs;
+  }
+
+  dd {
+    margin: 0;
+    font-size: $font-size-body;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+  }
+}
+
+.imageBlock {
+  aspect-ratio: 4 / 3;
+  border-radius: $radius-xl;
+  background: $gradient-primary;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.imageInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: $spacing-xl;
+}
+
+.logoMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: $spacing-md;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  background: rgba($color-white, 0.15);
+  border-radius: $radius-lg;
+}
+
+.industries {
+  padding: $spacing-lg;
+  background: $color-background;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border;
+}
+
+.industriesLabel {
+  display: block;
+  margin-bottom: $spacing-md;
+}
+
+.industryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-body-sm;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    background: rgba($color-primary, 0.08);
+    border-radius: $radius-full;
+  }
+}

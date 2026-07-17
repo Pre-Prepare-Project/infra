@@ -1,0 +1,76 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.document {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.container {
+  max-width: 800px;
+}
+
+.header {
+  margin-bottom: $spacing-3xl;
+  padding-bottom: $spacing-2xl;
+  border-bottom: 1px solid $color-border;
+}
+
+.updated {
+  display: block;
+  margin: $spacing-sm 0 $spacing-lg;
+}
+
+.introduction {
+  line-height: $line-height-relaxed;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+.section {
+  scroll-margin-top: 100px;
+}
+
+.sectionTitle {
+  margin-bottom: $spacing-md;
+  color: $color-primary;
+}
+
+.paragraph {
+  margin-bottom: $spacing-md;
+  line-height: $line-height-relaxed;
+}
+
+.list {
+  margin: 0 0 $spacing-md;
+  padding-left: $spacing-xl;
+
+  li {
+    margin-bottom: $spacing-sm;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.contact {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-lg;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

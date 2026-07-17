@@ -1,0 +1,258 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.overview {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3xl;
+  align-items: start;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: $spacing-4xl;
+  }
+}
+
+.overline {
+  display: block;
+  margin-bottom: $spacing-md;
+}
+
+.title {
+  margin-bottom: $spacing-lg;
+}
+
+.description {
+  margin-bottom: $spacing-xl;
+  line-height: $line-height-relaxed;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.metaCard {
+  height: 100%;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: $spacing-lg;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-full;
+  background: rgba($color-accent, 0.1);
+  color: $color-accent;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metaList {
+  margin: 0 0 $spacing-lg;
+}
+
+.metaItem {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-sm 0;
+  border-bottom: 1px solid $color-border;
+
+  dt {
+    font-size: $font-size-body-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+  }
+
+  dd {
+    margin: 0;
+    font-size: $font-size-body-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    text-align: right;
+  }
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-caption;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    background: rgba($color-primary, 0.08);
+    border-radius: $radius-full;
+  }
+}
+
+.metrics {
+  padding: $spacing-3xl 0;
+  background: $gradient-hero;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.metricCard {
+  padding: $spacing-xl;
+  background: $color-white;
+  border-radius: $radius-lg;
+  text-align: center;
+  box-shadow: $shadow-sm;
+}
+
+.metricValue {
+  margin: 0 0 $spacing-sm;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  line-height: 1.1;
+}
+
+.details {
+  padding: $spacing-4xl 0;
+  background: $color-surface-muted;
+}
+
+.sectionHeader {
+  margin-bottom: $spacing-2xl;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.detailCard {
+  padding: $spacing-xl;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  height: 100%;
+
+  h4 {
+    margin-bottom: $spacing-md;
+  }
+}
+
+.approachList {
+  margin: 0;
+  padding-left: $spacing-lg;
+  color: $color-text-secondary;
+  font-size: $font-size-body-sm;
+  line-height: $line-height-relaxed;
+
+  li + li {
+    margin-top: $spacing-sm;
+  }
+}
+
+.results {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.resultsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 800px;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
+    background: $color-background;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    font-size: $font-size-body-sm;
+    color: $color-text;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.checkIcon {
+  color: $color-accent;
+  font-size: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.testimonial {
+  padding: $spacing-4xl 0;
+  background: $color-surface-muted;
+}
+
+.testimonialCard {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: $spacing-2xl;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+}
+
+.visuallyHidden {
+  @include visually-hidden;
+}
+
+.quote {
+  margin: 0 0 $spacing-xl;
+  font-size: $font-size-body-lg;
+  line-height: $line-height-relaxed;
+  color: $color-text;
+  font-style: italic;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-full;
+  background: $gradient-primary;
+  color: $color-white;
+  font-weight: $font-weight-bold;
+}

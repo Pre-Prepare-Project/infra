@@ -1,0 +1,78 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/typography" as *;
+
+.text {
+  margin: 0;
+}
+
+.bodyLg {
+  @include text-body-lg;
+}
+
+.body {
+  @include text-body;
+}
+
+.bodySm {
+  @include text-body-sm;
+}
+
+.caption {
+  @include text-caption;
+}
+
+.overline {
+  @include text-overline;
+}
+
+.colorDefault {
+  color: $color-text;
+}
+
+.colorSecondary {
+  color: $color-text-secondary;
+}
+
+.colorPrimary {
+  color: $color-primary;
+}
+
+.colorAccent {
+  color: $color-accent;
+}
+
+.colorError {
+  color: $color-error;
+}
+
+.colorWhite {
+  color: $color-white;
+}
+
+.weightRegular {
+  font-weight: $font-weight-regular;
+}
+
+.weightMedium {
+  font-weight: $font-weight-medium;
+}
+
+.weightSemibold {
+  font-weight: $font-weight-semibold;
+}
+
+.weightBold {
+  font-weight: $font-weight-bold;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignRight {
+  text-align: right;
+}

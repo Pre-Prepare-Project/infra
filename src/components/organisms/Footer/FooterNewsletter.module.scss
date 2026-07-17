@@ -1,0 +1,43 @@
+@use "../../../styles/variables" as *;
+
+.newsletterBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.columnTitle {
+  color: $color-white !important;
+  margin-bottom: $spacing-xs;
+}
+
+.newsletterText {
+  color: rgba($color-white, 0.7) !important;
+}
+
+.newsletterForm {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-top: $spacing-sm;
+}
+
+.newsletterInput {
+  background: rgba($color-white, 0.1) !important;
+  border-color: rgba($color-white, 0.2) !important;
+  color: $color-white !important;
+
+  &::placeholder {
+    color: rgba($color-white, 0.5);
+  }
+
+  &:hover,
+  &:focus {
+    border-color: rgba($color-white, 0.4) !important;
+    background: rgba($color-white, 0.14) !important;
+  }
+}
+
+.subscribeBtn {
+  width: 100%;
+}

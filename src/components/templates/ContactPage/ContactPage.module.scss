@@ -1,0 +1,34 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.main {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3xl;
+  align-items: start;
+
+  @include respond-to(lg) {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: $spacing-4xl;
+  }
+}
+
+.info,
+.form {
+  min-width: 0;
+}
+
+.map {
+  padding: $spacing-4xl 0;
+  background: $color-surface-muted;
+}
+
+.social {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}

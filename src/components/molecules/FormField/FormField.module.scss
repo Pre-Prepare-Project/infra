@@ -1,0 +1,41 @@
+@use "../../../styles/variables" as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  width: 100%;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-medium;
+  color: $form-label-color;
+  line-height: $line-height-normal;
+}
+
+.required {
+  color: $color-accent;
+  font-weight: $font-weight-semibold;
+}
+
+.control {
+  width: 100%;
+}
+
+.error {
+  color: $form-error-color !important;
+}
+
+.help {
+  color: $form-help-color !important;
+}
+
+.hasError .control :global(.ant-input),
+.hasError .control :global(.ant-input-affix-wrapper),
+.hasError .control :global(.ant-select-selector) {
+  border-color: $color-error !important;
+}

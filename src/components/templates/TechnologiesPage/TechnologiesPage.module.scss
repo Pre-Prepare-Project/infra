@@ -1,0 +1,11 @@
+@use "../../../styles/variables" as *;
+
+.featured {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.categories {
+  padding: $spacing-4xl 0;
+  background: $color-surface-muted;
+}

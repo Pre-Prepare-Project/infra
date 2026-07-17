@@ -1,0 +1,65 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  height: 100%;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: $spacing-lg;
+  border-radius: $radius-lg;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 24px;
+}
+
+.title {
+  margin-bottom: $spacing-sm;
+}
+
+.description {
+  margin-bottom: $spacing-lg;
+  line-height: $line-height-relaxed;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.techItem {
+  padding: $spacing-xs $spacing-md;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+}

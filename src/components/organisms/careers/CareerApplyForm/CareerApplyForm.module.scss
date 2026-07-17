@@ -1,0 +1,26 @@
+@use "../../../../styles/variables" as *;
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.formCard {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.note {
+  display: block;
+  margin-top: $spacing-lg;
+  text-align: center;
+
+  a {
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

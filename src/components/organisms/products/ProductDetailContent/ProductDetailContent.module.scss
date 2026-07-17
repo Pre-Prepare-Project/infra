@@ -1,0 +1,145 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.overview {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3xl;
+  align-items: center;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: $spacing-4xl;
+  }
+}
+
+.overline {
+  display: block;
+  margin-bottom: $spacing-md;
+}
+
+.title {
+  margin-bottom: $spacing-lg;
+}
+
+.description {
+  margin-bottom: $spacing-xl;
+  line-height: $line-height-relaxed;
+}
+
+.summaryCard {
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: $spacing-md;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-full;
+  background: rgba($color-accent, 0.1);
+  color: $color-accent;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: $spacing-lg;
+  border-radius: $radius-lg;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 32px;
+}
+
+.features {
+  padding: $spacing-4xl 0;
+  background: $color-surface-muted;
+}
+
+.sectionHeader {
+  margin-bottom: $spacing-2xl;
+}
+
+.featureList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 720px;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background: $color-white;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+}
+
+.checkIcon {
+  color: $color-accent;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.modules {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.moduleGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.moduleItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  transition: box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.moduleIcon {
+  color: $color-primary;
+  font-size: 20px;
+  flex-shrink: 0;
+}

@@ -1,0 +1,35 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.card {
+  @include card-base;
+  padding: $spacing-xl $spacing-lg;
+  text-align: center;
+  transition:
+    box-shadow $transition-base,
+    transform $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-card-hover;
+    transform: translateY(-4px);
+  }
+}
+
+.value {
+  margin: 0 0 $spacing-sm;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  @include text-gradient-primary;
+}
+
+.label {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+}

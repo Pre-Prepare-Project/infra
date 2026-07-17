@@ -1,0 +1,87 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.page {
+  background: $color-background;
+}
+
+.hero {
+  padding: $spacing-4xl $spacing-md $spacing-3xl;
+  background: $gradient-hero;
+  text-align: center;
+}
+
+.badge {
+  display: block;
+  margin-bottom: $spacing-md;
+}
+
+.subtitle {
+  max-width: 640px;
+  margin: $spacing-lg auto 0;
+}
+
+.section {
+  padding: $spacing-3xl 0;
+  border-top: 1px solid $color-border;
+}
+
+.sectionLabel {
+  margin-bottom: $spacing-xl;
+  color: $color-text-secondary !important;
+  font-size: $font-size-body-sm !important;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.timelineSection {
+  background: $color-surface-muted;
+}

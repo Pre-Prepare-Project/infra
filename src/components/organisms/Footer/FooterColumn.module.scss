@@ -1,0 +1,31 @@
+@use "../../../styles/variables" as *;
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.title {
+  color: $color-white !important;
+  font-size: $font-size-body !important;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  font-size: $font-size-body-sm;
+  color: rgba($color-white, 0.7);
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-white;
+  }
+}

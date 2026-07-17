@@ -1,0 +1,66 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.hero {
+  padding: $spacing-3xl $spacing-md $spacing-2xl;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark {
+  background: $gradient-primary;
+  color: $color-white;
+
+  .title,
+  .subtitle {
+    color: $color-white;
+  }
+
+  .subtitle {
+    opacity: 0.85;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -40%;
+    right: -5%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba($color-accent, 0.12);
+    pointer-events: none;
+  }
+}
+
+.light {
+  background: $gradient-hero;
+  border-bottom: 1px solid $color-border;
+
+  .title {
+    color: $color-text;
+  }
+
+  .subtitle {
+    color: $color-text-secondary;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb {
+  margin-bottom: $spacing-lg;
+}
+
+.title {
+  margin-bottom: $spacing-md;
+  max-width: 720px;
+}
+
+.subtitle {
+  max-width: 640px;
+  line-height: $line-height-relaxed;
+}

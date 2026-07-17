@@ -1,0 +1,62 @@
+@use "../../../styles/variables" as *;
+
+.button {
+  position: fixed;
+  right: $spacing-lg;
+  bottom: $spacing-lg;
+  z-index: $z-header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-full;
+  background: $gradient-primary;
+  color: $color-white;
+  border: none;
+  box-shadow: $shadow-lg;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity $transition-base,
+    visibility $transition-base,
+    transform $transition-base,
+    box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-xl;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: opacity $transition-fast, visibility $transition-fast;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    right: $spacing-md;
+    bottom: $spacing-md;
+    width: 44px;
+    height: 44px;
+  }
+}

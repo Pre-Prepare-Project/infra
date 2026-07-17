@@ -1,0 +1,35 @@
+@use "../../../styles/variables" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  max-width: 720px;
+}
+
+.alignCenter {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.alignLeft {
+  margin-inline: 0;
+  text-align: left;
+}
+
+.overline {
+  display: block;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  line-height: $line-height-relaxed;
+}
+
+.alignCenter .subtitle {
+  margin-inline: auto;
+}

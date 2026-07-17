@@ -1,0 +1,73 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-4xl 0;
+  background: $color-surface-muted;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rating {
+  margin-bottom: $spacing-md;
+
+  :global(.ant-rate-star) {
+    color: $color-accent !important;
+  }
+}
+
+.quote {
+  margin: 0 0 $spacing-xl;
+  font-size: $font-size-body;
+  line-height: $line-height-relaxed;
+  color: $color-text;
+  flex: 1;
+  font-style: normal;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-top: auto;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: $radius-full;
+  background: $gradient-primary;
+  color: $color-white;
+  font-size: $font-size-body;
+  font-weight: $font-weight-bold;
+}
+
+.name {
+  margin-bottom: 2px;
+}

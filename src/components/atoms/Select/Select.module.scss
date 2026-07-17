@@ -1,0 +1,36 @@
+@use "../../../styles/variables" as *;
+
+.select {
+  width: 100%;
+
+  :global(.ant-select-selector) {
+    border-radius: $radius-sm !important;
+    border-color: $color-border !important;
+    transition: border-color $transition-base, box-shadow $transition-base;
+  }
+
+  &:hover :global(.ant-select-selector) {
+    border-color: $color-secondary !important;
+  }
+
+  &:global(.ant-select-focused) :global(.ant-select-selector) {
+    border-color: $color-primary !important;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.12) !important;
+  }
+}
+
+.sizeSm :global(.ant-select-selector) {
+  min-height: $form-control-height-sm !important;
+}
+
+.sizeMd :global(.ant-select-selector) {
+  min-height: $form-control-height !important;
+}
+
+.sizeLg :global(.ant-select-selector) {
+  min-height: $form-control-height-lg !important;
+}
+
+.error :global(.ant-select-selector) {
+  border-color: $color-error !important;
+}

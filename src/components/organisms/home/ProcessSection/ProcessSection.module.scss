@@ -1,0 +1,70 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-4xl 0;
+  background: $color-white;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(xl) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.step {
+  position: relative;
+  padding: $spacing-xl $spacing-lg;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  transition: box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.stepNumber {
+  display: inline-block;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-bold;
+  color: $color-accent;
+  margin-bottom: $spacing-md;
+  line-height: 1;
+}
+
+.stepTitle {
+  margin-bottom: $spacing-sm;
+}
+
+.connector {
+  display: none;
+
+  @include respond-to(xl) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -$spacing-lg;
+    width: $spacing-lg;
+    height: 2px;
+    background: linear-gradient(90deg, $color-accent 0%, rgba($color-accent, 0.2) 100%);
+    transform: translateY(-50%);
+  }
+}
+
+.step:last-child .connector {
+  display: none;
+}

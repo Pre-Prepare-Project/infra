@@ -1,0 +1,48 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-4xl 0;
+  background: $gradient-hero;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-md;
+}
+
+.chip {
+  padding: $spacing-md $spacing-lg;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  box-shadow: $shadow-sm;
+  transition:
+    box-shadow $transition-base,
+    transform $transition-base,
+    border-color $transition-base;
+
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-2xl;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip:hover {
+    transform: none;
+  }
+}

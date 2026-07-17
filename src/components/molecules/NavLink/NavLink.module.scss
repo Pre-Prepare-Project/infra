@@ -1,0 +1,86 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  border-radius: $radius-sm;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color $transition-base,
+    background $transition-base;
+
+  &:hover {
+    color: $color-primary;
+    background: rgba($color-primary, 0.06);
+  }
+
+  &.active {
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.megaItem {
+  position: relative;
+}
+
+.trigger {
+  &.open {
+    color: $color-primary;
+    background: rgba($color-primary, 0.08);
+  }
+}
+
+.chevron {
+  font-size: 10px;
+  transition: transform $transition-base;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.visuallyHidden {
+  @include visually-hidden;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  border-radius: $radius-md;
+  text-decoration: none;
+  transition:
+    background $transition-base,
+    color $transition-base;
+
+  &:hover {
+    background: rgba($color-primary, 0.06);
+    color: $color-primary;
+  }
+
+  &.active {
+    color: $color-primary;
+    background: rgba($color-primary, 0.08);
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.drawerArrow {
+  font-size: 12px;
+  color: $color-text-secondary;
+}

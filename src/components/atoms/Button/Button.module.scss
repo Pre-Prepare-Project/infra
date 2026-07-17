@@ -1,0 +1,98 @@
+@use "../../../styles/variables" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-base;
+
+  &:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+
+  &:not(:disabled):active {
+    transform: translateY(0);
+  }
+}
+
+.block {
+  width: 100%;
+}
+
+// Primary — brand navy
+.primary {
+  background: $gradient-primary !important;
+  border-color: transparent !important;
+  color: $color-white !important;
+  box-shadow: $shadow-md;
+
+  &:not(:disabled):hover {
+    background: linear-gradient(135deg, $color-primary-light 0%, $color-secondary-light 100%) !important;
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Accent — orange CTA
+.accent {
+  background: $gradient-accent !important;
+  border-color: transparent !important;
+  color: $color-white !important;
+  box-shadow: $shadow-accent;
+
+  &:not(:disabled):hover {
+    background: linear-gradient(135deg, $color-accent-light 0%, $color-accent 100%) !important;
+    box-shadow: 0 12px 32px rgba(236, 82, 63, 0.35);
+  }
+}
+
+// Secondary — soft navy fill
+.secondary {
+  background: rgba($color-primary, 0.08) !important;
+  border-color: transparent !important;
+  color: $color-primary !important;
+
+  &:not(:disabled):hover {
+    background: rgba($color-primary, 0.14) !important;
+    color: $color-primary-dark !important;
+  }
+}
+
+// Outline — bordered
+.outline {
+  background: transparent !important;
+  border: 1.5px solid $color-primary !important;
+  color: $color-primary !important;
+  box-shadow: none;
+
+  &:not(:disabled):hover {
+    background: rgba($color-primary, 0.06) !important;
+    border-color: $color-primary-light !important;
+  }
+}
+
+// Ghost — minimal
+.ghost {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: $color-text !important;
+  box-shadow: none;
+
+  &:not(:disabled):hover {
+    background: rgba($color-primary, 0.06) !important;
+    color: $color-primary !important;
+  }
+}
+
+// Link
+.link {
+  color: $color-accent !important;
+  padding-inline: 0 !important;
+  height: auto !important;
+
+  &:not(:disabled):hover {
+    color: $color-accent-dark !important;
+    transform: none;
+  }
+}

@@ -1,0 +1,30 @@
+@use "../../../styles/variables" as *;
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.alignLeft {
+  justify-content: flex-start;
+}
+
+.alignCenter {
+  justify-content: center;
+}
+
+.alignRight {
+  justify-content: flex-end;
+}
+
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .group {
+    flex-direction: column;
+    width: 100%;
+
+    :global(.ant-btn) {
+      width: 100%;
+    }
+  }
+}

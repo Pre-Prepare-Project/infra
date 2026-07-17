@@ -1,0 +1,138 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.panel {
+  position: relative;
+  left: 0;
+  right: 0;
+  padding: $spacing-xl 0 $spacing-2xl;
+  background: rgba($color-white, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  box-shadow: $shadow-lg;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $color-border;
+}
+
+.title {
+  margin-bottom: $spacing-xs;
+}
+
+.grid {
+  display: grid;
+  gap: $spacing-md;
+}
+
+.servicesGrid {
+  grid-template-columns: repeat(3, 1fr);
+
+  @include respond-to(xxl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.productsGrid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition:
+    background $transition-base,
+    border-color $transition-base,
+    box-shadow $transition-base,
+    transform $transition-base;
+
+  &:hover {
+    background: rgba($color-primary, 0.04);
+    border-color: $color-border;
+    box-shadow: $shadow-sm;
+    transform: translateY(-2px);
+
+    .itemArrow {
+      color: $color-accent;
+      transform: translateX(4px);
+    }
+
+    .iconWrap {
+      background: $gradient-primary;
+      color: $color-white;
+    }
+  }
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: $radius-sm;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 18px;
+  transition:
+    background $transition-base,
+    color $transition-base;
+}
+
+.itemContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemLabel {
+  display: block;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text;
+  margin-bottom: $spacing-xs;
+}
+
+.itemDesc {
+  display: block;
+  font-size: $font-size-caption;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.features {
+  display: block;
+  margin-top: $spacing-xs;
+  font-size: $font-size-caption;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.itemArrow {
+  flex-shrink: 0;
+  margin-top: $spacing-xs;
+  font-size: 12px;
+  color: $color-text-secondary;
+  transition:
+    color $transition-base,
+    transform $transition-base;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item:hover {
+    transform: none;
+  }
+}

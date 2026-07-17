@@ -1,0 +1,162 @@
+@use "../../../styles/variables" as *;
+
+.drawer {
+  :global(.ant-drawer-body) {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.mobile {
+  :global(.ant-drawer-content-wrapper) {
+    max-width: 100%;
+  }
+}
+
+.tablet {
+  :global(.ant-drawer-content) {
+    border-left: 1px solid $color-border;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-lg;
+  border-bottom: 1px solid $color-border;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-border;
+  background: $color-white;
+  color: $color-text;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background $transition-base;
+
+  &:hover {
+    background: rgba($color-primary, 0.06);
+    color: $color-primary;
+  }
+}
+
+.nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-md;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.accordionItem {
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.accordionTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: $spacing-md;
+  font-size: $font-size-body;
+  font-weight: $font-weight-semibold;
+  color: $color-text;
+  background: transparent;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: background $transition-base;
+
+  &:hover,
+  &.expanded {
+    background: rgba($color-primary, 0.06);
+    color: $color-primary;
+  }
+}
+
+.accordionIcon {
+  font-size: 12px;
+  transition: transform $transition-base;
+}
+
+.accordionIconOpen {
+  transform: rotate(180deg);
+}
+
+.accordionPanel {
+  padding: 0 $spacing-md $spacing-md;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-accent;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-accent-dark;
+  }
+}
+
+.subList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.subLink {
+  display: block;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-sm;
+  text-decoration: none;
+  transition: background $transition-base;
+
+  &:hover {
+    background: rgba($color-primary, 0.04);
+  }
+}
+
+.subLabel {
+  display: block;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  margin-bottom: 2px;
+}
+
+.subDesc {
+  display: block;
+  font-size: $font-size-caption;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.footer {
+  padding: $spacing-lg;
+  border-top: 1px solid $color-border;
+  background: $color-surface-muted;
+}

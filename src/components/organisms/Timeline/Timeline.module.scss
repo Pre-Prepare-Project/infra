@@ -1,0 +1,123 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-3xl 0;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 720px;
+  margin-inline: auto;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, $color-primary 0%, rgba($color-primary, 0.15) 100%);
+
+    @include respond-to(md) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.item {
+  display: flex;
+  gap: $spacing-lg;
+  padding-bottom: $spacing-2xl;
+  position: relative;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  @include respond-to(md) {
+    width: 50%;
+    padding-left: $spacing-2xl;
+    padding-right: $spacing-lg;
+
+    &:nth-child(odd) {
+      margin-left: 0;
+      padding-right: $spacing-2xl;
+      padding-left: $spacing-lg;
+      text-align: right;
+      flex-direction: row-reverse;
+
+      .content {
+        align-items: flex-end;
+      }
+    }
+
+    &:nth-child(even) {
+      margin-left: 50%;
+    }
+  }
+}
+
+.marker {
+  flex-shrink: 0;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  padding-top: $spacing-xs;
+  z-index: 1;
+
+  @include respond-to(md) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: $radius-full;
+  background: $color-accent;
+  border: 3px solid $color-white;
+  box-shadow: 0 0 0 2px $color-primary;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.year {
+  display: inline-block;
+  width: fit-content;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  background: rgba($color-primary, 0.08);
+  border-radius: $radius-full;
+}
+
+.itemTitle {
+  margin: 0;
+}
