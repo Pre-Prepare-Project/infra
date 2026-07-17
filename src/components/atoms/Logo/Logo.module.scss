@@ -3,7 +3,6 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: $spacing-sm;
   text-decoration: none;
   transition: opacity $transition-base;
 
@@ -16,57 +15,17 @@
   }
 }
 
-.mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
+.image {
+  display: block;
+  width: auto;
+  height: 52px;
+  object-fit: contain;
+}
+
+.compact .image {
   height: 40px;
-  font-size: $font-size-body-sm;
-  font-weight: $font-weight-bold;
-  color: $color-white;
-  background: $gradient-primary;
-  border-radius: $radius-sm;
-  letter-spacing: $letter-spacing-tight;
-  flex-shrink: 0;
 }
 
-.text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.name {
-  font-size: $font-size-body;
-  font-weight: $font-weight-bold;
-  color: $color-text;
-  letter-spacing: $letter-spacing-tight;
-}
-
-.tagline {
-  font-size: $font-size-caption;
-  font-weight: $font-weight-medium;
-  color: $color-text-secondary;
-}
-
-.light {
-  .name {
-    color: $color-white;
-  }
-
-  .tagline {
-    color: rgba($color-white, 0.75);
-  }
-}
-
-.compact {
-  .text {
-    display: none;
-  }
-
-  .mark {
-    width: 36px;
-    height: 36px;
-  }
+.light .image {
+  filter: brightness(1.05);
 }

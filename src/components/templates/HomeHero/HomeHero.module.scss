@@ -3,62 +3,86 @@
 
 .hero {
   position: relative;
-  padding: $spacing-4xl $spacing-md $spacing-3xl;
-  background: $gradient-hero;
+  padding: $spacing-2xl $spacing-md 0;
+  background: $color-white;
   overflow: hidden;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: rgba($color-accent, 0.06);
-    pointer-events: none;
+  @include respond-to(lg) {
+    padding-top: $spacing-3xl;
   }
+}
+
+.bgShapeBlue,
+.bgShapeAccent {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bgShapeBlue {
+  top: -120px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  background: rgba($color-secondary, 0.08);
+}
+
+.bgShapeAccent {
+  top: 120px;
+  right: 28%;
+  width: 280px;
+  height: 280px;
+  background: rgba($color-accent, 0.07);
 }
 
 .container {
   position: relative;
   z-index: 1;
+  padding-bottom: $spacing-3xl;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-3xl;
+  gap: $spacing-2xl;
   align-items: center;
 
   @include respond-to(lg) {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: $spacing-2xl;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: $spacing-xl;
   }
 }
 
 .content {
-  max-width: 600px;
+  max-width: 560px;
 }
 
 .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
   padding: $spacing-sm $spacing-md;
   margin-bottom: $spacing-lg;
   font-size: $font-size-body-sm;
   font-weight: $font-weight-semibold;
   color: $color-primary;
-  background: rgba($color-primary, 0.08);
+  background: rgba($color-primary, 0.06);
+  border: 1px solid rgba($color-primary, 0.12);
   border-radius: $radius-full;
-  letter-spacing: $letter-spacing-wide;
+}
+
+.badgeIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-size: clamp(2.125rem, 5vw, 3.25rem);
   font-weight: $font-weight-bold;
-  line-height: $line-height-tight;
+  line-height: 1.15;
   letter-spacing: $letter-spacing-tight;
-  color: $color-text;
+  color: $color-primary;
   margin-bottom: $spacing-lg;
 }
 
@@ -67,14 +91,17 @@
 }
 
 .description {
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-size: clamp(1rem, 2.5vw, 1.0625rem);
   color: $color-text-secondary;
   line-height: $line-height-relaxed;
   margin-bottom: $spacing-xl;
+  max-width: 500px;
 }
 
 .actions {
-  margin-top: $spacing-md;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
 }
 
 .visualWrap {
@@ -85,130 +112,47 @@
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 320px;
+
+  @include respond-to(lg) {
+    min-height: 420px;
+  }
 }
 
-.visualGlow {
+.ringOuter,
+.ringInner {
   position: absolute;
-  inset: 10%;
-  background: $gradient-primary;
-  opacity: 0.12;
-  border-radius: $radius-xl;
-  filter: blur(40px);
+  border-radius: 46% 54% 50% 50% / 44% 46% 54% 56%;
+  pointer-events: none;
 }
 
-.visualCard {
+.ringOuter {
+  inset: 2% 4% 6% 8%;
+  border: 3px solid rgba($color-accent, 0.55);
+  transform: rotate(-6deg);
+}
+
+.ringInner {
+  inset: 8% 10% 12% 6%;
+  border: 3px solid rgba($color-secondary, 0.45);
+  transform: rotate(4deg);
+}
+
+.imageFrame {
   position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 440px;
-  background: $color-white;
-  border-radius: $radius-lg;
-  border: 1px solid $color-border;
-  box-shadow: $shadow-xl;
+  max-width: 460px;
+  aspect-ratio: 1 / 0.82;
+  border-radius: 46% 54% 50% 50% / 44% 46% 54% 56%;
   overflow: hidden;
+  box-shadow: $shadow-xl;
 }
 
-.visualHeader {
-  display: flex;
-  gap: $spacing-sm;
-  padding: $spacing-md $spacing-lg;
-  background: $color-surface-muted;
-  border-bottom: 1px solid $color-border;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: $radius-full;
-  background: $color-border;
-
-  &:first-child {
-    background: $color-accent;
-  }
-
-  &:nth-child(2) {
-    background: $color-warning;
-  }
-
-  &:nth-child(3) {
-    background: $color-success;
-  }
-}
-
-.visualBody {
-  padding: $spacing-xl;
-}
-
-.metricRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-md;
-  margin-bottom: $spacing-xl;
-}
-
-.metric {
-  padding: $spacing-md;
-  background: rgba($color-primary, 0.04);
-  border-radius: $radius-md;
-  text-align: center;
-}
-
-.metricValue {
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  font-size: $font-size-h3;
-  font-weight: $font-weight-bold;
-  color: $color-primary;
-  line-height: $line-height-tight;
-}
-
-.metricLabel {
-  display: block;
-  font-size: $font-size-caption;
-  color: $color-text-secondary;
-  margin-top: $spacing-xs;
-}
-
-.chartBars {
-  display: flex;
-  align-items: flex-end;
-  gap: $spacing-sm;
-  height: 100px;
-  margin-bottom: $spacing-md;
-}
-
-.bar {
-  flex: 1;
-  border-radius: $radius-sm $radius-sm 0 0;
-  background: $gradient-primary;
-
-  &:nth-child(1) {
-    height: 45%;
-    opacity: 0.5;
-  }
-
-  &:nth-child(2) {
-    height: 70%;
-    opacity: 0.65;
-  }
-
-  &:nth-child(3) {
-    height: 55%;
-    opacity: 0.6;
-  }
-
-  &:nth-child(4) {
-    height: 90%;
-    opacity: 0.85;
-  }
-
-  &:nth-child(5) {
-    height: 75%;
-    background: $gradient-accent;
-  }
-}
-
-.visualCaption {
-  margin: 0;
-  font-size: $font-size-caption;
-  color: $color-text-secondary;
-  text-align: center;
 }

@@ -26,8 +26,8 @@
   height: 52px;
   margin-bottom: $spacing-lg;
   border-radius: $radius-md;
-  background: rgba($color-primary, 0.08);
-  color: $color-primary;
+  background: rgba($color-accent, 0.1);
+  color: $color-accent;
   font-size: 22px;
   transition:
     background $transition-base,
@@ -36,7 +36,7 @@
 }
 
 .card:hover .iconWrap {
-  background: $gradient-primary;
+  background: $gradient-accent;
   color: $color-white;
   transform: translateY(-2px);
 }

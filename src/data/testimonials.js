@@ -52,13 +52,48 @@ export const TESTIMONIALS = [
 ];
 
 export const TRUST_COMPANIES = [
-  { name: "Microsoft", logo: null },
-  { name: "Google", logo: null },
-  { name: "Amazon", logo: null },
-  { name: "Airtel", logo: null },
-  { name: "Tata", logo: null },
-  { name: "Infosys", logo: null },
-  { name: "IBM", logo: null },
+  {
+    name: "Microsoft",
+    logo: "/images/trust/microsoft.png",
+    width: 120,
+    height: 28,
+  },
+  {
+    name: "Google",
+    logo: "/images/trust/google.png",
+    width: 92,
+    height: 30,
+  },
+  {
+    name: "Amazon",
+    logo: "/images/trust/amazon.png",
+    width: 100,
+    height: 30,
+  },
+  {
+    name: "Airtel",
+    logo: "/images/trust/airtel.png",
+    width: 72,
+    height: 28,
+  },
+  {
+    name: "Tata",
+    logo: "/images/trust/tata.png",
+    width: 80,
+    height: 28,
+  },
+  {
+    name: "Infosys",
+    logo: "/images/trust/infosys.png",
+    width: 100,
+    height: 28,
+  },
+  {
+    name: "IBM",
+    logo: "/images/trust/ibm.png",
+    width: 80,
+    height: 30,
+  },
 ];
 
 export function getFeaturedTestimonials(count = 3) {

@@ -1,13 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import Container from "@/components/atoms/Container/Container";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import ScrollRevealGrid, {
   ScrollRevealItem,
 } from "@/components/atoms/ScrollReveal/ScrollRevealGrid";
-import Button from "@/components/atoms/Button/Button";
-import { ProductCard, SectionTitle } from "@/components/molecules";
+import Heading from "@/components/atoms/Heading/Heading";
+import { ProductCard } from "@/components/molecules";
 import { getProductsForNav } from "@/lib/content";
 import styles from "./HomeProducts.module.scss";
 
@@ -18,13 +19,15 @@ export default function HomeProducts() {
     <section className={styles.section} aria-labelledby="home-products-title">
       <Container>
         <ScrollReveal variant="fadeUp">
-          <SectionTitle
-            overline="Our Products"
-            title="Platforms Built by InfraPulse"
-            subtitle="Ready-to-deploy software products designed to solve real business challenges."
-            id="home-products-title"
-            className={styles.header}
-          />
+          <div className={styles.header}>
+            <Heading level="h2" id="home-products-title" className={styles.title}>
+              Our Products
+            </Heading>
+            <Link href="/products" className={styles.viewAll}>
+              View All Products
+              <ArrowRightOutlined aria-hidden="true" />
+            </Link>
+          </div>
         </ScrollReveal>
 
         <ScrollRevealGrid className={styles.grid} stagger={0.12}>
@@ -40,12 +43,6 @@ export default function HomeProducts() {
             </ScrollRevealItem>
           ))}
         </ScrollRevealGrid>
-
-        <ScrollReveal variant="fadeUp" className={styles.footer}>
-          <Button variant="primary" href="/products" icon={<ArrowRightOutlined />}>
-            Explore All Products
-          </Button>
-        </ScrollReveal>
       </Container>
     </section>
   );

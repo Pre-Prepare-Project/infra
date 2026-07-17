@@ -15,7 +15,7 @@ export const STATISTICS = [
     id: "experience",
     value: "10",
     suffix: "+",
-    label: "Years Experience",
+    label: "Years of Experience",
   },
   {
     id: "support",

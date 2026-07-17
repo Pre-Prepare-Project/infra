@@ -1,0 +1,70 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.section {
+  padding: $spacing-xl 0;
+  background: $color-surface-muted;
+  border-bottom: 1px solid $color-border;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  justify-content: flex-start;
+
+  @include respond-to(lg) {
+    justify-content: center;
+  }
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-sm;
+  border: 1.5px solid rgba($color-primary, 0.18);
+  background: $color-white;
+  color: $color-primary;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.value {
+  font-size: $font-size-h4;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  line-height: $line-height-tight;
+}
+
+.label {
+  font-size: $font-size-caption;
+  color: $color-text-secondary;
+  line-height: $line-height-snug;
+}

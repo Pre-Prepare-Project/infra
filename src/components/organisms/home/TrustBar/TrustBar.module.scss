@@ -4,7 +4,23 @@
 .section {
   padding: $spacing-xl 0;
   background: $color-white;
-  border-bottom: 1px solid $color-border;
+}
+
+.overlap {
+  position: relative;
+  z-index: 2;
+  margin-top: -$spacing-3xl;
+  padding-top: 0;
+  padding-bottom: $spacing-lg;
+  background: transparent;
+}
+
+.card {
+  padding: $spacing-xl $spacing-lg;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
 }
 
 .label {
@@ -25,18 +41,34 @@
 
 .item {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
 }
 
-.logo {
-  font-size: $font-size-body;
-  font-weight: $font-weight-bold;
-  color: rgba($color-text, 0.35);
-  letter-spacing: $letter-spacing-tight;
-  transition: color $transition-base;
+.logoImage {
+  display: block;
+  width: auto;
+  height: 28px;
+  max-width: 120px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition:
+    opacity $transition-base,
+    filter $transition-base;
 
   &:hover {
-    color: $color-primary;
+    opacity: 1;
+    filter: none;
   }
+}
+
+.logoFallback {
+  font-size: $font-size-body;
+  font-weight: $font-weight-bold;
+  color: rgba($color-text, 0.42);
+  letter-spacing: $letter-spacing-tight;
 }
 
 @media (max-width: #{$breakpoint-md - 1px}) {
@@ -44,7 +76,7 @@
     gap: $spacing-md $spacing-lg;
   }
 
-  .logo {
+  .logoFallback {
     font-size: $font-size-body-sm;
   }
 }

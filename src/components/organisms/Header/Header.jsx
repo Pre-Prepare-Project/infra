@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/atoms/Logo/Logo";
 import Container from "@/components/atoms/Container/Container";
-import Button from "@/components/atoms/Button/Button";
 import DesktopNav from "@/components/organisms/DesktopNav/DesktopNav";
 import { useMediaQuery, useScrollLock } from "@/hooks/useMediaQuery";
 import { cn } from "@/utils/cn";
@@ -58,10 +57,6 @@ export default function Header() {
         <DesktopNav />
 
         <div className={styles.actions}>
-          <Button variant="accent" size="sm" href="/contact" className={styles.cta}>
-            Contact Us
-          </Button>
-
           <button
             type="button"
             className={cn(styles.menuToggle, isDrawerOpen && styles.menuOpen)}

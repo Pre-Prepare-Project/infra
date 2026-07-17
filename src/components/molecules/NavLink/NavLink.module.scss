@@ -2,6 +2,7 @@
 @use "../../../styles/mixins" as *;
 
 .link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
@@ -20,13 +21,25 @@
     background $transition-base;
 
   &:hover {
-    color: $color-primary;
-    background: rgba($color-primary, 0.06);
+    color: $color-accent;
+    background: rgba($color-accent, 0.06);
   }
 
   &.active {
-    color: $color-primary;
+    color: $color-accent;
     font-weight: $font-weight-semibold;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 5px;
+      border-radius: $radius-full;
+      background: $color-accent;
+    }
   }
 }
 
@@ -36,8 +49,8 @@
 
 .trigger {
   &.open {
-    color: $color-primary;
-    background: rgba($color-primary, 0.08);
+    color: $color-accent;
+    background: rgba($color-accent, 0.08);
   }
 }
 
@@ -69,13 +82,13 @@
     color $transition-base;
 
   &:hover {
-    background: rgba($color-primary, 0.06);
-    color: $color-primary;
+    background: rgba($color-accent, 0.06);
+    color: $color-accent;
   }
 
   &.active {
-    color: $color-primary;
-    background: rgba($color-primary, 0.08);
+    color: $color-accent;
+    background: rgba($color-accent, 0.08);
     font-weight: $font-weight-semibold;
   }
 }
