@@ -1,0 +1,108 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.wrap {
+  margin-top: $spacing-xl;
+}
+
+.listMobile,
+.listDesktop {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile — stacked list cards */
+.listMobile {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(lg) {
+    display: none;
+  }
+}
+
+.item.mobile {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+}
+
+.item.mobile .iconWrap {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+}
+
+.item.mobile .label {
+  font-size: $font-size-body-sm;
+}
+
+/* Desktop — compact pill row */
+.listDesktop {
+  display: none;
+
+  @include respond-to(lg) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $spacing-sm;
+    padding: $spacing-sm;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+  }
+
+  @include respond-to(xl) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.item.desktop {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  box-shadow: $shadow-sm;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: $radius-full;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: $font-size-caption;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  line-height: $line-height-snug;
+  white-space: nowrap;
+}
+
+.item.desktop .label {
+  font-size: $font-size-caption;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
+  }
+}

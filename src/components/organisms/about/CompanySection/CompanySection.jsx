@@ -2,9 +2,10 @@
 
 import Container from "@/components/atoms/Container/Container";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
+import OptimizedImage from "@/components/atoms/OptimizedImage/OptimizedImage";
 import Heading from "@/components/atoms/Heading/Heading";
 import Text from "@/components/atoms/Text/Text";
-import { COMPANY_ABOUT } from "@/data/company";
+import { ABOUT_TEAM_IMAGE, COMPANY_ABOUT } from "@/data/company";
 import { COMPANY } from "@/constants/theme";
 import styles from "./CompanySection.module.scss";
 
@@ -43,13 +44,14 @@ export default function CompanySection() {
           </ScrollReveal>
 
           <ScrollReveal variant="fadeRight" as="div" className={styles.visual}>
-            <div className={styles.imageBlock} aria-hidden="true">
-              <div className={styles.imageInner}>
-                <span className={styles.logoMark}>IP</span>
-                <Text variant="bodySm" color="secondary" align="center">
-                  InfraPulse Team
-                </Text>
-              </div>
+            <div className={styles.imageBlock}>
+              <OptimizedImage
+                src={ABOUT_TEAM_IMAGE}
+                alt="InfraPulse team collaborating in a modern office"
+                fill
+                sizes="(max-width: 992px) 100vw, 520px"
+                className={styles.image}
+              />
             </div>
             <div className={styles.industries}>
               <Text variant="overline" color="primary" className={styles.industriesLabel}>

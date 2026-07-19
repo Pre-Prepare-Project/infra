@@ -99,6 +99,7 @@ export default function ReusableComponentsShowcase() {
                 description={product.description}
                 features={product.features}
                 href={product.href}
+                image={product.image}
                 badge={product.badge}
               />
             ))}

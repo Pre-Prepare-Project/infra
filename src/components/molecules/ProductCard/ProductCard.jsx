@@ -28,10 +28,22 @@ export default function ProductCard({
       hoverable={hoverable}
       padding="lg"
       className={cn(styles.card, className)}
+      // cover={
+      //   <img
+      //     draggable={false}
+      //     alt="example"
+      //     src={image}
+      //   />
+      // }
       cover={
         image ? (
           <div className={styles.imageWrap}>
-            <OptimizedImage src={image} alt={`${title} preview`} fill className={styles.image} />
+            <img
+              draggable={false}
+              alt="example"
+              src={image}
+            />
+            {/* <OptimizedImage src={image} alt={`${title} preview`} fill className={styles.image} /> */}
           </div>
         ) : (
           <div className={styles.imagePlaceholder} aria-hidden="true">

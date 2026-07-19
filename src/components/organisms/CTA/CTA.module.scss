@@ -43,6 +43,147 @@
   }
 }
 
+.homeBanner {
+  padding: clamp(48px, 6vw, 72px) 0 clamp(40px, 5vw, 64px);
+  background: $color-primary;
+  color: $color-white;
+}
+
+.cornerCurve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 64px;
+  height: 64px;
+  background: $color-accent;
+  border-bottom-right-radius: 100%;
+
+  @include respond-to(md) {
+    width: 88px;
+    height: 88px;
+  }
+}
+
+.skyline {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  z-index: 1;
+  width: min(52%, 500px);
+  height: 78%;
+  opacity: 0.14;
+  background: url("/images/cta-skyline.svg") no-repeat bottom right / contain;
+  pointer-events: none;
+}
+
+.orangeFlourish {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: min(46%, 440px);
+  height: 100%;
+  background: url("/images/cta-orange-wave.svg") no-repeat bottom right / cover;
+  pointer-events: none;
+}
+
+.bannerInner {
+  position: relative;
+  z-index: 4;
+}
+
+.bannerContent {
+  max-width: 760px;
+}
+
+.bannerTitle {
+  margin: 0 0 14px;
+  color: $color-white;
+  font-size: clamp(1.75rem, 3.2vw, 2.375rem);
+  line-height: 1.2;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.bannerSubtitle {
+  margin: 0 0 28px;
+  max-width: 34rem;
+  color: rgba($color-white, 0.92);
+  line-height: 1.65;
+}
+
+.bannerActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 22px;
+}
+
+.bannerButton {
+  height: 48px !important;
+  padding-inline: 28px !important;
+  border-radius: $radius-md !important;
+  font-size: 0.9375rem !important;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba($color-accent, 0.35) !important;
+}
+
+.actionRowGroup {
+  display: contents;
+}
+
+.actionDivider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 28px;
+  background: rgba($color-white, 0.35);
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  font-weight: $font-weight-medium;
+  color: $color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity $transition-base;
+
+  svg {
+    font-size: 16px;
+    opacity: 0.95;
+  }
+
+  &:hover {
+    opacity: 0.85;
+    color: $color-white;
+  }
+}
+
+@media (max-width: #{$breakpoint-md - 1px}) {
+  .bannerActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .bannerActions > .actionDivider,
+  .actionRowGroup .actionDivider {
+    display: none;
+  }
+
+  .orangeFlourish {
+    width: min(62%, 320px);
+    opacity: 0.92;
+  }
+
+  .skyline {
+    width: min(68%, 360px);
+    opacity: 0.1;
+  }
+}
+
 .gradient {
   background: $gradient-hero;
 }
@@ -74,6 +215,10 @@
 .alignCenter .content {
   margin-inline: auto;
   text-align: center;
+}
+
+.alignLeft .content {
+  text-align: left;
 }
 
 .title {

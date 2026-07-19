@@ -5,7 +5,7 @@ import { getAllPortfolioSlugs } from "@/data/portfolio";
 import { getAllCaseStudySlugs } from "@/data/caseStudies";
 import { getAllJobSlugs } from "@/data/careers";
 
-export const NOINDEX_ROUTES = ["/design-system", "/showcase", "/animations"];
+export const NOINDEX_ROUTES = ["/design-system", "/showcase", "/animations", "/home-v2"];
 
 const STATIC_ROUTES = [
   { path: "", priority: 1, changeFrequency: "weekly" },

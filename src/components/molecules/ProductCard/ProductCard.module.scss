@@ -1,7 +1,5 @@
 @use "../../../styles/variables" as *;
 
-@use "../../../styles/variables" as *;
-
 .wrapper {
   height: 100%;
 }
@@ -21,7 +19,9 @@
 }
 
 .image {
-  object-fit: cover;
+  // object-fit: contain;
+  object-position: center;
+  background: linear-gradient(145deg, #f3f8ff 0%, $color-white 100%);
   transition: transform $transition-slow;
 }
 

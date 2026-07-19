@@ -9,7 +9,7 @@ export const MAIN_NAV = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services", megaMenu: "services" },
   { label: "Products", href: "/products", megaMenu: "products" },
-  { label: "Technologies", href: "/technologies" },
+  // { label: "Technologies", href: "/technologies" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Careers", href: "/careers" },
@@ -34,7 +34,8 @@ export const MEGA_MENUS = {
 };
 
 export const FOOTER_QUICK_LINKS = [
-  { label: "Home", href: "/" },
+  { label: "Home V1", href: "/" },
+  { label: "Home V2", href: "/home-v2" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Products", href: "/products" },

@@ -34,6 +34,7 @@ export default function ProductsGrid({ className }) {
                 description={product.description}
                 features={product.features}
                 href={product.href}
+                image={product.image}
                 badge={product.badge}
               />
             </ScrollRevealItem>

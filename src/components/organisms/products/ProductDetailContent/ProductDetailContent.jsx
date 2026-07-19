@@ -7,6 +7,7 @@ import ScrollRevealGrid, {
   ScrollRevealItem,
 } from "@/components/atoms/ScrollReveal/ScrollRevealGrid";
 import Card from "@/components/atoms/Card/Card";
+import OptimizedImage from "@/components/atoms/OptimizedImage/OptimizedImage";
 import Heading from "@/components/atoms/Heading/Heading";
 import Text from "@/components/atoms/Text/Text";
 import Button from "@/components/atoms/Button/Button";
@@ -35,16 +36,29 @@ export default function ProductDetailContent({ product }) {
             </ScrollReveal>
 
             <ScrollReveal variant="fadeRight" as="div">
-              <Card variant="accent" padding="lg" className={styles.summaryCard}>
-                {product.badge && <span className={styles.badge}>{product.badge}</span>}
-                <span className={styles.iconWrap} aria-hidden="true">
-                  <AppstoreOutlined />
-                </span>
-                <Heading level="h4">{product.title}</Heading>
-                <Text variant="bodySm" color="secondary">
-                  {product.description}
-                </Text>
-              </Card>
+              {product.image ? (
+                <div className={styles.previewWrap}>
+                  {product.badge && <span className={styles.previewBadge}>{product.badge}</span>}
+                  <OptimizedImage
+                    src={product.image}
+                    alt={`${product.title} dashboard preview`}
+                    fill
+                    sizes="(max-width: 992px) 100vw, 480px"
+                    className={styles.previewImage}
+                  />
+                </div>
+              ) : (
+                <Card variant="accent" padding="lg" className={styles.summaryCard}>
+                  {product.badge && <span className={styles.badge}>{product.badge}</span>}
+                  <span className={styles.iconWrap} aria-hidden="true">
+                    <AppstoreOutlined />
+                  </span>
+                  <Heading level="h4">{product.title}</Heading>
+                  <Text variant="bodySm" color="secondary">
+                    {product.description}
+                  </Text>
+                </Card>
+              )}
             </ScrollReveal>
           </div>
         </Container>

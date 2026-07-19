@@ -1,0 +1,321 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.wrap {
+  width: 100%;
+  overflow: visible;
+}
+
+.tagline {
+  max-width: 460px;
+  margin: 0 auto $spacing-xl;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  text-align: center;
+  line-height: $line-height-relaxed;
+
+  @include respond-to(lg) {
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: $spacing-lg;
+    text-align: left;
+  }
+}
+
+.accent {
+  color: $color-accent;
+  font-weight: $font-weight-semibold;
+}
+
+/* ── Desktop orbit ── */
+.orbitDesktop {
+  display: none;
+
+  @include respond-to(lg) {
+    display: block;
+  }
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  height: 540px;
+  margin: 0 auto;
+
+  @include respond-to(lg) {
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
+.glowBlue,
+.glowAccent {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(48px);
+}
+
+.glowBlue {
+  top: 22%;
+  left: 22%;
+  width: 240px;
+  height: 240px;
+  background: rgba($color-secondary, 0.14);
+}
+
+.glowAccent {
+  bottom: 18%;
+  right: 14%;
+  width: 200px;
+  height: 200px;
+  background: rgba($color-accent, 0.12);
+}
+
+.ringOuter,
+.ringInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px dashed rgba($color-primary, 0.14);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.ringOuter {
+  width: 340px;
+  height: 340px;
+}
+
+.ringInner {
+  width: 200px;
+  height: 200px;
+}
+
+.orbitDot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-full;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.dotTop {
+  margin-top: -17%;
+  background: #7c3aed;
+}
+
+.dotLeftTop {
+  margin-top: -14px;
+  margin-left: -16.5%;
+  background: #22c55e;
+}
+
+.dotLeftBottom {
+  margin-top: 14.5%;
+  margin-left: -8%;
+  background: $color-accent;
+}
+
+.dotRightTop {
+  margin-top: -14px;
+  margin-left: 16.5%;
+  background: $color-primary;
+}
+
+.dotRightBottom {
+  margin-top: 14%;
+  margin-left: 9%;
+  background: #0ea5e9;
+}
+
+.hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: $radius-full;
+  background: $gradient-accent;
+  color: $color-white;
+  font-size: 32px;
+  box-shadow: $shadow-accent;
+  transform: translate(-50%, -50%);
+}
+
+.card {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 210px;
+  padding: $spacing-md;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  text-decoration: none;
+  transition:
+    transform $transition-base,
+    box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+/* Desktop card positions — matched to mockup */
+.topCenter {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:hover {
+    transform: translateX(-50%) translateY(-4px);
+  }
+}
+
+.middleLeft {
+  top: 46%;
+  left: -51px;
+  transform: translateY(-50%);
+
+  &:hover {
+    transform: translateY(calc(-50% - 4px));
+  }
+}
+
+.bottomLeft {
+  bottom: 21px;
+  left: 8px;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.topRight {
+  top: 35%;
+  right: -8%;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.bottomRight {
+  bottom: 23px;
+  right: 0;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-sm;
+  font-size: 18px;
+}
+
+.cardTitle {
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  line-height: $line-height-snug;
+}
+
+.cardDesc {
+  font-size: $font-size-caption;
+  color: $color-text-secondary;
+  line-height: $line-height-snug;
+}
+
+.purple .cardIcon {
+  background: rgba(#7c3aed, 0.12);
+  color: #7c3aed;
+}
+
+.blue .cardIcon {
+  background: rgba($color-primary, 0.1);
+  color: $color-primary;
+}
+
+.sky .cardIcon {
+  background: rgba(#0ea5e9, 0.12);
+  color: #0ea5e9;
+}
+
+.green .cardIcon {
+  background: rgba(#22c55e, 0.12);
+  color: #22c55e;
+}
+
+.orange .cardIcon {
+  background: rgba($color-accent, 0.12);
+  color: $color-accent;
+}
+
+/* ── Mobile / tablet layout ── */
+.orbitMobile {
+  display: block;
+
+  @include respond-to(lg) {
+    display: none;
+  }
+}
+
+.mobileHub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto $spacing-lg;
+  border-radius: $radius-full;
+  background: $gradient-accent;
+  color: $color-white;
+  font-size: 28px;
+  box-shadow: $shadow-accent;
+}
+
+.mobileGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    position: static;
+    width: 100%;
+    transform: none !important;
+
+    &:hover {
+      transform: translateY(-2px) !important;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none !important;
+  }
+}

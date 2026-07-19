@@ -33,13 +33,13 @@ export default function AboutPage() {
       />
       <VisionMission />
       <ValuesSection />
-      <Timeline
+      {/* <Timeline
         items={COMPANY_TIMELINE}
         overline="Our Journey"
         title="The InfraPulse Story"
         subtitle="Key milestones in our growth from a startup to a trusted software partner."
         className={styles.timeline}
-      />
+      /> */}
       <TeamSection />
       <CTA
         title="Ready to Work With Us?"

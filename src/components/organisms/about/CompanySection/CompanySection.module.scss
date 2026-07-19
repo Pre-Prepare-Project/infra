@@ -2,7 +2,7 @@
 @use "../../../../styles/mixins" as *;
 
 .section {
-  padding: $spacing-4xl 0;
+  padding: $spacing-3xl 0;
   background: $color-white;
 }
 
@@ -62,35 +62,17 @@
 }
 
 .imageBlock {
+  position: relative;
   aspect-ratio: 4 / 3;
-  border-radius: $radius-xl;
-  background: $gradient-primary;
   overflow: hidden;
+  border-radius: $radius-xl;
   box-shadow: $shadow-lg;
   margin-bottom: $spacing-xl;
 }
 
-.imageInner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: $spacing-xl;
-}
-
-.logoMark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 72px;
-  height: 72px;
-  margin-bottom: $spacing-md;
-  font-size: $font-size-h3;
-  font-weight: $font-weight-bold;
-  color: $color-white;
-  background: rgba($color-white, 0.15);
-  border-radius: $radius-lg;
+.image {
+  object-fit: cover;
+  object-position: center;
 }
 
 .industries {

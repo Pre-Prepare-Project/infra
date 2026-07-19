@@ -1,3 +1,21 @@
+export const ABOUT_TEAM_IMAGE = "/images/about/team-meeting.png";
+
+export const ABOUT_PREVIEW = {
+  title: "A Team of Innovators and Problem Solvers",
+  description:
+    "InfraPulse Technologies Private Limited is a leading software development company delivering custom web, mobile, ERP, and cloud solutions. We combine technology, creativity, and strategy to build scalable, secure, and future-ready products.",
+  highlights: [
+    { id: "client-first", title: "Client-First Approach", icon: "user" },
+    { id: "agile-process", title: "Agile & Transparent Process", icon: "process" },
+    { id: "on-time", title: "On-Time Delivery", icon: "clock" },
+    { id: "scalable", title: "Scalable Solutions", icon: "scale" },
+    { id: "innovation", title: "Innovation Driven", icon: "bulb" },
+    { id: "partnership", title: "Long-Term Partnership", icon: "partnership" },
+  ],
+  primaryCta: { label: "Know More About Us", href: "/about" },
+  secondaryCta: { label: "Watch Our Story", href: "/about" },
+};
+
 export const COMPANY_ABOUT = {
   overview:
     "InfraPulse Technologies Private Limited is a leading software development company specializing in web, mobile, ERP, CRM, and cloud solutions. Since 2014, we have partnered with businesses across industries to deliver innovative digital products that drive growth and operational efficiency.",

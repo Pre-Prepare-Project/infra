@@ -37,6 +37,7 @@ export default function RelatedProducts({ currentSlug, title = "Other Products" 
                 description={product.description}
                 features={product.features}
                 href={product.href}
+                image={product.image}
                 badge={product.badge}
               />
             </ScrollRevealItem>

@@ -2,8 +2,8 @@
 @use "../../../../styles/mixins" as *;
 
 .section {
-  padding: $spacing-4xl 0;
-  background: $color-background;
+  padding: $spacing-3xl 0;
+  background: $color-white;
 }
 
 .grid {
@@ -13,92 +13,137 @@
   align-items: center;
 
   @include respond-to(lg) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 0.95fr;
     gap: $spacing-4xl;
   }
 }
 
-.overline {
-  display: block;
-  margin-bottom: $spacing-md;
-}
-
 .title {
-  margin-bottom: $spacing-lg;
+  margin: 0 0 $spacing-lg;
+  color: $color-primary;
+  font-size: clamp(1.75rem, 3vw, 2.375rem);
+  line-height: 1.2;
+  letter-spacing: $letter-spacing-tight;
 }
 
 .description {
-  margin-bottom: $spacing-xl;
-  line-height: $line-height-relaxed;
+  margin: 0 0 $spacing-2xl;
+  max-width: 38rem;
+  line-height: 1.7;
 }
 
-.values {
+.highlights {
   list-style: none;
-  margin: 0 0 $spacing-xl;
-  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-md;
+  gap: $spacing-lg $spacing-xl;
+  margin: 0 0 $spacing-2xl;
+  padding: 0;
 
   @include respond-to(sm) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-    font-size: $font-size-body-sm;
-    font-weight: $font-weight-medium;
-    color: $color-text;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.checkIcon {
-  color: $color-accent;
-  font-size: 16px;
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+}
+
+.highlightIcon {
+  display: inline-flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 16px;
+}
+
+.actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $spacing-lg $spacing-xl;
+}
+
+.dotPattern {
+  position: absolute;
+  bottom: -12px;
+  left: -8px;
+  z-index: 0;
+  width: 72px;
+  height: 72px;
+  opacity: 0.45;
+  background-image: radial-gradient($color-border 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  pointer-events: none;
+}
+
+.primaryAction {
+  position: relative;
+  z-index: 1;
+  height: 48px !important;
+  padding-inline: 28px !important;
+  border-radius: $radius-md !important;
+  font-size: 0.9375rem !important;
+}
+
+.storyLink {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-md;
+  font-size: $font-size-body;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  text-decoration: none;
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 0.82;
+    color: $color-primary;
+  }
+}
+
+.playButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba($color-primary, 0.18);
+  border-radius: $radius-full;
+  background: $color-white;
+  color: $color-primary;
+  font-size: 22px;
+  box-shadow: $shadow-sm;
 }
 
 .visual {
   position: relative;
 }
 
-.imagePlaceholder {
+.imageWrap {
+  position: relative;
   aspect-ratio: 4 / 3;
-  border-radius: $radius-xl;
-  background: $gradient-primary;
   overflow: hidden;
+  border-radius: $radius-xl;
   box-shadow: $shadow-lg;
 }
 
-.placeholderInner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: $spacing-xl;
-  background: linear-gradient(
-    135deg,
-    rgba($color-white, 0.1) 0%,
-    rgba($color-white, 0.05) 100%
-  );
-}
-
-.placeholderIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  margin-bottom: $spacing-md;
-  font-size: $font-size-h2;
-  font-weight: $font-weight-bold;
-  color: $color-white;
-  background: rgba($color-white, 0.15);
-  border-radius: $radius-lg;
-  backdrop-filter: blur(8px);
+.image {
+  object-fit: cover;
+  object-position: center;
 }
 
 .floatingCard {
@@ -132,4 +177,10 @@
   font-size: $font-size-caption;
   color: $color-text-secondary;
   margin-top: $spacing-xs;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storyLink {
+    transition: none;
+  }
 }

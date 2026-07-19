@@ -36,6 +36,37 @@
   text-align: center;
 }
 
+.previewWrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  background: linear-gradient(145deg, #f3f8ff 0%, $color-white 100%);
+  box-shadow: $shadow-card;
+}
+
+.previewImage {
+  object-fit: contain;
+  object-position: center;
+  padding: $spacing-md;
+}
+
+.previewBadge {
+  position: absolute;
+  top: $spacing-md;
+  left: $spacing-md;
+  z-index: 1;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-full;
+  background: rgba($color-accent, 0.1);
+  color: $color-accent;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .badge {
   display: inline-block;
   margin-bottom: $spacing-md;
