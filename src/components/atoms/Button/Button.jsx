@@ -9,6 +9,7 @@ const VARIANT_MAP = {
   accent: "default",
   secondary: "default",
   outline: "default",
+  light: "default",
   ghost: "text",
   link: "link",
 };

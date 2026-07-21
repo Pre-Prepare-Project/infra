@@ -28,7 +28,7 @@ export default function PortfolioPage() {
         subtitle="Let's discuss your requirements and build something exceptional together."
         variant="dark"
         primaryAction={{ label: "Start a Project", href: "/contact" }}
-        secondaryAction={{ label: "View Our Services", href: "/services" }}
+        secondaryAction={{ label: "View Our Services", href: "/services", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

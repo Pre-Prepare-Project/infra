@@ -21,7 +21,7 @@ export default function ContactSocial({ className }) {
               Connect with us on social media for company updates, product news, and tech insights.
             </Text>
           </div>
-          <SocialLinks links={SOCIAL_LINKS} />
+          <SocialLinks links={SOCIAL_LINKS} variant="light" />
         </div>
       </Container>
     </section>

@@ -72,6 +72,21 @@
   }
 }
 
+// Light — white fill (dark sections / CTAs)
+.light {
+  background: $color-white !important;
+  border: 1.5px solid $color-white !important;
+  color: $color-primary !important;
+  box-shadow: $shadow-sm;
+
+  &:not(:disabled):hover {
+    background: rgba($color-white, 0.92) !important;
+    border-color: rgba($color-white, 0.92) !important;
+    color: $color-primary-dark !important;
+    box-shadow: $shadow-md;
+  }
+}
+
 // Ghost — minimal
 .ghost {
   background: transparent !important;

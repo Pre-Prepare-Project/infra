@@ -10,6 +10,10 @@
   }
 }
 
+.paddingNone :global(.ant-card-body) {
+  padding: 0;
+}
+
 .paddingSm :global(.ant-card-body) {
   padding: $spacing-md;
 }

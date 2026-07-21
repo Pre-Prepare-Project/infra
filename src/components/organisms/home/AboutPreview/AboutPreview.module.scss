@@ -26,6 +26,11 @@
   letter-spacing: $letter-spacing-tight;
 }
 
+.overline {
+  display: block;
+  margin-bottom: $spacing-sm;
+}
+
 .description {
   margin: 0 0 $spacing-2xl;
   max-width: 38rem;

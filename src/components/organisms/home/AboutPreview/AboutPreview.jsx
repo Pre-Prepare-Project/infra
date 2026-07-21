@@ -30,13 +30,18 @@ const HIGHLIGHT_ICONS = {
 };
 
 export default function AboutPreview() {
-  const { title, description, highlights, primaryCta, secondaryCta } = ABOUT_PREVIEW;
+  const { overline, title, description, highlights, primaryCta, secondaryCta } = ABOUT_PREVIEW;
 
   return (
     <section className={styles.section} aria-labelledby="about-preview-title">
       <Container>
         <div className={styles.grid}>
           <ScrollReveal variant="fadeLeft" as="div" className={styles.content}>
+            {overline && (
+              <Text variant="overline" color="primary" className={styles.overline}>
+                {overline}
+              </Text>
+            )}
             <Heading level="h2" id="about-preview-title" className={styles.title}>
               {title}
             </Heading>

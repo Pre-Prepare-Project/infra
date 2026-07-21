@@ -133,7 +133,7 @@ export default function ReusableComponentsShowcase() {
         subtitle="Ready to transform your business with custom software? Get a free consultation today."
         variant="dark"
         primaryAction={{ label: "Get a Free Consultation", href: "/contact" }}
-        secondaryAction={{ label: "View Portfolio", href: "/portfolio" }}
+        secondaryAction={{ label: "View Portfolio", href: "/portfolio", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
 

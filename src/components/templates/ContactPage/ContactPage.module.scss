@@ -1,34 +1,49 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixins" as *;
 
+.heroWrap {
+  position: relative;
+  background: $gradient-primary;
+}
+
+.quickActions {
+  position: relative;
+  z-index: 2;
+  margin-top: -32px;
+  padding-bottom: $spacing-3xl;
+}
+
 .main {
-  padding: $spacing-4xl 0;
+  padding: 0 0 $spacing-4xl;
   background: $color-white;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-3xl;
+  gap: $spacing-2xl;
   align-items: start;
 
   @include respond-to(lg) {
-    grid-template-columns: 0.95fr 1.05fr;
-    gap: $spacing-4xl;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: $spacing-3xl;
   }
 }
 
-.info,
-.form {
+.form,
+.info {
   min-width: 0;
+  margin-top: 40px;
 }
 
 .map {
-  padding: $spacing-4xl 0;
+  padding: $spacing-4xl 0 0;
   background: $color-surface-muted;
 }
 
-.social {
-  padding: $spacing-4xl 0;
-  background: $color-white;
+@media (max-width: #{$breakpoint-md - 1px}) {
+  .quickActions {
+    margin-top: -$spacing-2xl;
+    padding-bottom: $spacing-2xl;
+  }
 }

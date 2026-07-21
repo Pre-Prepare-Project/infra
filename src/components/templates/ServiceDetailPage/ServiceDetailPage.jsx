@@ -32,7 +32,7 @@ export default function ServiceDetailPage({ service }) {
         subtitle="Let's discuss your requirements and create a tailored plan for success."
         variant="dark"
         primaryAction={{ label: "Request a Quote", href: "/contact" }}
-        secondaryAction={{ label: "View All Services", href: "/services" }}
+        secondaryAction={{ label: "View All Services", href: "/services", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

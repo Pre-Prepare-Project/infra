@@ -1,6 +1,7 @@
 export const ABOUT_TEAM_IMAGE = "/images/about/team-meeting.png";
 
 export const ABOUT_PREVIEW = {
+  overline: "Our Company",
   title: "A Team of Innovators and Problem Solvers",
   description:
     "InfraPulse Technologies Private Limited is a leading software development company delivering custom web, mobile, ERP, and cloud solutions. We combine technology, creativity, and strategy to build scalable, secure, and future-ready products.",
@@ -102,44 +103,50 @@ export const COMPANY_VISION =
 export const TEAM_MEMBERS = [
   {
     id: "ceo",
-    name: "Rajesh Mehta",
-    role: "Chief Executive Officer",
+    name: "R.K Sinha",
+    role: "Founder & CEO",
     department: "Leadership",
+    image: "/images/team/rk-sinha.jpg",
     bio: "Visionary leader with 15+ years in software industry, driving InfraPulse's growth and innovation strategy.",
   },
   {
     id: "cto",
-    name: "Priya Sharma",
-    role: "Chief Technology Officer",
-    department: "Technology",
+    name: "Keshav Kumar Kaushal",
+    role: "Senior Business Development Manager",
+    department: "Business Development",
+    image: "/images/team/keshav-kumar.jpg",
     bio: "Expert in enterprise architecture and cloud solutions, leading our technical excellence initiatives.",
   },
   {
     id: "head-design",
-    name: "Amit Patel",
+    name: "Manish Kumar",
     role: "Head of Design",
     department: "Design",
+    image: "/images/team/manish-kumar.jpg",
     bio: "Award-winning UI/UX designer passionate about creating intuitive and beautiful digital experiences.",
   },
   {
     id: "head-engineering",
-    name: "Sneha Reddy",
-    role: "Head of Engineering",
+    name: "Ram Krishna",
+    role: "Senior Software Engineer",
     department: "Engineering",
+    image: "/images/team/ram-krishna.jpg",
     bio: "Full-stack engineering leader specializing in scalable web and mobile application development.",
   },
   {
     id: "head-products",
-    name: "Vikram Singh",
+    name: "Ayushman Srivastava",
     role: "Head of Products",
     department: "Products",
+    image: "/images/team/ayushman-srivastava.jpg",
     bio: "Product strategist behind OZii ERP and Billing Review System, focused on solving real business problems.",
   },
   {
     id: "head-operations",
-    name: "Anita Desai",
+    name: "Suarbh Kumar",
     role: "Head of Operations",
     department: "Operations",
+    image: "/images/team/suarbh-kumar.jpg",
     bio: "Operations expert ensuring seamless project delivery and exceptional client satisfaction.",
   },
 ];

@@ -15,51 +15,156 @@
   grid-template-columns: 1fr;
   gap: $spacing-xl;
 
-  @include respond-to(sm) {
+  @include respond-to(md) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-to(lg) {
+  @include respond-to(xl) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .card {
+  position: relative;
   height: 100%;
-  text-align: center;
+  overflow: hidden;
+}
+
+.cardInner {
+  position: relative;
+  padding: $spacing-lg $spacing-lg $spacing-xl;
+}
+
+.initialsBadge {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 $spacing-xs;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+  // padding-right: $spacing-2xl;
+}
+
+.photoWrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f3f8ff 0%, $color-surface-muted 100%);
+}
+
+.photoArc {
+  position: absolute;
+  inset: -8px;
+  z-index: 1;
+  border-radius: 50%;
+  border: 2px solid $color-primary;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  pointer-events: none;
+}
+
+.photo {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform $transition-slow;
+}
+
+.card:hover .photo {
+  transform: scale(1.05);
 }
 
 .avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
-  margin: 0 auto $spacing-lg;
-  border-radius: $radius-full;
+  width: 100%;
+  height: 100%;
   background: $gradient-primary;
   color: $color-white;
-  font-size: $font-size-body;
+  font-size: $font-size-body-sm;
   font-weight: $font-weight-bold;
   letter-spacing: $letter-spacing-tight;
 }
 
+.headerInfo {
+  flex: 1;
+  min-width: 0;
+  padding-top: $spacing-xs;
+  text-align: left;
+}
+
 .name {
   margin-bottom: $spacing-xs;
+  color: $color-text;
+  line-height: $line-height-snug;
 }
 
 .role {
   display: block;
-  margin-bottom: $spacing-xs;
+  margin-bottom: $spacing-sm;
+  line-height: $line-height-snug;
+}
+
+.departmentRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.departmentLine {
+  flex-shrink: 0;
+  width: 28px;
+  height: 2px;
+  border-radius: $radius-full;
+  background: $color-primary;
 }
 
 .department {
-  display: block;
-  margin-bottom: $spacing-md;
   text-transform: uppercase;
-  letter-spacing: $letter-spacing-wide;
+  letter-spacing: $letter-spacing-wider;
+  line-height: $line-height-normal;
 }
 
 .bio {
+  position: relative;
+  z-index: 1;
   line-height: $line-height-relaxed;
+  text-align: left;
+}
+
+.dotPattern {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  width: 56px;
+  height: 40px;
+  background-image: radial-gradient(rgba($color-primary, 0.18) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .photo {
+    transform: none;
+  }
 }

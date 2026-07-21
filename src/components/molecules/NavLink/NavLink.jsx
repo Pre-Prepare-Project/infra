@@ -27,6 +27,7 @@ export default function NavLink({
           aria-expanded={isMegaOpen}
           aria-haspopup="true"
           onClick={onMegaToggle}
+          onMouseEnter={onMegaOpen}
         >
           {label}
           <DownOutlined className={cn(styles.chevron, isMegaOpen && styles.chevronOpen)} aria-hidden="true" />

@@ -32,7 +32,7 @@ export default function JobDetailPage({ job }) {
         subtitle="We're always looking for talented people. Apply today or explore other open roles."
         variant="dark"
         primaryAction={{ label: "View All Jobs", href: "/careers" }}
-        secondaryAction={{ label: "About Our Culture", href: "/about" }}
+        secondaryAction={{ label: "About Our Culture", href: "/about", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

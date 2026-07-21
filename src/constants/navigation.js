@@ -39,7 +39,7 @@ export const FOOTER_QUICK_LINKS = [
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Products", href: "/products" },
-  { label: "Technologies", href: "/technologies" },
+  // { label: "Technologies", href: "/technologies" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Careers", href: "/careers" },

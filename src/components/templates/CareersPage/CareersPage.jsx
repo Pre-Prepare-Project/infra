@@ -27,7 +27,7 @@ export default function CareersPage() {
         subtitle="Send us your resume and we'll reach out when a matching opportunity opens up."
         variant="dark"
         primaryAction={{ label: "Contact HR", href: "/contact" }}
-        secondaryAction={{ label: "Learn About Us", href: "/about" }}
+        secondaryAction={{ label: "Learn About Us", href: "/about", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

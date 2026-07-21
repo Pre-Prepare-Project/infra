@@ -37,11 +37,12 @@ export default function Footer() {
 
             <div className={styles.splitColumn}>
               <FooterColumn title="Services" links={FOOTER_SERVICES} />
-              <FooterColumn title="Products" links={FOOTER_PRODUCTS} />
+              
             </div>
 
             <div className={styles.splitColumn}>
-              <FooterColumn title="Technologies" links={FOOTER_TECHNOLOGIES} />
+              <FooterColumn title="Products" links={FOOTER_PRODUCTS} />
+              {/* <FooterColumn title="Technologies" links={FOOTER_TECHNOLOGIES} /> */}
               <FooterNewsletter />
             </div>
           </div>

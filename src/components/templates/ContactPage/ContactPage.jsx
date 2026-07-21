@@ -1,9 +1,10 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
 import Container from "@/components/atoms/Container/Container";
+import ContactQuickActions from "@/components/organisms/contact/ContactQuickActions/ContactQuickActions";
 import ContactInfo from "@/components/organisms/contact/ContactInfo/ContactInfo";
 import ContactForm from "@/components/organisms/contact/ContactForm/ContactForm";
 import ContactMap from "@/components/organisms/contact/ContactMap/ContactMap";
-import ContactSocial from "@/components/organisms/contact/ContactSocial/ContactSocial";
+import { CONTACT_PAGE } from "@/data/contact";
 import styles from "./ContactPage.module.scss";
 
 const CONTACT_BREADCRUMBS = [
@@ -12,23 +13,29 @@ const CONTACT_BREADCRUMBS = [
 ];
 
 export default function ContactPage() {
+  const { hero } = CONTACT_PAGE;
+
   return (
     <>
-      <PageHero
-        title="Contact Us"
-        subtitle="Have a project in mind? We'd love to hear from you. Reach out and let's build something great together."
-        breadcrumbs={CONTACT_BREADCRUMBS}
-      />
-      <section className={styles.main} aria-label="Contact form and information">
+      <div className={styles.heroWrap}>
+        <PageHero
+          title={hero.title}
+          subtitle={hero.subtitle}
+          breadcrumbs={CONTACT_BREADCRUMBS}
+        />
+        <ContactQuickActions className={styles.quickActions} />
+      </div>
+
+      <section className={styles.main} aria-label="Contact form">
         <Container>
           <div className={styles.grid}>
+            <ContactForm className={styles.form} showHeader={false} />
             <ContactInfo className={styles.info} />
-            <ContactForm className={styles.form} />
           </div>
         </Container>
       </section>
+
       <ContactMap className={styles.map} />
-      <ContactSocial className={styles.social} />
     </>
   );
 }

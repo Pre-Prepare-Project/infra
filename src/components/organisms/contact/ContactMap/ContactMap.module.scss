@@ -3,30 +3,55 @@
 
 .header {
   margin-bottom: $spacing-2xl;
-  text-align: center;
   max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
+}
 
-  h2 {
-    margin: $spacing-sm 0;
+.title {
+  margin: $spacing-sm 0 $spacing-md;
+  color: $color-primary;
+}
+
+.address {
+  margin-bottom: $spacing-xl;
+  line-height: $line-height-relaxed;
+}
+
+.directions {
+  width: fit-content;
+}
+
+.mapBleed {
+  width: 100%;
+  padding-inline: $spacing-md;
+
+  @include respond-to(md) {
+    padding-inline: $spacing-lg;
+  }
+
+  @include respond-to(lg) {
+    padding-inline: $spacing-xl;
   }
 }
 
 .mapWrap {
+  width: 100%;
   overflow: hidden;
-  border-radius: $radius-lg;
+  border-radius: $radius-xl;
   border: 1px solid $color-border;
-  box-shadow: $shadow-md;
+  box-shadow: $shadow-card;
 }
 
 .map {
   display: block;
   width: 100%;
-  height: 420px;
+  height: 380px;
   border: 0;
 
   @include respond-to(md) {
+    height: 440px;
+  }
+
+  @include respond-to(lg) {
     height: 480px;
   }
 }

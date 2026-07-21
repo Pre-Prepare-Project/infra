@@ -3,28 +3,117 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-sm;
+  gap: $spacing-md;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
   border-radius: $radius-full;
-  background: rgba($color-white, 0.1);
-  color: $color-white;
-  font-size: 16px;
+  text-decoration: none;
+  overflow: hidden;
   transition:
     background $transition-base,
-    transform $transition-base;
+    color $transition-base,
+    box-shadow $transition-base,
+    border-color $transition-base;
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+
+  &:hover {
+    .icon {
+      transform: scale(1.08);
+    }
+
+    .ring {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  transition: transform $transition-base;
+}
+
+.ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: $radius-full;
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity $transition-base,
+    transform $transition-slow;
+  pointer-events: none;
+}
+
+// Sizes
+.md .link {
+  width: 40px;
+  height: 40px;
+  font-size: 17px;
+}
+
+.sm .link {
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
+}
+
+// Dark — footer on navy background
+.dark .link {
+  background: rgba($color-white, 0.1);
+  color: $color-white;
+  border: 1px solid rgba($color-white, 0.12);
+
+  .ring {
+    box-shadow: 0 0 0 2px rgba($color-accent, 0.35);
+  }
 
   &:hover {
     background: $color-accent;
-    transform: translateY(-2px);
+    color: $color-white;
+    border-color: transparent;
+    box-shadow: $shadow-accent;
+  }
+}
+
+// Light — contact sidebar & light panels
+.light .link {
+  background: $color-white;
+  color: $color-primary;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+
+  .ring {
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.15);
+  }
+
+  &:hover {
+    background: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+    box-shadow: $shadow-md;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link:hover .icon {
+    transform: none;
+  }
+
+  .ring {
+    display: none;
   }
 }

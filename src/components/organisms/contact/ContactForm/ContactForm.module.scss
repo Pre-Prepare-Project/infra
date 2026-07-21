@@ -2,11 +2,55 @@
 @use "../../../../styles/mixins" as *;
 
 .header {
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-xl;
+}
+
+.title {
+  margin: $spacing-sm 0;
+  color: $color-primary;
+}
+
+.subtitle {
+  margin: 0;
+  line-height: $line-height-relaxed;
 }
 
 .formCard {
   height: 100%;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+  border: 1px solid $color-border;
+}
+
+.cardIntro {
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $color-border;
+}
+
+.cardTitle {
+  margin: 0 0 $spacing-sm;
+  color: $color-primary;
+}
+
+.submit {
+  margin-top: $spacing-sm;
+}
+
+.trustNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin: $spacing-lg 0 0;
+  font-size: $font-size-caption;
+  color: $color-text-secondary;
+  text-align: center;
+
+  svg {
+    color: $color-primary;
+    font-size: 14px;
+  }
 }
 
 .row {

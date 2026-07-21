@@ -46,7 +46,7 @@ export default function AboutPage() {
         subtitle="Let's discuss how InfraPulse can help transform your business with custom software solutions."
         variant="dark"
         primaryAction={{ label: "Get in Touch", href: "/contact" }}
-        secondaryAction={{ label: "View Our Services", href: "/services" }}
+        secondaryAction={{ label: "View Our Services", href: "/services", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

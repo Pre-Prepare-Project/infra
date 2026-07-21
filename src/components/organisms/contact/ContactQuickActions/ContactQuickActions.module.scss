@@ -1,0 +1,101 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  height: 100%;
+  padding: $spacing-xl;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    box-shadow $transition-base,
+    transform $transition-base,
+    border-color $transition-base;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.2);
+    box-shadow: $shadow-card-hover;
+    transform: translateY(-2px);
+
+    .cta {
+      gap: 10px;
+      color: $color-accent;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-full;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 22px;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  display: block;
+}
+
+.value {
+  font-size: $font-size-body;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  line-height: $line-height-snug;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  transition: gap $transition-base, color $transition-base;
+
+  svg {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: box-shadow $transition-base, border-color $transition-base;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

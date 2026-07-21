@@ -1,83 +1,91 @@
 "use client";
 
-import {
-  ClockCircleOutlined,
-  EnvironmentOutlined,
-  MailOutlined,
-  PhoneOutlined,
-} from "@ant-design/icons";
-import Container from "@/components/atoms/Container/Container";
+import { CheckCircleFilled, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
-import Card from "@/components/atoms/Card/Card";
 import Heading from "@/components/atoms/Heading/Heading";
 import Text from "@/components/atoms/Text/Text";
-import { SectionTitle } from "@/components/molecules";
-import { CONTACT_DETAILS, CONTACT_INFO } from "@/data/contact";
+import SocialLinks from "@/components/organisms/Footer/SocialLinks";
+import { SOCIAL_LINKS } from "@/constants/navigation";
+import { CONTACT_INFO, CONTACT_PAGE } from "@/data/contact";
 import styles from "./ContactInfo.module.scss";
 
-const ICON_MAP = {
-  email: MailOutlined,
-  phone: PhoneOutlined,
-  address: EnvironmentOutlined,
-};
-
 export default function ContactInfo({ className }) {
+  const { processTitle, processSteps, trustPoints } = CONTACT_PAGE;
+
   return (
-    <aside className={className} aria-labelledby="contact-info-title">
-      <ScrollReveal variant="fadeUp">
-        <SectionTitle
-          overline="Get in Touch"
-          title="Contact Information"
-          subtitle="Reach out to discuss your project, request a demo, or learn more about InfraPulse."
-          id="contact-info-title"
-          className={styles.header}
-        />
-      </ScrollReveal>
+    <aside className={className} aria-labelledby="contact-sidebar-title">
+      <ScrollReveal variant="fadeUp" delay={0.1} as="div" className={styles.panel}>
+        <Heading level="h3" id="contact-sidebar-title" className={styles.title}>
+          {processTitle}
+        </Heading>
 
-      <div className={styles.cards}>
-        {CONTACT_DETAILS.map((item, index) => {
-          const Icon = ICON_MAP[item.id];
-
-          return (
-            <ScrollReveal key={item.id} variant="fadeUp" delay={index * 0.08} as="article">
-              <Card variant="default" padding="lg" hoverable className={styles.card}>
-                <span className={styles.iconWrap} aria-hidden="true">
-                  {Icon && <Icon />}
-                </span>
-                <Heading level="h5">{item.label}</Heading>
-                {item.href ? (
-                  <a href={item.href} className={styles.valueLink}>
-                    {item.value}
-                  </a>
-                ) : (
-                  <Text variant="bodySm" weight="semibold" className={styles.value}>
-                    {item.value}
-                  </Text>
-                )}
-                <Text variant="caption" color="secondary">
-                  {item.description}
+        <ol className={styles.process}>
+          {processSteps.map((step) => (
+            <li key={step.id} className={styles.processStep}>
+              <span className={styles.stepNumber}>{step.step}</span>
+              <div>
+                <span className={styles.stepTitle}>{step.title}</span>
+                <Text variant="caption" color="secondary" className={styles.stepText}>
+                  {step.description}
                 </Text>
-              </Card>
-            </ScrollReveal>
-          );
-        })}
-      </div>
+              </div>
+            </li>
+          ))}
+        </ol>
 
-      <ScrollReveal variant="fadeUp" delay={0.2} as="div" className={styles.hours}>
-        <Card variant="accent" padding="lg" className={styles.hoursCard}>
-          <span className={styles.iconWrap} aria-hidden="true">
-            <ClockCircleOutlined />
-          </span>
-          <Heading level="h5">Business Hours</Heading>
+        <ul className={styles.trustList}>
+          {trustPoints.map((point) => (
+            <li key={point}>
+              <CheckCircleFilled className={styles.trustIcon} aria-hidden="true" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* <div className={styles.hours}>
+          <div className={styles.hoursHeader}>
+            <span className={styles.hoursIcon} aria-hidden="true">
+              <ClockCircleOutlined />
+            </span>
+            <Heading level="h5" className={styles.hoursTitle}>
+              Business Hours
+            </Heading>
+          </div>
           <dl className={styles.hoursList}>
             {CONTACT_INFO.businessHours.map((entry) => (
-              <div key={entry.days} className={styles.hoursItem}>
+              <div key={entry.days} className={styles.hoursRow}>
                 <dt>{entry.days}</dt>
                 <dd>{entry.hours}</dd>
               </div>
             ))}
           </dl>
-        </Card>
+        </div> */}
+
+        <div className={styles.support}>
+          <Text variant="caption" color="secondary" className={styles.supportLabel}>
+            client support
+          </Text>
+          <div className={styles.supportLinks}>
+            <a
+              href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+              className={styles.supportLink}
+            >
+              <PhoneOutlined aria-hidden="true" />
+              <span>{CONTACT_INFO.phone}</span>
+            </a>
+            <a href={`mailto:${CONTACT_INFO.supportEmail}`} className={styles.supportLink}>
+              <MailOutlined aria-hidden="true" />
+              <span>{CONTACT_INFO.supportEmail}</span>
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.social}>
+          <Text variant="caption" color="secondary" className={styles.socialLabel}>
+            Connect with us
+          </Text>
+          <SocialLinks links={SOCIAL_LINKS} variant="light" />
+        </div>
       </ScrollReveal>
     </aside>
   );

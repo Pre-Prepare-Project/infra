@@ -27,7 +27,7 @@ export default function ServicesPage() {
         subtitle="Tell us about your project and we'll recommend the right service mix for your goals."
         variant="dark"
         primaryAction={{ label: "Get in Touch", href: "/contact" }}
-        secondaryAction={{ label: "View Our Work", href: "/portfolio" }}
+        secondaryAction={{ label: "View Our Work", href: "/portfolio", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

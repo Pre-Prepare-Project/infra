@@ -1,60 +1,125 @@
 @use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
 
-.header {
-  margin-bottom: $spacing-2xl;
+.panel {
+  height: 100%;
+  padding: $spacing-xl;
+  background: linear-gradient(180deg, $color-background 0%, $color-white 100%);
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
 }
 
-.cards {
+.title {
+  margin: 0 0 $spacing-lg;
+  color: $color-primary;
+  font-size: $font-size-h4;
+}
+
+.process {
+  list-style: none;
+  margin: 0 0 $spacing-xl;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: $spacing-lg;
-  margin-bottom: $spacing-lg;
 }
 
-.card {
-  h5 {
-    margin-bottom: $spacing-sm;
-  }
+.processStep {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
 }
 
-.iconWrap {
+.stepNumber {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: $spacing-md;
-  border-radius: $radius-lg;
-  background: rgba($color-primary, 0.08);
-  color: $color-primary;
-  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: $color-white;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-bold;
 }
 
-.valueLink,
-.value {
+.stepTitle {
   display: block;
-  margin-bottom: $spacing-sm;
+  margin-bottom: 2px;
   font-size: $font-size-body-sm;
   font-weight: $font-weight-semibold;
   color: $color-text;
-  text-decoration: none;
 }
 
-.valueLink:hover {
-  color: $color-primary;
+.stepText {
+  line-height: $line-height-relaxed;
 }
 
-.hoursCard {
-  h5 {
-    margin-bottom: $spacing-md;
+.trustList {
+  list-style: none;
+  margin: 0 0 $spacing-xl;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  background: rgba($color-accent, 0.06);
+  border-radius: $radius-lg;
+  border: 1px solid rgba($color-accent, 0.12);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: $font-size-body-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text;
   }
+}
+
+.trustIcon {
+  color: $color-accent;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.hours {
+  margin-bottom: $spacing-lg;
+  padding: $spacing-lg;
+  border-radius: $radius-lg;
+  background: $color-white;
+  border: 1px solid $color-border;
+}
+
+.hoursHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.hoursIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 16px;
+}
+
+.hoursTitle {
+  margin: 0;
+  color: $color-primary;
 }
 
 .hoursList {
   margin: 0;
 }
 
-.hoursItem {
+.hoursRow {
   display: flex;
   justify-content: space-between;
   gap: $spacing-md;
@@ -63,6 +128,7 @@
 
   &:last-child {
     border-bottom: none;
+    padding-bottom: 0;
   }
 
   dt {
@@ -77,5 +143,67 @@
     font-weight: $font-weight-semibold;
     color: $color-text;
     text-align: right;
+  }
+}
+
+.support {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-border;
+}
+
+.supportLabel {
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.supportLinks {
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-sm;
+  justify-content: space-between;
+}
+
+.supportLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  svg {
+    font-size: 15px;
+    color: $color-accent;
+  }
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-border;
+}
+
+.socialLabel {
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+@media (max-width: #{$breakpoint-lg - 1px}) {
+  .panel {
+    padding: $spacing-lg;
   }
 }

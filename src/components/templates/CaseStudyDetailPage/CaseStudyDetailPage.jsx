@@ -32,7 +32,7 @@ export default function CaseStudyDetailPage({ study }) {
         subtitle="Share your goals with us and we'll help you build a roadmap to success."
         variant="dark"
         primaryAction={{ label: "Start a Conversation", href: "/contact" }}
-        secondaryAction={{ label: "View All Case Studies", href: "/case-studies" }}
+        secondaryAction={{ label: "View All Case Studies", href: "/case-studies", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

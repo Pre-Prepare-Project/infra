@@ -32,7 +32,7 @@ export default function ProductDetailPage({ product }) {
         subtitle="Book a demo and discover how this platform can transform your business operations."
         variant="dark"
         primaryAction={{ label: "Request a Demo", href: "/contact" }}
-        secondaryAction={{ label: "View All Products", href: "/products" }}
+        secondaryAction={{ label: "View All Products", href: "/products", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

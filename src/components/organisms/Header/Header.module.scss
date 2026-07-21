@@ -6,6 +6,7 @@
   top: 0;
   z-index: $z-header;
   height: $header-height;
+  overflow: visible;
   background: rgba($color-white, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);

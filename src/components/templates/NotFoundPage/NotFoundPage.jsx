@@ -17,7 +17,7 @@ export default function NotFoundPage() {
         subtitle="Explore our services, products, or contact us — we're here to help."
         variant="dark"
         primaryAction={{ label: "Go to Homepage", href: "/" }}
-        secondaryAction={{ label: "Contact Us", href: "/contact" }}
+        secondaryAction={{ label: "Contact Us", href: "/contact", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

@@ -2,20 +2,23 @@
 
 import { useState } from "react";
 import { message } from "antd";
-import { SendOutlined } from "@ant-design/icons";
+import { SendOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import Card from "@/components/atoms/Card/Card";
+import Heading from "@/components/atoms/Heading/Heading";
+import Text from "@/components/atoms/Text/Text";
 import Input from "@/components/atoms/Input/Input";
 import Select from "@/components/atoms/Select/Select";
 import Button from "@/components/atoms/Button/Button";
-import { Form, FormField, SectionTitle } from "@/components/molecules";
-import { CONTACT_INQUIRY_TYPES } from "@/data/contact";
+import { Form, FormField } from "@/components/molecules";
+import { CONTACT_INQUIRY_TYPES, CONTACT_PAGE } from "@/data/contact";
 import { isEmailJsConfigured, sendContactEmail } from "@/lib/emailjs";
 import styles from "./ContactForm.module.scss";
 
-export default function ContactForm({ className }) {
+export default function ContactForm({ className, showHeader = true }) {
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
+  const { form: formCopy } = CONTACT_PAGE;
 
   const handleFinish = async (values) => {
     setSubmitting(true);
@@ -36,19 +39,51 @@ export default function ContactForm({ className }) {
 
   return (
     <section className={className} aria-labelledby="contact-form-title">
-      <ScrollReveal variant="fadeUp">
-        <SectionTitle
-          overline="Send a Message"
-          title="Contact Form"
-          subtitle="Fill out the form below and our team will get back to you within 1–2 business days."
-          id="contact-form-title"
-          className={styles.header}
-        />
-      </ScrollReveal>
+      {showHeader && (
+        <ScrollReveal variant="fadeUp">
+          <div className={styles.header}>
+            <Text variant="overline" color="primary">
+              Send a Message
+            </Text>
+            <Heading level="h2" id="contact-form-title" className={styles.title}>
+              {formCopy.title}
+            </Heading>
+            <Text variant="bodySm" color="secondary" className={styles.subtitle}>
+              {formCopy.subtitle}
+            </Text>
+          </div>
+        </ScrollReveal>
+      )}
 
-      <ScrollReveal variant="fadeUp" delay={0.1}>
+      <ScrollReveal variant="fadeUp" delay={showHeader ? 0.08 : 0}>
         <Card variant="default" padding="lg" className={styles.formCard}>
+          {!showHeader && (
+            <div className={styles.cardIntro}>
+              <Heading level="h2" id="contact-form-title" className={styles.cardTitle}>
+                {formCopy.title}
+              </Heading>
+              <Text variant="bodySm" color="secondary">
+                {formCopy.subtitle}
+              </Text>
+            </div>
+          )}
+
           <Form form={form} onFinish={handleFinish} layout="vertical">
+            <FormField label="Inquiry Type" htmlFor="contact-inquiry" required>
+              <Form.Item
+                name="inquiryType"
+                rules={[{ required: true, message: "Please select an inquiry type" }]}
+                noStyle
+              >
+                <Select
+                  id="contact-inquiry"
+                  placeholder="What can we help you with?"
+                  options={CONTACT_INQUIRY_TYPES}
+                  className={styles.select}
+                />
+              </Form.Item>
+            </FormField>
+
             <div className={styles.row}>
               <FormField label="Full Name" htmlFor="contact-name" required className={styles.field}>
                 <Form.Item
@@ -88,31 +123,16 @@ export default function ContactForm({ className }) {
               </FormField>
             </div>
 
-            <FormField label="Inquiry Type" htmlFor="contact-inquiry" required>
-              <Form.Item
-                name="inquiryType"
-                rules={[{ required: true, message: "Please select an inquiry type" }]}
-                noStyle
-              >
-                <Select
-                  id="contact-inquiry"
-                  placeholder="Select inquiry type"
-                  options={CONTACT_INQUIRY_TYPES}
-                  className={styles.select}
-                />
-              </Form.Item>
-            </FormField>
-
-            <FormField label="Message" htmlFor="contact-message" required>
+            <FormField label="Project Details" htmlFor="contact-message" required>
               <Form.Item
                 name="message"
-                rules={[{ required: true, message: "Please enter your message" }]}
+                rules={[{ required: true, message: "Please describe your project or question" }]}
                 noStyle
               >
                 <Input.TextArea
                   id="contact-message"
                   rows={5}
-                  placeholder="Tell us about your project or question..."
+                  placeholder="Tell us about your goals, timeline, budget range, or any questions..."
                 />
               </Form.Item>
             </FormField>
@@ -123,10 +143,16 @@ export default function ContactForm({ className }) {
               loading={submitting}
               icon={<SendOutlined />}
               block
+              className={styles.submit}
             >
               Send Message
             </Button>
           </Form>
+
+          <p className={styles.trustNote}>
+            <SafetyCertificateOutlined aria-hidden="true" />
+            {formCopy.trustNote}
+          </p>
 
           {!isEmailJsConfigured() && (
             <p className={styles.configNote}>

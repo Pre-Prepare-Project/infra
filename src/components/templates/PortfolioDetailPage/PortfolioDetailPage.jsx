@@ -32,7 +32,7 @@ export default function PortfolioDetailPage({ project }) {
         subtitle="Tell us about your goals and we'll help you achieve similar results."
         variant="dark"
         primaryAction={{ label: "Get in Touch", href: "/contact" }}
-        secondaryAction={{ label: "View All Projects", href: "/portfolio" }}
+        secondaryAction={{ label: "View All Projects", href: "/portfolio", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

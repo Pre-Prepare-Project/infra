@@ -27,7 +27,7 @@ export default function TechnologiesPage() {
         subtitle="Tell us about your project and we'll recommend the ideal technology stack for your goals."
         variant="dark"
         primaryAction={{ label: "Start a Project", href: "/contact" }}
-        secondaryAction={{ label: "View Our Services", href: "/services" }}
+        secondaryAction={{ label: "View Our Services", href: "/services", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

@@ -35,6 +35,12 @@ export { STATISTICS, ABOUT_STATISTICS, getStatisticById } from "./statistics";
 export { COMPANY_TIMELINE, COMPANY_VALUES, COMPANY_MISSION, COMPANY_VISION, COMPANY_ABOUT, TEAM_MEMBERS } from "./company";
 export { PROCESS_STEPS } from "./process";
 export { WHY_CHOOSE_US, FEATURED_TECHNOLOGIES } from "./whyChooseUs";
-export { CONTACT_INFO, CONTACT_DETAILS, CONTACT_INQUIRY_TYPES } from "./contact";
+export {
+  CONTACT_INFO,
+  CONTACT_DETAILS,
+  CONTACT_INQUIRY_TYPES,
+  CONTACT_PAGE,
+  CONTACT_QUICK_ACTIONS,
+} from "./contact";
 export { PRIVACY_POLICY } from "./legal/privacyPolicy";
 export { TERMS_AND_CONDITIONS } from "./legal/termsAndConditions";

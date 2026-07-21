@@ -24,7 +24,7 @@ export default function CaseStudiesPage() {
         subtitle="Let's discuss your project and explore how we can help you achieve similar results."
         variant="dark"
         primaryAction={{ label: "Get in Touch", href: "/contact" }}
-        secondaryAction={{ label: "View Portfolio", href: "/portfolio" }}
+        secondaryAction={{ label: "View Portfolio", href: "/portfolio", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>

@@ -4,9 +4,12 @@
   position: relative;
   flex: 1;
   display: none;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 
   @media (min-width: $breakpoint-xl) {
-    display: block;
+    display: flex;
   }
 }
 
@@ -18,10 +21,14 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .item {
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .megaOverlay {
@@ -29,5 +36,16 @@
   top: $header-height;
   left: 0;
   right: 0;
-  z-index: $z-header - 1;
+  z-index: $z-header;
+  pointer-events: auto;
+
+  // Hover bridge — covers the seam between header and dropdown
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+  }
 }
