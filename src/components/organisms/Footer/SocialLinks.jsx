@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   FacebookFilled,
   LinkedinFilled,
@@ -11,6 +11,7 @@ import {
 } from "@ant-design/icons";
 import { STAGGER_CONTAINER, STAGGER_ITEM, EASING } from "@/lib/animations";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { loadFramerMotion, scheduleIdleTask } from "@/lib/loadFramerMotion";
 import { cn } from "@/utils/cn";
 import styles from "./SocialLinks.module.scss";
 
@@ -30,11 +31,30 @@ export default function SocialLinks({
   className,
 }) {
   const prefersReducedMotion = useReducedMotion();
+  const [motionApi, setMotionApi] = useState(null);
   const variantClass = styles[variant];
   const sizeClass = styles[size];
   const shouldAnimate = animated && !prefersReducedMotion;
 
-  if (!shouldAnimate) {
+  useEffect(() => {
+    if (!shouldAnimate) {
+      return undefined;
+    }
+
+    const idleId = scheduleIdleTask(() => {
+      loadFramerMotion().then(setMotionApi);
+    });
+
+    return () => {
+      if (typeof idleId === "number") {
+        window.clearTimeout(idleId);
+      } else if (typeof window !== "undefined" && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
+      }
+    };
+  }, [shouldAnimate]);
+
+  if (!shouldAnimate || !motionApi) {
     return (
       <ul className={cn(styles.list, variantClass, sizeClass, className)} aria-label="Social media links">
         {links.map((item) => {
@@ -57,6 +77,8 @@ export default function SocialLinks({
       </ul>
     );
   }
+
+  const { motion } = motionApi;
 
   return (
     <motion.ul

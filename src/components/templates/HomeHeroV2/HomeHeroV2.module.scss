@@ -114,3 +114,12 @@
   overflow: visible;
   min-height: 0;
 }
+
+.visualPlaceholder {
+  width: 100%;
+  min-height: 320px;
+
+  @include respond-to(lg) {
+    min-height: 420px;
+  }
+}

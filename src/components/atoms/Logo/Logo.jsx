@@ -16,14 +16,25 @@ const LOGO_MARK = {
   height: 48,
 };
 
-export default function Logo({ variant = "default", className, href = "/", onClick }) {
+export default function Logo({
+  variant = "default",
+  className,
+  href = "/",
+  onClick,
+  priority = false,
+}) {
   const isCompact = variant === "compact";
   const asset = isCompact ? LOGO_MARK : LOGO_FULL;
 
   return (
     <Link
       href={href}
-      className={cn(styles.logo, variant !== "default" && styles[variant], className)}
+      className={cn(
+        styles.logo,
+        variant !== "default" && styles[variant],
+        isCompact ? styles.compact : styles.full,
+        className,
+      )}
       aria-label={`${COMPANY.shortName} — Home`}
       onClick={onClick}
     >
@@ -33,7 +44,8 @@ export default function Logo({ variant = "default", className, href = "/", onCli
         width={asset.width}
         height={asset.height}
         className={styles.image}
-        priority
+        priority={priority}
+        sizes={isCompact ? "60px" : "206px"}
       />
     </Link>
   );

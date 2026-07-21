@@ -1,10 +1,8 @@
-import Link from "next/link";
-import Container from "@/components/atoms/Container/Container";
-import HomeHero from "@/components/templates/HomeHero/HomeHero";
-import HomeStatsBar from "@/components/organisms/home/HomeStatsBar/HomeStatsBar";
-import AboutPreview from "@/components/organisms/home/AboutPreview/AboutPreview";
 import LazyLoad from "@/components/atoms/LazyLoad/LazyLoad";
 import {
+  LazyHomeHero,
+  LazyAboutPreview,
+  LazyHomeStatsBar,
   LazyHomeServices,
   LazyHomeProducts,
   LazyProcessSection,
@@ -17,15 +15,16 @@ import {
 import { FAQ_HOME } from "@/data";
 import { getDefaultContactInfo } from "@/utils/contactInfo";
 import { mapFaqForComponent } from "@/utils/data";
-import styles from "./HomePage.module.scss";
 
 const FAQ_DATA = mapFaqForComponent(FAQ_HOME);
 
 export default function HomePage() {
   return (
     <>
-      <HomeHero />
-      <HomeStatsBar />
+      <LazyHomeHero />
+      <LazyLoad minHeight={120}>
+        <LazyHomeStatsBar />
+      </LazyLoad>
       <LazyLoad minHeight={400}>
         <LazyHomeServices />
       </LazyLoad>
@@ -42,7 +41,7 @@ export default function HomePage() {
         />
       </LazyLoad>
       <LazyLoad minHeight={320}>
-        <AboutPreview />
+        <LazyAboutPreview />
       </LazyLoad>
       <LazyLoad minHeight={320}>
         <LazyProcessSection />

@@ -6,7 +6,7 @@ import styles from "./FooterColumn.module.scss";
 export default function FooterColumn({ title, links, className }) {
   return (
     <div className={cn(styles.column, className)}>
-      <Heading level="h6" className={styles.title}>
+      <Heading level="h2" className={styles.title}>
         {title}
       </Heading>
       <ul className={styles.list}>

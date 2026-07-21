@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <header className={cn(styles.header, isScrolled && styles.scrolled)}>
       <Container className={styles.inner}>
-        <Logo className={styles.logo} />
+        <Logo className={styles.logo} priority />
 
         <DesktopNav />
 

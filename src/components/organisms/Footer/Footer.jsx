@@ -30,7 +30,7 @@ export default function Footer() {
                 We build innovative software solutions that empower businesses to scale with
                 confidence — from web and mobile to ERP and cloud.
               </Text>
-              <SocialLinks links={SOCIAL_LINKS} />
+              <SocialLinks links={SOCIAL_LINKS} animated={false} />
             </div>
 
             <FooterColumn title="Quick Links" links={FOOTER_QUICK_LINKS} />

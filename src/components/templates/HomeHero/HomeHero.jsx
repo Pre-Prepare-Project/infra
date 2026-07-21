@@ -3,7 +3,6 @@
 import { ArrowRightOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import Container from "@/components/atoms/Container/Container";
 import OptimizedImage from "@/components/atoms/OptimizedImage/OptimizedImage";
-import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import Button from "@/components/atoms/Button/Button";
 import TrustBar from "@/components/organisms/home/TrustBar/TrustBar";
 import styles from "./HomeHero.module.scss";
@@ -20,50 +19,42 @@ export default function HomeHero() {
       <Container className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.content}>
-            <ScrollReveal variant="fadeUp" as="div">
-              <p className={styles.badge}>
-                <OptimizedImage
-                  src="/images/logo-mark-clean.png"
-                  alt=""
-                  width={18}
-                  height={18}
-                  className={styles.badgeIcon}
-                />
-                We Build Scalable Digital Solutions
-              </p>
-            </ScrollReveal>
-            <ScrollReveal variant="fadeUp" delay={0.08} as="div">
-              <h1 id="hero-heading" className={styles.title}>
-                Building Software That <span className={styles.accent}>Empowers</span> Businesses
-              </h1>
-            </ScrollReveal>
-            <ScrollReveal variant="fadeUp" delay={0.16} as="div">
-              <p className={styles.description}>{HERO_DESCRIPTION}</p>
-            </ScrollReveal>
-            <ScrollReveal variant="fadeUp" delay={0.24} as="div">
-              <div className={styles.actions}>
-                <Button
-                  variant="accent"
-                  size="lg"
-                  href="/services"
-                  icon={<ArrowRightOutlined />}
-                  iconPosition="end"
-                >
-                  Explore Services
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  href="/portfolio"
-                  icon={<PlayCircleOutlined />}
-                >
-                  View Our Work
-                </Button>
-              </div>
-            </ScrollReveal>
+            <p className={styles.badge}>
+              <OptimizedImage
+                src="/images/logo-mark-clean.png"
+                alt=""
+                width={18}
+                height={18}
+                className={styles.badgeIcon}
+              />
+              We Build Scalable Digital Solutions
+            </p>
+            <h1 id="hero-heading" className={styles.title}>
+              Building Software That <span className={styles.accent}>Empowers</span> Businesses
+            </h1>
+            <p className={styles.description}>{HERO_DESCRIPTION}</p>
+            <div className={styles.actions}>
+              <Button
+                variant="accent"
+                size="lg"
+                href="/services"
+                icon={<ArrowRightOutlined />}
+                iconPosition="end"
+              >
+                Explore Services
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                href="/portfolio"
+                icon={<PlayCircleOutlined />}
+              >
+                View Our Work
+              </Button>
+            </div>
           </div>
 
-          <ScrollReveal variant="fadeRight" delay={0.15} as="div" className={styles.visualWrap}>
+          <div className={styles.visualWrap}>
             <div className={styles.visual}>
               <div className={styles.ringOuter} aria-hidden="true" />
               <div className={styles.ringInner} aria-hidden="true" />
@@ -74,11 +65,12 @@ export default function HomeHero() {
                   width={520}
                   height={420}
                   priority
+                  sizes="(max-width: 992px) 100vw, 520px"
                   className={styles.heroImage}
                 />
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
       </Container>
 

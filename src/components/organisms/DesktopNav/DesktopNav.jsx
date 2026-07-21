@@ -1,11 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import NavLink from "@/components/molecules/NavLink/NavLink";
-import MegaMenu from "@/components/molecules/MegaMenu/MegaMenu";
 import { MAIN_NAV, MEGA_MENUS } from "@/constants/navigation";
 import styles from "./DesktopNav.module.scss";
+
+const MegaMenu = dynamic(() => import("@/components/molecules/MegaMenu/MegaMenu"), {
+  ssr: false,
+});
 
 const CLOSE_DELAY_MS = 280;
 

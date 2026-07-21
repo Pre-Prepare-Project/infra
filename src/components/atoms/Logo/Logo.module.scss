@@ -3,6 +3,7 @@
 .logo {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   text-decoration: none;
   transition: opacity $transition-base;
 
@@ -15,15 +16,21 @@
   }
 }
 
-.image {
-  display: block;
-  width: auto;
+.full {
+  width: 206px;
   height: 52px;
-  object-fit: contain;
 }
 
-.compact .image {
-  height: 40px;
+.compact {
+  width: 60px;
+  height: 48px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .light .image {

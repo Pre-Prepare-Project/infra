@@ -1,10 +1,8 @@
-import Container from "@/components/atoms/Container/Container";
-import Link from "next/link";
-import HomeHeroV2 from "@/components/templates/HomeHeroV2/HomeHeroV2";
-import HomeStatsBar from "@/components/organisms/home/HomeStatsBar/HomeStatsBar";
-import AboutPreview from "@/components/organisms/home/AboutPreview/AboutPreview";
 import LazyLoad from "@/components/atoms/LazyLoad/LazyLoad";
 import {
+  LazyHomeHeroV2,
+  LazyAboutPreview,
+  LazyHomeStatsBar,
   LazyHomeServices,
   LazyHomeProducts,
   LazyProcessSection,
@@ -23,8 +21,10 @@ const FAQ_DATA = mapFaqForComponent(FAQ_HOME);
 export default function HomePageV2() {
   return (
     <>
-      <HomeHeroV2 />
-      <HomeStatsBar />
+      <LazyHomeHeroV2 />
+      <LazyLoad minHeight={120}>
+        <LazyHomeStatsBar />
+      </LazyLoad>
       <LazyLoad minHeight={400}>
         <LazyHomeServices />
       </LazyLoad>
@@ -41,7 +41,7 @@ export default function HomePageV2() {
         />
       </LazyLoad>
       <LazyLoad minHeight={320}>
-        <AboutPreview />
+        <LazyAboutPreview />
       </LazyLoad>
       <LazyLoad minHeight={320}>
         <LazyProcessSection />
