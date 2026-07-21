@@ -18,7 +18,7 @@ export const defaultMetadata = {
     "cloud DevOps",
     "UI UX design",
     "OZii ERP",
-    "Billing Review System",
+    "BillFlow 360",
   ],
   authors: [{ name: COMPANY.name }],
   creator: COMPANY.name,

@@ -79,7 +79,7 @@ export const CONTACT_INFO = {
     city: "Bengaluru, Karnataka 560100",
     country: "India",
   },
-  phone: "+91 98765 43210",
+  phone: "+91 98731 09303",
   email: "info@infrapulse.com",
   supportEmail: "support@infrapulse.com",
   addressShort: "Electronic City, Bengaluru",

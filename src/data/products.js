@@ -28,13 +28,13 @@ export const PRODUCTS = [
   {
     id: "billing-review-system",
     slug: "billing-review-system",
-    title: "Billing Review System",
+    title: "BillFlow 360",
     href: "/products/billing-review-system",
     description: "Invoice dashboard with revenue analytics, expenditure management, and P&L insights.",
     cardDescription: "Advanced billing analytics and review system to optimize revenue.",
-    ctaLabel: "Explore Billing System",
+    ctaLabel: "Explore BillFlow 360",
     titleVariant: "accent",
-    image: "/images/products/ozii-erp.png",
+    image: "/images/products/billing-review.png",
     longDescription:
       "A powerful billing and financial review platform with invoice dashboards, revenue analytics, expenditure management, profit & loss reports, billing reports, and real-time business insights.",
     // badge: "Finance Platform",

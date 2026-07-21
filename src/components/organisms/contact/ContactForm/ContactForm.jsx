@@ -112,7 +112,7 @@ export default function ContactForm({ className, showHeader = true }) {
             <div className={styles.row}>
               <FormField label="Phone Number" htmlFor="contact-phone" className={styles.field}>
                 <Form.Item name="phone" noStyle>
-                  <Input id="contact-phone" type="tel" placeholder="+91 98765 43210" />
+                  <Input id="contact-phone" type="tel" placeholder="+91 98731 09303" />
                 </Form.Item>
               </FormField>
 

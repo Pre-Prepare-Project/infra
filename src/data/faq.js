@@ -53,7 +53,7 @@ export const FAQ_ITEMS = [
     key: "8",
     question: "What products has InfraPulse built?",
     answer:
-      "Our flagship products include OZii ERP (complete HR and operations suite), Billing Review System (financial analytics platform), and Chaitanya Care Foundation (NGO management platform).",
+      "Our flagship products include OZii ERP (complete HR and operations suite), BillFlow 360 (financial analytics platform), and Chaitanya Care Foundation (NGO management platform).",
   },
 ];
 

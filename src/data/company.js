@@ -57,7 +57,7 @@ export const COMPANY_TIMELINE = [
     year: "2024",
     title: "Product Suite Expansion",
     description:
-      "Introduced Billing Review System and expanded cloud DevOps capabilities.",
+      "Introduced BillFlow 360 and expanded cloud DevOps capabilities.",
   },
 ];
 
@@ -139,7 +139,7 @@ export const TEAM_MEMBERS = [
     role: "Head of Products",
     department: "Products",
     image: "/images/team/ayushman-srivastava.jpg",
-    bio: "Product strategist behind OZii ERP and Billing Review System, focused on solving real business problems.",
+    bio: "Product strategist behind OZii ERP and BillFlow 360, focused on solving real business problems.",
   },
   {
     id: "head-operations",
