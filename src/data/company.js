@@ -117,14 +117,14 @@ export const TEAM_MEMBERS = [
     image: "/images/team/keshav-kumar.jpg",
     bio: "Expert in enterprise architecture and cloud solutions, leading our technical excellence initiatives.",
   },
-  {
-    id: "cto",
-    name: "Nitish Sharma",
-    role: "Senior Software Engineer",
-    department: "Engineering",
-    image: "/images/team/nitish-sharma.jpg",
-    bio: "Expert in enterprise architecture and cloud solutions, leading our technical excellence initiatives.",
-  },
+  // {
+  //   id: "cto",
+  //   name: "Nitish Sharma",
+  //   role: "Senior Software Engineer",
+  //   department: "Engineering",
+  //   image: "/images/team/nitish-sharma.jpg",
+  //   bio: "Expert in enterprise architecture and cloud solutions, leading our technical excellence initiatives.",
+  // },
   {
     id: "head-design",
     name: "Manish Kumar",
