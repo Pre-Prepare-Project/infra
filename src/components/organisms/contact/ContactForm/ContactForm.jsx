@@ -154,12 +154,12 @@ export default function ContactForm({ className, showHeader = true }) {
             {formCopy.trustNote}
           </p>
 
-          {!isEmailJsConfigured() && (
+          {/* {!isEmailJsConfigured() && (
             <p className={styles.configNote}>
               EmailJS is not configured. Add credentials to <code>.env.local</code> using{" "}
               <code>.env.example</code> as a guide.
             </p>
-          )}
+          )} */}
         </Card>
       </ScrollReveal>
     </section>
