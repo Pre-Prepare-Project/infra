@@ -79,7 +79,7 @@ export const CONTACT_INFO = {
     city: "East Delhi, Delhi 110091",
     country: "India",
   },
-  phone: "+91 98731 09303",
+  phone: "+91 83838 94651",
   email: "info@infrapulse.com",
   supportEmail: "support@infrapulse.com",
   addressShort: "Mayur Vihar Phase-1, Delhi",

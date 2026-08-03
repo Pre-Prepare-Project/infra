@@ -17,7 +17,7 @@ export const COMPANY = {
     "InfraPulse Technologies delivers innovative web, mobile, ERP, CRM, and cloud solutions that help businesses scale with confidence.",
   url: "https://infrapulse.com",
   email: "info@infrapulse.com",
-  phone: "+91 98731 09303",
+  phone: "+91 83838 94651",
 };
 
 export const BREAKPOINTS = {

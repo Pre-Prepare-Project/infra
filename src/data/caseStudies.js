@@ -51,7 +51,7 @@ export const CASE_STUDIES = [
         "InfraPulse delivered our ERP system ahead of schedule with exceptional quality. Their team understood our business needs and built a solution that transformed our operations.",
       name: "Rajesh Kumar",
       role: "CEO",
-      company: "TechVision Solutions",
+      company: "Edu2Earn",
     },
   },
   {
@@ -97,7 +97,7 @@ export const CASE_STUDIES = [
         "The mobile app they built for our healthcare platform exceeded expectations. User engagement increased by 40% within the first three months of launch.",
       name: "Priya Sharma",
       role: "CTO",
-      company: "HealthFirst India",
+      company: "Rydo Private Ltd",
     },
   },
   {
@@ -141,9 +141,9 @@ export const CASE_STUDIES = [
     testimonial: {
       quote:
         "Our e-commerce platform handles thousands of daily transactions flawlessly. InfraPulse's ongoing support and maintenance have been outstanding.",
-      name: "Amit Patel",
+      name: "Vivek Singh",
       role: "Founder",
-      company: "ShopEase Retail",
+      company: "Vamikatech",
     },
   },
   {

@@ -60,7 +60,7 @@ export default function HomeHeroV2() {
               </Button>
             </div>
             <HeroSocialProof />
-            <HeroValueBadges />
+            {/* <HeroValueBadges /> */}
           </div>
 
           <div className={styles.visualWrap}>
@@ -69,7 +69,7 @@ export default function HomeHeroV2() {
         </div>
       </Container>
 
-      <TrustBar overlap />
+      {/* <TrustBar overlap /> */}
     </section>
   );
 }

@@ -63,9 +63,14 @@ export const FOOTER_LEGAL = [
 ];
 
 export const SOCIAL_LINKS = [
-  { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { label: "Twitter", href: "https://twitter.com", icon: "twitter" },
-  { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
-  { label: "YouTube", href: "https://youtube.com", icon: "youtube" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/infrapulsetechnologies",
+    icon: "linkedin",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/infrapulsetech",
+    icon: "instagram",
+  },
 ];

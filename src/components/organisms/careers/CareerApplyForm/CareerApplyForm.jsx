@@ -76,7 +76,7 @@ export default function CareerApplyForm({ jobTitle, className }) {
 
               <FormField label="Phone Number" htmlFor="apply-phone">
                 <Form.Item name="phone" noStyle>
-                  <Input id="apply-phone" type="tel" placeholder="+91 98731 09303" />
+                  <Input id="apply-phone" type="tel" placeholder="+91 83838 94651" />
                 </Form.Item>
               </FormField>
 

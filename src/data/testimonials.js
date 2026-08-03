@@ -3,7 +3,7 @@ export const TESTIMONIALS = [
     id: "testimonial-1",
     name: "Rajesh Kumar",
     role: "CEO",
-    company: "TechVision Solutions",
+    company: "Edu2Earn",
     avatar: null,
     rating: 5,
     quote:
@@ -13,7 +13,7 @@ export const TESTIMONIALS = [
     id: "testimonial-2",
     name: "Priya Sharma",
     role: "CTO",
-    company: "HealthFirst India",
+    company: "Rydo Private Ltd",
     avatar: null,
     rating: 5,
     quote:
@@ -21,9 +21,9 @@ export const TESTIMONIALS = [
   },
   {
     id: "testimonial-3",
-    name: "Amit Patel",
+    name: "Vivek Singh",
     role: "Founder",
-    company: "ShopEase Retail",
+    company: "Vamikatech",
     avatar: null,
     rating: 5,
     quote:

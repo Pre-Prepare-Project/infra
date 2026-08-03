@@ -74,7 +74,7 @@ export default function HomeHero() {
         </div>
       </Container>
 
-      <TrustBar overlap />
+      {/* <TrustBar overlap /> */}
     </section>
   );
 }
