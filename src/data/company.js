@@ -103,7 +103,7 @@ export const COMPANY_VISION =
 export const TEAM_MEMBERS = [
   {
     id: "ceo",
-    name: "R.K Sinha",
+    name: "J.K Sinha",
     role: "Founder & CEO",
     department: "Leadership",
     image: "/images/team/rk-sinha.jpg",
@@ -115,6 +115,14 @@ export const TEAM_MEMBERS = [
     role: "Senior Business Development Manager",
     department: "Business Development",
     image: "/images/team/keshav-kumar.jpg",
+    bio: "Expert in enterprise architecture and cloud solutions, leading our technical excellence initiatives.",
+  },
+  {
+    id: "cto",
+    name: "Nitish Sharma",
+    role: "Senior Software Engineer",
+    department: "Engineering",
+    image: "/images/team/nitish-sharma.jpg",
     bio: "Expert in enterprise architecture and cloud solutions, leading our technical excellence initiatives.",
   },
   {
