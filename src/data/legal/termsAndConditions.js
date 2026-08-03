@@ -119,7 +119,8 @@ export const TERMS_AND_CONDITIONS = {
       contact: {
         company: "InfraPulse Technologies Private Limited",
         email: "info@infrapulse.com",
-        address: "123 Tech Park, Electronic City Phase 1, Bengaluru, Karnataka 560100, India",
+        address:
+          "Office No. 909, Plot No. 4B, District Centre, Mayur Vihar Phase-1 Extension, East Delhi, Delhi 110091, India",
       },
     },
   ],

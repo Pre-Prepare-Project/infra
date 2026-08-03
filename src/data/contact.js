@@ -1,7 +1,7 @@
 export const CONTACT_INQUIRY_TYPES = [
   { value: "general", label: "General Inquiry" },
   { value: "project", label: "Project Quote" },
-  { value: "demo", label: "Product Demo" },
+  { value: "demo", label: "Project Demo" },
   { value: "careers", label: "Careers / HR" },
   { value: "support", label: "Support" },
 ];
@@ -10,7 +10,7 @@ export const CONTACT_PAGE = {
   hero: {
     title: "Let's Start a Conversation",
     subtitle:
-      "Whether you need a project quote, product demo, or technical support — tell us what you're building and we'll respond within one business day.",
+      "Whether you need a project quote, project demo, or technical support — tell us what you're building and we'll respond within one business day.",
   },
   form: {
     title: "Send Us a Message",
@@ -75,17 +75,18 @@ export const CONTACT_QUICK_ACTIONS = [
 export const CONTACT_INFO = {
   address: {
     line1: "InfraPulse Technologies Pvt. Ltd.",
-    line2: "123 Tech Park, Electronic City Phase 1",
-    city: "Bengaluru, Karnataka 560100",
+    line2: "Office No. 909, Plot No. 4B, District Centre, Mayur Vihar Phase-1 Extension",
+    city: "East Delhi, Delhi 110091",
     country: "India",
   },
   phone: "+91 98731 09303",
   email: "info@infrapulse.com",
   supportEmail: "support@infrapulse.com",
-  addressShort: "Electronic City, Bengaluru",
+  addressShort: "Mayur Vihar Phase-1, Delhi",
   mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.013874867999!2d77.6412!3d12.8456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUwJzQ0LjIiTiA3N7KwMzgnMjguMyJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
-  mapLink: "https://maps.google.com/?q=Electronic+City+Bengaluru",
+    "https://maps.google.com/maps?q=Office+No.+909,+Plot+No.+4B,+District+Centre,+Mayur+Vihar+Phase-1+Extension,+East+Delhi,+Delhi+110091&output=embed",
+  mapLink:
+    "https://maps.google.com/?q=Office+No.+909,+Plot+No.+4B,+District+Centre,+Mayur+Vihar+Phase-1+Extension,+East+Delhi,+Delhi+110091",
   businessHours: [
     { days: "Monday – Friday", hours: "9:00 AM – 6:00 PM IST" },
     { days: "Saturday", hours: "10:00 AM – 2:00 PM IST" },

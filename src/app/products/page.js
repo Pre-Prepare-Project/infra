@@ -2,9 +2,9 @@ import ProductsPage from "@/components/templates/ProductsPage/ProductsPage";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Our Products",
+  title: "Our Projects",
   description:
-    "Explore InfraPulse software products — OZii ERP, BillFlow 360, and Chaitanya Care Foundation platform.",
+    "Explore InfraPulse software projects — OZii ERP, BillFlow 360, and Chaitanya Care Foundation platform.",
   path: "/products",
 });
 

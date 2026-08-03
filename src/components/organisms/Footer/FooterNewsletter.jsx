@@ -43,7 +43,7 @@ export default function FooterNewsletter() {
         Newsletter
       </Heading>
       <Text variant="bodySm" className={styles.newsletterText}>
-        Get the latest updates on products, services, and tech insights.
+        Get the latest updates on projects, services, and tech insights.
       </Text>
       <form className={styles.newsletterForm} aria-label="Newsletter subscription" onSubmit={handleSubmit}>
         <Input

@@ -9,7 +9,7 @@ import { ProductCard, SectionTitle } from "@/components/molecules";
 import { getProductsForNav } from "@/lib/content";
 import styles from "./RelatedProducts.module.scss";
 
-export default function RelatedProducts({ currentSlug, title = "Other Products" }) {
+export default function RelatedProducts({ currentSlug, title = "Other Projects" }) {
   const products = getProductsForNav()
     .filter((product) => product.slug !== currentSlug)
     .slice(0, 2);

@@ -17,7 +17,7 @@ export default function ProductsGrid({ className }) {
       <Container>
         <ScrollReveal variant="fadeUp">
           <SectionTitle
-            overline="Our Products"
+            overline="Our Projects"
             title="Platforms Built by InfraPulse"
             subtitle="Ready-to-deploy software products designed to solve real business challenges across industries."
             id="products-grid-title"

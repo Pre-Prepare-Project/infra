@@ -22,7 +22,7 @@ export default function ProductDetailContent({ product }) {
           <div className={styles.overviewGrid}>
             <ScrollReveal variant="fadeLeft" as="div" className={styles.content}>
               <Text variant="overline" color="primary" className={styles.overline}>
-                Product Overview
+                Project Overview
               </Text>
               <Heading level="h2" id="product-overview-title" className={styles.title}>
                 {product.title}

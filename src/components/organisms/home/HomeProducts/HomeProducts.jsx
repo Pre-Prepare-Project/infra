@@ -21,10 +21,10 @@ export default function HomeProducts() {
         <ScrollReveal variant="fadeUp">
           <div className={styles.header}>
             <Heading level="h2" id="home-products-title" className={styles.title}>
-              Our Products
+              Our Projects
             </Heading>
             <Link href="/products" className={styles.viewAll}>
-              View All Products
+              View All Projects
               <ArrowRightOutlined aria-hidden="true" />
             </Link>
           </div>

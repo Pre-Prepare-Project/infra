@@ -23,7 +23,7 @@ export const COMPANY_ABOUT = {
   story:
     "What started as a small team of passionate developers has grown into a full-service software company with 25+ professionals. We combine technical expertise with a deep understanding of business challenges to build solutions that truly make a difference.",
   founded: "2014",
-  headquarters: "India",
+  headquarters: "East Delhi, India",
   industries: [
     "Healthcare",
     "Finance",

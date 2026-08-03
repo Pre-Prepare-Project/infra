@@ -19,9 +19,9 @@ export function getOrganizationJsonLd() {
     address: {
       "@type": "PostalAddress",
       streetAddress: address.line2,
-      addressLocality: "Bengaluru",
-      addressRegion: "Karnataka",
-      postalCode: "560100",
+      addressLocality: "East Delhi",
+      addressRegion: "Delhi",
+      postalCode: "110091",
       addressCountry: "IN",
     },
     sameAs: SOCIAL_LINKS.map((link) => link.href),

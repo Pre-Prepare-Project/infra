@@ -14,7 +14,7 @@ export default function NotFoundPage() {
       />
       <CTA
         title="Let's Get You Back on Track"
-        subtitle="Explore our services, products, or contact us — we're here to help."
+        subtitle="Explore our services, projects, or contact us — we're here to help."
         variant="dark"
         primaryAction={{ label: "Go to Homepage", href: "/" }}
         secondaryAction={{ label: "Contact Us", href: "/contact", variant: "light" }}

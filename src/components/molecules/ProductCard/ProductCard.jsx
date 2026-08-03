@@ -68,7 +68,7 @@ export default function ProductCard({
       )}
       {href && (
         <Button variant="outline" href={href} className={styles.cta} icon={<ArrowRightOutlined />}>
-          Explore Product
+          Explore Project
         </Button>
       )}
     </Card>

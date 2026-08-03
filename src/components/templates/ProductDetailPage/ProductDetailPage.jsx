@@ -8,7 +8,7 @@ import { getDefaultContactInfo } from "@/utils/contactInfo";
 export default function ProductDetailPage({ product }) {
   const breadcrumbs = [
     { label: "Home", href: "/" },
-    { label: "Products", href: "/products" },
+    { label: "Projects", href: "/products" },
     { label: product.title, href: product.href },
   ];
 
@@ -32,7 +32,7 @@ export default function ProductDetailPage({ product }) {
         subtitle="Book a demo and discover how this platform can transform your business operations."
         variant="dark"
         primaryAction={{ label: "Request a Demo", href: "/contact" }}
-        secondaryAction={{ label: "View All Products", href: "/products", variant: "light" }}
+        secondaryAction={{ label: "View All Projects", href: "/products", variant: "light" }}
         contactInfo={getDefaultContactInfo()}
       />
     </>
