@@ -1,4 +1,4 @@
-import HomePage from "@/components/templates/HomePage/HomePage";
+import HomePageV2 from "@/components/templates/HomePageV2/HomePageV2";
 import { COMPANY } from "@/constants/theme";
 import { defaultMetadata } from "@/lib/metadata";
 
@@ -14,5 +14,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <HomePage />;
+  return <HomePageV2 />;
 }

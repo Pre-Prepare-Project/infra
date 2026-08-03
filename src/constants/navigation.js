@@ -34,8 +34,7 @@ export const MEGA_MENUS = {
 };
 
 export const FOOTER_QUICK_LINKS = [
-  { label: "Home V1", href: "/" },
-  { label: "Home V2", href: "/home-v2" },
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Products", href: "/products" },

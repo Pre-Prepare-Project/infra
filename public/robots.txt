@@ -4,6 +4,5 @@ Allow: /
 Disallow: /design-system
 Disallow: /showcase
 Disallow: /animations
-Disallow: /home-v2
 
 Sitemap: https://infrapulse.com/sitemap.xml
