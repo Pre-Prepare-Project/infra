@@ -49,6 +49,6 @@ export function getSitemapEntries() {
   }));
 }
 
-export function getOgImageUrl(path = "/favicon.svg") {
+export function getOgImageUrl(path = "/android-chrome-512x512.png") {
   return `${COMPANY.url}${path}`;
 }

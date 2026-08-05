@@ -15,8 +15,8 @@ export const COMPANY = {
   tagline: "Building Software That Empowers Businesses",
   description:
     "InfraPulse Technologies delivers innovative web, mobile, ERP, CRM, and cloud solutions that help businesses scale with confidence.",
-  url: "https://infrapulse.com",
-  email: "info@infrapulse.com",
+  url: "https://infrapulsetech.com",
+  email: "info@infrapulsetech.com",
   phone: "+91 83838 94651",
 };
 

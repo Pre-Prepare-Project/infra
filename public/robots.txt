@@ -5,4 +5,4 @@ Disallow: /design-system
 Disallow: /showcase
 Disallow: /animations
 
-Sitemap: https://infrapulse.com/sitemap.xml
+Sitemap: https://infrapulsetech.com/sitemap.xml

@@ -34,6 +34,14 @@ export const defaultMetadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -43,7 +51,7 @@ export const defaultMetadata = {
     description: COMPANY.description,
     images: [
       {
-        url: getOgImageUrl("/favicon.svg"),
+        url: getOgImageUrl("/android-chrome-512x512.png"),
         width: 512,
         height: 512,
         alt: `${COMPANY.shortName} logo`,
@@ -54,7 +62,7 @@ export const defaultMetadata = {
     card: "summary_large_image",
     title: `${COMPANY.shortName} | ${COMPANY.tagline}`,
     description: COMPANY.description,
-    images: [getOgImageUrl("/favicon.svg")],
+    images: [getOgImageUrl("/android-chrome-512x512.png")],
   },
   alternates: {
     canonical: COMPANY.url,
@@ -72,7 +80,7 @@ export function createPageMetadata({
   openGraphType = "website",
 }) {
   const url = `${COMPANY.url}${path}`;
-  const ogImage = getOgImageUrl("/favicon.svg");
+  const ogImage = getOgImageUrl("/android-chrome-512x512.png");
   const pageTitle = `${title} | ${COMPANY.shortName}`;
 
   return {

@@ -120,7 +120,7 @@ export const PRIVACY_POLICY = {
       ],
       contact: {
         company: "InfraPulse Technologies Private Limited",
-        email: "info@infrapulse.com",
+        email: "info@infrapulsetech.com",
         address:
           "Office No. 909, Plot No. 4B, District Centre, Mayur Vihar Phase-1 Extension, East Delhi, Delhi 110091, India",
       },
