@@ -59,6 +59,9 @@ export const defaultMetadata = {
   alternates: {
     canonical: COMPANY.url,
   },
+  verification: {
+    google: "8VaFZHc0lQoIaBqP09nT5OY1_kxHGnasoZuKSf5N_OU",
+  },
 };
 
 export function createPageMetadata({
