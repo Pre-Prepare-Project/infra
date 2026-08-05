@@ -9,10 +9,10 @@ export function getOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: COMPANY.name,
-    alternateName: COMPANY.shortName,
+    name: "InfraPulse Technologies",
+    alternateName: COMPANY.name,
     url: COMPANY.url,
-    logo: getOgImageUrl("/android-chrome-512x512.png"),
+    logo: getOgImageUrl("/logo.png"),
     description: COMPANY.description,
     email: COMPANY.email,
     telephone: COMPANY.phone,
