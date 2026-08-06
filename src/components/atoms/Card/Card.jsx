@@ -27,7 +27,7 @@ export default function Card({
         hoverable && styles.hoverable,
         className,
       )}
-      bordered={!isBorderless}
+      // bordered={!isBorderless}
       hoverable={hoverable}
       title={title}
       extra={extra}
