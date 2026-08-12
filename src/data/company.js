@@ -117,7 +117,7 @@ export const TEAM_MEMBERS = [
   },
   {
     id: "lead-software-engineer",
-    name: "Nitish Kumar Sharma",
+    name: "Akshay Kumar",
     role: "Lead Software Engineer",
     department: "Engineering",
     bio: "Experienced software engineer specializing in scalable web applications, solution architecture, technical leadership, and mentoring high-performing development teams.",
