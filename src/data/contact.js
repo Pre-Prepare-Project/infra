@@ -16,6 +16,7 @@ export const CONTACT_PAGE = {
     title: "Send Us a Message",
     subtitle: "Share your requirements. Our team reviews every inquiry personally.",
     trustNote: "Typical response time: within 24 hours on business days.",
+    successTitle: "Successfully submitted your request",
   },
   processTitle: "What Happens Next",
   processSteps: [
