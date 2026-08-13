@@ -18,11 +18,28 @@
 }
 
 .overline {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: $radius-full;
+  border: 1.5px solid transparent;
+  background: linear-gradient($color-white, $color-white) padding-box,
+    linear-gradient(90deg, #ec523f, #d97706, #0d9488, #0284c7, #6366f1) border-box;
+  background-size: 100% 100%, 220% 100%;
+  color: $color-primary;
+  animation: borderFlow 7s linear infinite;
+}
+
+.alignCenter .overline {
+  margin-inline: auto;
 }
 
 .title {
   margin: 0;
+  letter-spacing: $letter-spacing-tight;
 }
 
 .subtitle {
@@ -32,4 +49,16 @@
 
 .alignCenter .subtitle {
   margin-inline: auto;
+}
+
+@keyframes borderFlow {
+  to {
+    background-position: 0 0, 220% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overline {
+    animation: none;
+  }
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   CustomerServiceOutlined,
   ProjectOutlined,
@@ -5,6 +7,7 @@ import {
   FieldTimeOutlined,
   TrophyOutlined,
 } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Container from "@/components/atoms/Container/Container";
 import { STATISTICS } from "@/data/statistics";
 import styles from "./HomeStatsBar.module.scss";
@@ -17,19 +20,27 @@ const ICONS = {
   satisfaction: TrophyOutlined,
 };
 
+const ANIMATIONS = ["float", "pulse", "bounce", "glow", "float"];
+
 export default function HomeStatsBar() {
   return (
     <section className={styles.section} aria-label="Company statistics">
       <Container>
         <ul className={styles.list}>
-          {STATISTICS.map((stat) => {
+          {STATISTICS.map((stat, index) => {
             const Icon = ICONS[stat.id] || ProjectOutlined;
 
             return (
               <li key={stat.id} className={styles.item}>
-                <span className={styles.iconWrap} aria-hidden="true">
-                  <Icon />
-                </span>
+                <AnimatedIcon
+                  icon={Icon}
+                  size="md"
+                  shape="soft"
+                  animation={ANIMATIONS[index % ANIMATIONS.length]}
+                  colorIndex={index}
+                  delay={(index % 5) + 1}
+                  className={styles.iconWrap}
+                />
                 <div className={styles.content}>
                   <span className={styles.value}>
                     {stat.value}

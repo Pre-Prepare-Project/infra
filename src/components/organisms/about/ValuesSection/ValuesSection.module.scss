@@ -2,15 +2,23 @@
 @use "../../../../styles/mixins" as *;
 
 .section {
+  position: relative;
   padding: $spacing-3xl 0;
-  background: $color-white;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(#ec523f, 0.07), rgba(#d97706, 0.06), rgba(#6366f1, 0.07));
+  background-size: 220% 220%;
+  animation: washShift 13s ease infinite;
 }
 
 .header {
+  position: relative;
+  z-index: 1;
   margin-bottom: $spacing-2xl;
 }
 
 .grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-lg;
@@ -25,40 +33,99 @@
 }
 
 .card {
+  position: relative;
   height: 100%;
   text-align: center;
+  overflow: hidden;
+  background: $color-white !important;
+  border: 1.5px solid rgba($color-accent, 0.14) !important;
+  transition:
+    transform $transition-spring,
+    border-color $transition-base !important;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ec523f, #d97706, #0d9488, #6366f1);
+    background-size: 220% 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-slow;
+    animation: barFlow 4s linear infinite;
+  }
+
+  &:nth-child(6n + 1):hover {
+    border-color: #ec523f !important;
+  }
+
+  &:nth-child(6n + 2):hover {
+    border-color: #d97706 !important;
+  }
+
+  &:nth-child(6n + 3):hover {
+    border-color: #0d9488 !important;
+  }
+
+  &:nth-child(6n + 4):hover {
+    border-color: #6366f1 !important;
+  }
+
+  &:nth-child(6n + 5):hover {
+    border-color: #0284c7 !important;
+  }
+
+  &:nth-child(6n + 6):hover {
+    border-color: #e11d48 !important;
+  }
+
+  &:hover {
+    transform: translateY(-6px) scale(1.01);
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
 }
 
 .iconWrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
   margin-bottom: $spacing-lg;
-  border-radius: $radius-full;
-  background: rgba($color-accent, 0.1);
-  color: $color-accent;
-  font-size: 22px;
-  transition:
-    background $transition-base,
-    color $transition-base,
-    transform $transition-base;
-
-  .card:hover & {
-    background: $gradient-accent;
-    color: $color-white;
-    transform: scale(1.05);
-  }
 }
 
 .cardTitle {
   margin-bottom: $spacing-sm;
 }
 
+@keyframes washShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes barFlow {
+  to {
+    background-position: 220% 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .iconWrap {
-    .card:hover & {
+  .section,
+  .card::before {
+    animation: none;
+  }
+
+  .card {
+    transition: none;
+
+    &:hover {
       transform: none;
     }
   }

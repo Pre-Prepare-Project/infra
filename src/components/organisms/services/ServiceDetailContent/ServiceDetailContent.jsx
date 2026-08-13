@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRightOutlined, CheckCircleFilled } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Container from "@/components/atoms/Container/Container";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import Card from "@/components/atoms/Card/Card";
@@ -37,9 +38,14 @@ export default function ServiceDetailContent({ service }) {
 
             <ScrollReveal variant="fadeRight" as="div">
               <Card variant="accent" padding="lg" className={styles.iconCard}>
-                <span className={styles.iconWrap} aria-hidden="true">
-                  {Icon && <Icon />}
-                </span>
+                <AnimatedIcon
+                  icon={Icon}
+                  size="xl"
+                  shape="square"
+                  animation="float"
+                  colorIndex={3}
+                  className={styles.iconWrap}
+                />
                 <Heading level="h4">{service.title}</Heading>
                 <Text variant="bodySm" color="secondary">
                   {service.description}

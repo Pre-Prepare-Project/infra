@@ -143,13 +143,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 76px;
-  height: 76px;
-  border-radius: $radius-full;
-  background: $gradient-accent;
-  color: $color-white;
-  font-size: 32px;
-  box-shadow: $shadow-accent;
   transform: translate(-50%, -50%);
 }
 
@@ -224,13 +217,7 @@
 }
 
 .cardIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: $radius-sm;
-  font-size: 18px;
+  margin-bottom: 2px;
 }
 
 .cardTitle {
@@ -284,14 +271,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
   margin: 0 auto $spacing-lg;
-  border-radius: $radius-full;
-  background: $gradient-accent;
-  color: $color-white;
-  font-size: 28px;
-  box-shadow: $shadow-accent;
 }
 
 .mobileGrid {

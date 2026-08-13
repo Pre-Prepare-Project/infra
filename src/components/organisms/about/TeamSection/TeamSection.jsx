@@ -45,21 +45,23 @@ export default function TeamSection() {
 
                 <div className={styles.cardInner}>
                   <div className={styles.topRow}>
-                    <div className={styles.photoWrap}>
+                    <div className={styles.photoFrame}>
                       <span className={styles.photoArc} aria-hidden="true" />
-                      {member.image ? (
-                        <OptimizedImage
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          sizes="96px"
-                          className={styles.photo}
-                        />
-                      ) : (
-                        <div className={styles.avatar} aria-hidden="true">
-                          {getInitials(member.name)}
-                        </div>
-                      )}
+                      <div className={styles.photoWrap}>
+                        {member.image ? (
+                          <OptimizedImage
+                            src={member.image}
+                            alt={member.name}
+                            fill
+                            sizes="96px"
+                            className={styles.photo}
+                          />
+                        ) : (
+                          <div className={styles.avatar} aria-hidden="true">
+                            {getInitials(member.name)}
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     <div className={styles.headerInfo}>

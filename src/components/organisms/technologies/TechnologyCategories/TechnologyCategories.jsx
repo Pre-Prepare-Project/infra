@@ -7,6 +7,7 @@ import {
   DatabaseOutlined,
   MobileOutlined,
 } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Container from "@/components/atoms/Container/Container";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import ScrollRevealGrid, {
@@ -27,6 +28,8 @@ const ICON_MAP = {
   database: DatabaseOutlined,
 };
 
+const ANIMATIONS = ["float", "pulse", "bounce", "glow", "float"];
+
 const CATEGORIES = getTechnologyCategories();
 
 export default function TechnologyCategories({ className }) {
@@ -45,15 +48,21 @@ export default function TechnologyCategories({ className }) {
         </ScrollReveal>
 
         <ScrollRevealGrid className={styles.grid} stagger={0.1}>
-          {CATEGORIES.map((category) => {
+          {CATEGORIES.map((category, index) => {
             const Icon = ICON_MAP[category.id];
 
             return (
               <ScrollRevealItem key={category.id} as="article">
                 <Card variant="default" padding="lg" hoverable className={styles.card}>
-                  <span className={styles.iconWrap} aria-hidden="true">
-                    {Icon && <Icon />}
-                  </span>
+                  <AnimatedIcon
+                    icon={Icon}
+                    size="lg"
+                    shape="square"
+                    animation={ANIMATIONS[index % ANIMATIONS.length]}
+                    colorIndex={index}
+                    delay={(index % 5) + 1}
+                    className={styles.iconWrap}
+                  />
                   <Heading level="h4" className={styles.title}>
                     {category.title}
                   </Heading>

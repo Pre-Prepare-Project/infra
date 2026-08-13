@@ -1,3 +1,4 @@
+export { default as AnimatedIcon } from "./AnimatedIcon/AnimatedIcon";
 export { default as Button } from "./Button/Button";
 export { default as Card, CardGrid, CardMeta } from "./Card/Card";
 export { default as Container } from "./Container/Container";

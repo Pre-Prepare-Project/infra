@@ -9,6 +9,7 @@ import {
   MobileOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import { HERO_V2_ORBIT_SERVICES } from "@/data/homeHeroV2";
 import { cn } from "@/utils/cn";
 import styles from "./HeroOrbitVisual.module.scss";
@@ -21,7 +22,15 @@ const ICONS = {
   seo: LineChartOutlined,
 };
 
-function ServiceCard({ service, className }) {
+const ANIMATIONS = {
+  web: "float",
+  erp: "pulse",
+  cloud: "glow",
+  mobile: "bounce",
+  seo: "float",
+};
+
+function ServiceCard({ service, className, index = 0 }) {
   const Icon = ICONS[service.iconKey];
 
   return (
@@ -29,9 +38,15 @@ function ServiceCard({ service, className }) {
       href={service.href}
       className={cn(styles.card, styles[service.tone], className)}
     >
-      <span className={styles.cardIcon}>
-        <Icon />
-      </span>
+      <AnimatedIcon
+        icon={Icon}
+        size="sm"
+        shape="round"
+        animation={ANIMATIONS[service.iconKey] || "float"}
+        colorIndex={index}
+        delay={(index % 5) + 1}
+        className={styles.cardIcon}
+      />
       <span className={styles.cardTitle}>{service.title}</span>
       <span className={styles.cardDesc}>{service.description}</span>
     </Link>
@@ -41,12 +56,6 @@ function ServiceCard({ service, className }) {
 export default function HeroOrbitVisual() {
   return (
     <div className={styles.wrap}>
-      {/* <p className={styles.tagline}>
-        We turn ideas into powerful digital products that drive{" "}
-        <span className={styles.accent}>real business growth.</span>
-      </p> */}
-
-      {/* Desktop orbit diagram */}
       <div className={styles.orbitDesktop} aria-hidden="false">
         <div className={styles.stage}>
           <div className={styles.glowBlue} aria-hidden="true" />
@@ -60,28 +69,40 @@ export default function HeroOrbitVisual() {
           <span className={cn(styles.orbitDot, styles.dotRightTop)} aria-hidden="true" />
           <span className={cn(styles.orbitDot, styles.dotRightBottom)} aria-hidden="true" />
 
-          <div className={styles.hub} aria-hidden="true">
-            <ThunderboltOutlined />
+          <div className={styles.hub}>
+            <AnimatedIcon
+              icon={ThunderboltOutlined}
+              size="lg"
+              shape="round"
+              animation="pulse"
+              variant="rainbow"
+            />
           </div>
 
-          {HERO_V2_ORBIT_SERVICES.map((service) => (
+          {HERO_V2_ORBIT_SERVICES.map((service, index) => (
             <ServiceCard
               key={service.id}
               service={service}
+              index={index}
               className={styles[service.position]}
             />
           ))}
         </div>
       </div>
 
-      {/* Mobile / tablet stacked layout */}
       <div className={styles.orbitMobile}>
-        <div className={styles.mobileHub} aria-hidden="true">
-          <ThunderboltOutlined />
+        <div className={styles.mobileHub}>
+          <AnimatedIcon
+            icon={ThunderboltOutlined}
+            size="lg"
+            shape="round"
+            animation="pulse"
+            variant="rainbow"
+          />
         </div>
         <div className={styles.mobileGrid}>
-          {HERO_V2_ORBIT_SERVICES.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+          {HERO_V2_ORBIT_SERVICES.map((service, index) => (
+            <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
       </div>

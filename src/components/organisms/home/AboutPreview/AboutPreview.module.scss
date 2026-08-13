@@ -2,11 +2,34 @@
 @use "../../../../styles/mixins" as *;
 
 .section {
+  position: relative;
   padding: $spacing-3xl 0;
-  background: $color-white;
+  overflow: hidden;
+  background: linear-gradient(
+    120deg,
+    rgba(#0d9488, 0.08),
+    rgba(#1f4a75, 0.06),
+    rgba(#ec523f, 0.08),
+    rgba(#6366f1, 0.06)
+  );
+  background-size: 300% 300%;
+  animation: sectionColorFlow 12s ease infinite;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(#ec523f, 0.14), transparent 42%),
+      radial-gradient(circle at 88% 18%, rgba(#0284c7, 0.14), transparent 40%),
+      radial-gradient(circle at 70% 85%, rgba(#0d9488, 0.12), transparent 45%);
+    pointer-events: none;
+  }
 }
 
 .grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-3xl;
@@ -27,8 +50,16 @@
 }
 
 .overline {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
   margin-bottom: $spacing-sm;
+  padding: 6px 12px;
+  border-radius: $radius-full;
+  border: 1.5px solid transparent;
+  background: linear-gradient($color-white, $color-white) padding-box,
+    linear-gradient(90deg, #ec523f, #d97706, #0d9488, #0284c7) border-box;
+  color: $color-primary;
 }
 
 .description {
@@ -41,7 +72,7 @@
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-lg $spacing-xl;
+  gap: $spacing-md $spacing-lg;
   margin: 0 0 $spacing-2xl;
   padding: 0;
 
@@ -54,22 +85,62 @@
   display: flex;
   align-items: center;
   gap: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  border: 1.5px solid rgba($color-primary, 0.12);
+  background: $color-white;
   font-size: $font-size-body-sm;
   font-weight: $font-weight-semibold;
   color: $color-primary;
+  transition:
+    transform $transition-spring,
+    border-color $transition-base,
+    color $transition-base,
+    background $transition-base;
+
+  &:nth-child(6n + 1):hover {
+    border-color: #ec523f;
+    color: #ec523f;
+    background: rgba(#ec523f, 0.06);
+  }
+
+  &:nth-child(6n + 2):hover {
+    border-color: #0284c7;
+    color: #0284c7;
+    background: rgba(#0284c7, 0.06);
+  }
+
+  &:nth-child(6n + 3):hover {
+    border-color: #0d9488;
+    color: #0d9488;
+    background: rgba(#0d9488, 0.06);
+  }
+
+  &:nth-child(6n + 4):hover {
+    border-color: #d97706;
+    color: #d97706;
+    background: rgba(#d97706, 0.06);
+  }
+
+  &:nth-child(6n + 5):hover {
+    border-color: #6366f1;
+    color: #6366f1;
+    background: rgba(#6366f1, 0.06);
+  }
+
+  &:nth-child(6n + 6):hover {
+    border-color: #e11d48;
+    color: #e11d48;
+    background: rgba(#e11d48, 0.06);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+  }
 }
 
 .highlightIcon {
-  display: inline-flex;
   flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: $radius-full;
-  background: $color-primary;
-  color: $color-white;
-  font-size: 16px;
 }
 
 .actions {
@@ -87,10 +158,11 @@
   z-index: 0;
   width: 72px;
   height: 72px;
-  opacity: 0.45;
-  background-image: radial-gradient($color-border 1.5px, transparent 1.5px);
+  opacity: 0.55;
+  background-image: radial-gradient(#ec523f 1.4px, transparent 1.4px);
   background-size: 10px 10px;
   pointer-events: none;
+  animation: dotColorCycle 6s linear infinite;
 }
 
 .primaryAction {
@@ -100,6 +172,11 @@
   padding-inline: 28px !important;
   border-radius: $radius-md !important;
   font-size: 0.9375rem !important;
+  transition: transform $transition-spring !important;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .storyLink {
@@ -112,26 +189,16 @@
   font-weight: $font-weight-semibold;
   color: $color-primary;
   text-decoration: none;
-  transition: opacity $transition-base;
+  transition: color $transition-base, gap $transition-base;
 
   &:hover {
-    opacity: 0.82;
-    color: $color-primary;
+    color: #ec523f;
+    gap: calc(#{$spacing-md} + 4px);
   }
 }
 
 .playButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 2px solid rgba($color-primary, 0.18);
-  border-radius: $radius-full;
-  background: $color-white;
-  color: $color-primary;
-  font-size: 22px;
-  box-shadow: $shadow-sm;
+  flex-shrink: 0;
 }
 
 .visual {
@@ -143,25 +210,54 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: $radius-xl;
-  box-shadow: $shadow-lg;
+  border: 3px solid transparent;
+  background: linear-gradient($color-white, $color-white) padding-box,
+    linear-gradient(120deg, #ec523f, #d97706, #0d9488, #0284c7, #6366f1) border-box;
+  background-size: 100% 100%, 200% 200%;
+  animation: borderFlow 8s linear infinite;
+  transition: transform $transition-slow;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(#1f4a75, 0.22) 100%);
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: scale(1.015);
+  }
 }
 
 .image {
   object-fit: cover;
   object-position: center;
+  transition: transform 0.7s ease;
+
+  .imageWrap:hover & {
+    transform: scale(1.04);
+  }
 }
 
 .floatingCard {
   position: absolute;
   bottom: -$spacing-lg;
   left: -$spacing-lg;
-  padding: $spacing-lg;
+  padding: $spacing-lg $spacing-xl;
   background: $color-white;
   border-radius: $radius-lg;
-  box-shadow: $shadow-lg;
-  border: 1px solid $color-border;
+  border: 2px solid transparent;
+  background-image: linear-gradient($color-white, $color-white),
+    linear-gradient(135deg, #ec523f, #d97706, #0d9488, #0284c7);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 200% 200%;
   text-align: center;
-  min-width: 140px;
+  min-width: 148px;
+  animation:
+    floatCard 3.6s ease-in-out infinite,
+    borderFlow 7s linear infinite;
 
   @include respond-to(lg) {
     bottom: $spacing-xl;
@@ -173,8 +269,13 @@
   display: block;
   font-size: $font-size-h2;
   font-weight: $font-weight-bold;
-  color: $color-accent;
+  background: linear-gradient(90deg, #ec523f, #d97706, #0d9488, #0284c7, #ec523f);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: $line-height-tight;
+  animation: textFlow 5s linear infinite;
 }
 
 .floatingLabel {
@@ -184,8 +285,90 @@
   margin-top: $spacing-xs;
 }
 
+@keyframes sectionColorFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%, 0% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%, 200% 50%;
+  }
+}
+
+@keyframes textFlow {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes dotColorCycle {
+  0% {
+    background-image: radial-gradient(#ec523f 1.4px, transparent 1.4px);
+  }
+
+  25% {
+    background-image: radial-gradient(#0d9488 1.4px, transparent 1.4px);
+  }
+
+  50% {
+    background-image: radial-gradient(#0284c7 1.4px, transparent 1.4px);
+  }
+
+  75% {
+    background-image: radial-gradient(#6366f1 1.4px, transparent 1.4px);
+  }
+
+  100% {
+    background-image: radial-gradient(#ec523f 1.4px, transparent 1.4px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .storyLink {
+  .section,
+  .imageWrap,
+  .floatingCard,
+  .floatingValue,
+  .dotPattern {
+    animation: none;
+  }
+
+  .storyLink,
+  .primaryAction,
+  .highlightItem,
+  .imageWrap,
+  .image {
     transition: none;
+  }
+
+  .highlightItem:hover,
+  .primaryAction:hover,
+  .imageWrap:hover,
+  .imageWrap:hover .image {
+    transform: none;
   }
 }

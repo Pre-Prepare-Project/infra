@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRightOutlined } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Button from "@/components/atoms/Button/Button";
 import Container from "@/components/atoms/Container/Container";
 import Heading from "@/components/atoms/Heading/Heading";
@@ -45,12 +46,18 @@ export default function MegaMenu({ menuKey, config, isOpen, onClose }) {
             </div>
 
             <div className={cn(styles.grid, isServices ? styles.servicesGrid : styles.productsGrid)}>
-              {config.items.map((item) => (
+              {config.items.map((item, index) => (
                 <Link key={item.href} href={item.href} className={styles.item} onClick={onClose}>
                   {isServices && item.icon && (
-                    <span className={styles.iconWrap} aria-hidden="true">
-                      <item.icon />
-                    </span>
+                    <AnimatedIcon
+                      icon={item.icon}
+                      size="md"
+                      shape="soft"
+                      animation="float"
+                      colorIndex={index}
+                      delay={(index % 5) + 1}
+                      className={styles.iconWrap}
+                    />
                   )}
                   <div className={styles.itemContent}>
                     <span className={styles.itemLabel}>{item.label}</span>

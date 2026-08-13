@@ -6,8 +6,8 @@ import {
   MailOutlined,
   PhoneOutlined,
 } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Container from "@/components/atoms/Container/Container";
-import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import ScrollRevealGrid, {
   ScrollRevealItem,
 } from "@/components/atoms/ScrollReveal/ScrollRevealGrid";
@@ -33,12 +33,14 @@ const VALUE_MAP = {
   addressShort: CONTACT_INFO.addressShort,
 };
 
+const ANIMATIONS = ["bounce", "pulse", "float"];
+
 export default function ContactQuickActions({ className }) {
   return (
     <section className={className} aria-label="Quick contact options">
       <Container>
         <ScrollRevealGrid className={styles.grid} stagger={0.08}>
-          {CONTACT_QUICK_ACTIONS.map((action) => {
+          {CONTACT_QUICK_ACTIONS.map((action, index) => {
             const Icon = ICON_MAP[action.icon];
             const href = HREF_MAP[action.id];
             const value = VALUE_MAP[action.valueKey];
@@ -46,9 +48,15 @@ export default function ContactQuickActions({ className }) {
             return (
               <ScrollRevealItem key={action.id} as="article">
                 <a href={href} className={styles.card}>
-                  <span className={styles.iconWrap} aria-hidden="true">
-                    {Icon && <Icon />}
-                  </span>
+                  <AnimatedIcon
+                    icon={Icon}
+                    size="md"
+                    shape="round"
+                    animation={ANIMATIONS[index % ANIMATIONS.length]}
+                    colorIndex={index}
+                    delay={index + 1}
+                    className={styles.iconWrap}
+                  />
                   <div className={styles.body}>
                     <Text variant="overline" color="primary" className={styles.label}>
                       {action.label}
