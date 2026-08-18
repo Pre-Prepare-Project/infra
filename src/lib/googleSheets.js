@@ -1,56 +1,44 @@
 /**
- * Append a contact form submission to Google Sheets via Apps Script Web App.
+ * Append contact form submissions to Google Sheets via Apps Script Web App.
  *
- * Setup (open script from the Google Sheet: Extensions → Apps Script):
- * 1. Header row: Timestamp | Inquiry Type | Name | Email | Phone | Company | Message
- * 2. Paste BOTH functions below, Save, then Deploy → New deployment → Web app
- *    Execute as: Me | Who has access: Anyone
- * 3. .env.local → GOOGLE_SHEET_WEBAPP_URL=https://script.google.com/macros/s/.../exec
+ * Spreadsheet:
+ *   https://docs.google.com/spreadsheets/d/1N98aBUurnkUGEjpZt_Zjp-B01pFct3rc7l5Fqx0JKto
  *
- * function doGet(e) {
- *   return ContentService
- *     .createTextOutput(JSON.stringify({ ok: true, message: "Contact sheet webhook is live" }))
- *     .setMimeType(ContentService.MimeType.JSON);
- * }
+ * This app writes to the "infrapulse" tab:
+ *   Timestamp | Inquiry Type | Name | Email | Phone | Company | Message
  *
- * function doPost(e) {
- *   try {
- *     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
- *     var data = JSON.parse(e.postData.contents);
- *     sheet.appendRow([
- *       data.timestamp || new Date().toISOString(),
- *       data.inquiryType || "",
- *       data.name || "",
- *       data.email || "",
- *       data.phone || "",
- *       data.company || "",
- *       data.message || ""
- *     ]);
- *     return ContentService
- *       .createTextOutput(JSON.stringify({ ok: true }))
- *       .setMimeType(ContentService.MimeType.JSON);
- *   } catch (err) {
- *     return ContentService
- *       .createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
- *       .setMimeType(ContentService.MimeType.JSON);
- *   }
- * }
+ * Env:
+ *   GOOGLE_SHEET_WEBAPP_URL=https://script.google.com/macros/s/.../exec
  */
 
 const WEBAPP_URL = process.env.GOOGLE_SHEET_WEBAPP_URL;
+const SHEET_NAME = "infrapulse";
+const REQUEST_TIMEOUT_MS = 12000;
 
 export function isGoogleSheetConfigured() {
   return Boolean(WEBAPP_URL);
 }
 
+/**
+ * @param {{
+ *   inquiryType?: string
+ *   inquiry_type?: string
+ *   name?: string
+ *   email?: string
+ *   phone?: string
+ *   company?: string
+ *   message?: string
+ * }} values
+ */
 export async function appendContactToSheet(values) {
   if (!isGoogleSheetConfigured()) {
     return { saved: false, reason: "not_configured" };
   }
 
   const payload = {
+    sheet: SHEET_NAME,
     timestamp: new Date().toISOString(),
-    inquiryType: values.inquiryType || "",
+    inquiryType: values.inquiryType || values.inquiry_type || "",
     name: values.name || "",
     email: values.email || "",
     phone: values.phone || "",
@@ -58,12 +46,16 @@ export async function appendContactToSheet(values) {
     message: values.message || "",
   };
 
+  return postToWebApp(payload);
+}
+
+async function postToWebApp(payload) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 12000);
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
   try {
-    // Apps Script runs doPost on this request, then often returns a 302.
-    // Do NOT POST again to the redirect URL (that causes ETIMEDOUT).
+    // Apps Script often responds with 302 after doPost.
+    // Do not follow the redirect — that can hang or time out.
     const response = await fetch(WEBAPP_URL, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -72,9 +64,7 @@ export async function appendContactToSheet(values) {
       signal: controller.signal,
     });
 
-    // 200–299: success body
-    // 302/303/307: Apps Script processed the POST and is redirecting for the response
-    if (response.ok || (response.status >= 300 && response.status < 400)) {
+    if (isAccepted(response)) {
       return { saved: true };
     }
 
@@ -87,12 +77,16 @@ export async function appendContactToSheet(values) {
 
     throw new Error(`Google Sheet request failed (${response.status})`);
   } catch (error) {
+    // Google may accept the row before the response returns.
     if (error?.name === "AbortError") {
-      // Timed out after Google accepted the POST — treat as saved to avoid blocking UX
       return { saved: true, timedOut: true };
     }
     throw error;
   } finally {
     clearTimeout(timeoutId);
   }
+}
+
+function isAccepted(response) {
+  return response.ok || (response.status >= 300 && response.status < 400);
 }

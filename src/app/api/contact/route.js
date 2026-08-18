@@ -1,5 +1,14 @@
 import { NextResponse } from "next/server";
-import { appendContactToSheet, isGoogleSheetConfigured } from "@/lib/googleSheets";
+import { CONTACT_INQUIRY_TYPES } from "@/data/contact";
+import {
+  appendContactToSheet,
+  isGoogleSheetConfigured,
+} from "@/lib/googleSheets";
+
+function getInquiryTypeLabel(value) {
+  const match = CONTACT_INQUIRY_TYPES.find((item) => item.value === value);
+  return match?.label || String(value || "").trim();
+}
 
 export async function POST(request) {
   try {
@@ -8,9 +17,12 @@ export async function POST(request) {
     const name = String(body.name || "").trim();
     const email = String(body.email || "").trim();
     const message = String(body.message || "").trim();
-    const inquiryType = String(body.inquiryType || "").trim();
+    const inquiryTypeValue = String(body.inquiryType || "").trim();
+    const phone = String(body.phone || "").trim();
+    const company = String(body.company || "").trim();
+    const inquiryType = getInquiryTypeLabel(inquiryTypeValue);
 
-    if (!name || !email || !message || !inquiryType) {
+    if (!name || !email || !message || !inquiryTypeValue) {
       return NextResponse.json(
         { ok: false, error: "Missing required fields" },
         { status: 400 },
@@ -21,7 +33,8 @@ export async function POST(request) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Google Sheet is not configured. Add GOOGLE_SHEET_WEBAPP_URL to .env.local.",
+          error:
+            "Google Sheet is not configured. Add GOOGLE_SHEET_WEBAPP_URL to .env.local.",
         },
         { status: 503 },
       );
@@ -31,8 +44,8 @@ export async function POST(request) {
       inquiryType,
       name,
       email,
-      phone: String(body.phone || "").trim(),
-      company: String(body.company || "").trim(),
+      phone,
+      company,
       message,
     });
 
