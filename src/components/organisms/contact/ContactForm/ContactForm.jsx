@@ -43,18 +43,33 @@ export default function ContactForm({ className, showHeader = true }) {
   const handleFinish = async (values) => {
     setSubmitting(true);
     try {
-      // Save sheet first; don't let optional email config block success toast
-      await saveContactToSheet(values);
+      const sheetResult = await saveContactToSheet(values);
+
       try {
         await sendContactEmail(values);
       } catch {
-        // Email is optional if EmailJS is not configured / fails
+        // EmailJS is optional
       }
 
       form.resetFields();
-      message.success(formCopy.successTitle || "Successfully submitted your request");
-    } catch {
-      message.error("Something went wrong. Please try again or email us directly.");
+      message.open({
+        type: "success",
+        content: formCopy.successTitle || "Successfully submitted your request",
+        duration: 4,
+        style: { marginTop: 72 },
+      });
+
+      if (sheetResult?.skipped) {
+        console.warn("Contact sheet skipped: Google Sheet URL not configured.");
+      }
+    } catch (error) {
+      console.error("Contact form submit failed:", error);
+      message.open({
+        type: "error",
+        content: "Something went wrong. Please try again or email us directly.",
+        duration: 4,
+        style: { marginTop: 72 },
+      });
     } finally {
       setSubmitting(false);
     }
@@ -96,13 +111,14 @@ export default function ContactForm({ className, showHeader = true }) {
               <Form.Item
                 name="inquiryType"
                 rules={[{ required: true, message: "Please select an inquiry type" }]}
-                noStyle
+                className={styles.formItem}
               >
                 <Select
                   id="contact-inquiry"
                   placeholder="What can we help you with?"
                   options={CONTACT_INQUIRY_TYPES}
                   className={styles.select}
+                  getPopupContainer={(trigger) => trigger.parentElement}
                 />
               </Form.Item>
             </FormField>
@@ -112,7 +128,7 @@ export default function ContactForm({ className, showHeader = true }) {
                 <Form.Item
                   name="name"
                   rules={[{ required: true, message: "Please enter your name" }]}
-                  noStyle
+                  className={styles.formItem}
                 >
                   <Input id="contact-name" placeholder="Your full name" />
                 </Form.Item>
@@ -125,7 +141,7 @@ export default function ContactForm({ className, showHeader = true }) {
                     { required: true, message: "Please enter your email" },
                     { type: "email", message: "Please enter a valid email" },
                   ]}
-                  noStyle
+                  className={styles.formItem}
                 >
                   <Input id="contact-email" type="email" placeholder="you@example.com" />
                 </Form.Item>
@@ -134,13 +150,13 @@ export default function ContactForm({ className, showHeader = true }) {
 
             <div className={styles.row}>
               <FormField label="Phone Number" htmlFor="contact-phone" className={styles.field}>
-                <Form.Item name="phone" noStyle>
+                <Form.Item name="phone" className={styles.formItem}>
                   <Input id="contact-phone" type="tel" placeholder="+91 83838 94651" />
                 </Form.Item>
               </FormField>
 
               <FormField label="Company" htmlFor="contact-company" className={styles.field}>
-                <Form.Item name="company" noStyle>
+                <Form.Item name="company" className={styles.formItem}>
                   <Input id="contact-company" placeholder="Your company name" />
                 </Form.Item>
               </FormField>
@@ -150,7 +166,7 @@ export default function ContactForm({ className, showHeader = true }) {
               <Form.Item
                 name="message"
                 rules={[{ required: true, message: "Please describe your project or question" }]}
-                noStyle
+                className={styles.formItem}
               >
                 <Input.TextArea
                   id="contact-message"
