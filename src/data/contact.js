@@ -82,7 +82,7 @@ export const CONTACT_INFO = {
   },
   phone: "+91 83838 94651",
   email: "info@infrapulsetech.com",
-  supportEmail: "support@infrapulsetech.com",
+  supportEmail: "info@infrapulsetech.com",
   addressShort: "Mayur Vihar Phase-1, Delhi",
   mapEmbedUrl:
     "https://maps.google.com/maps?q=Office+No.+909,+Plot+No.+4B,+District+Centre,+Mayur+Vihar+Phase-1+Extension,+East+Delhi,+Delhi+110091&output=embed",
