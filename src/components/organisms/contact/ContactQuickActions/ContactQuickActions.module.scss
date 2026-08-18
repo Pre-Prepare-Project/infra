@@ -46,20 +46,21 @@
 
   &:nth-child(3n + 1):hover {
     border-color: #ec523f;
-    background: rgba(#ec523f, 0.04);
+    background: $color-white;
   }
 
   &:nth-child(3n + 2):hover {
     border-color: #0d9488;
-    background: rgba(#0d9488, 0.04);
+    background: $color-white;
   }
 
   &:nth-child(3n + 3):hover {
     border-color: #0284c7;
-    background: rgba(#0284c7, 0.04);
+    background: $color-white;
   }
 
   &:hover {
+    background: $color-white;
     transform: translateY(-5px);
 
     &::before {
