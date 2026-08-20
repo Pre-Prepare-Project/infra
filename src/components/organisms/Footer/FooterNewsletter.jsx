@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { message } from "antd";
+import { App } from "antd";
 import Input from "@/components/atoms/Input/Input";
 import Button from "@/components/atoms/Button/Button";
 import Text from "@/components/atoms/Text/Text";
@@ -9,27 +9,60 @@ import Heading from "@/components/atoms/Heading/Heading";
 import { sendNewsletterSignup } from "@/lib/emailjs";
 import styles from "./FooterNewsletter.module.scss";
 
+async function saveNewsletterToSheet(email) {
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      inquiryType: "Newsletter",
+      name: "Newsletter Subscriber",
+      email,
+      message: "Newsletter subscription from website footer.",
+    }),
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    if (response.status === 503) {
+      return { saved: false, skipped: true };
+    }
+    throw new Error(data.error || "Failed to save to sheet");
+  }
+
+  return data;
+}
+
 export default function FooterNewsletter() {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const { message } = App.useApp();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!email.trim()) {
+    const trimmed = email.trim();
+    if (!trimmed) {
       message.warning("Please enter your email address.");
       return;
     }
 
     setSubmitting(true);
     try {
-      const result = await sendNewsletterSignup(email.trim());
+      const sheetResult = await saveNewsletterToSheet(trimmed);
+
+      try {
+        await sendNewsletterSignup(trimmed);
+      } catch {
+        // EmailJS is optional
+      }
+
       setEmail("");
-      message.success(
-        result.simulated
-          ? "Thanks for subscribing! Configure EmailJS to enable live delivery."
-          : "Thanks for subscribing to our newsletter!",
-      );
+      message.success("Thanks for subscribing to our newsletter!");
+
+      if (sheetResult?.skipped) {
+        console.warn("Newsletter sheet skipped: Google Sheet URL not configured.");
+      }
     } catch {
       message.error("Subscription failed. Please try again later.");
     } finally {
