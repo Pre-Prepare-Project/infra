@@ -1,0 +1,102 @@
+
+# InfraPulse
+
+## Company Summary
+
+InfraPulse Technologies Private Limited is a software development company established in 2014, based in Mayur Vihar, Delhi, India.
+
+InfraPulse builds software and digital solutions for businesses, including web applications, mobile apps, ERP, CRM, UI/UX, APIs, cloud and DevOps, SEO, and ongoing maintenance and support.
+
+## Official Company Details
+
+- Legal Name: INFRAPULSE TECHNOLOGIES PRIVATE LIMITED
+- Established: 2014
+- Location: Mayur Vihar, Delhi, India - 110091
+- Website: https://infrapulsetech.com
+- Email: info@infrapulsetech.com
+- Hotline: +91 83838 94651
+
+## Services
+
+### Website Development
+
+Modern, responsive, and high-performance websites and web applications.
+
+### Mobile App Development
+
+Native and cross-platform mobile applications for iOS and Android.
+
+### Custom ERP Development
+
+Tailored ERP systems to streamline business operations and workflows.
+
+### CRM Development
+
+Customer relationship management solutions for sales and customer operations.
+
+### UI/UX Design
+
+User-centered design for intuitive digital experiences and interfaces.
+
+### API Development
+
+Scalable REST and GraphQL APIs for system integrations.
+
+### SEO Services
+
+Search engine optimization, including technical audits, on-page optimization, keyword research, content strategy, and performance tracking.
+
+### Cloud & DevOps
+
+Cloud infrastructure, CI/CD pipelines, and DevOps automation using AWS and Azure.
+
+### Maintenance & Support
+
+Ongoing software maintenance, updates, security patches, performance monitoring, and feature enhancements.
+
+## Products
+
+### OZii ERP
+
+Business software platform for HRMS, payroll, accounts, and operations.
+
+### BillFlow 360
+
+Invoice dashboard with revenue analytics, expenditure management, and P&L insights.
+
+## Technologies
+
+- React.js
+- Next.js
+- TypeScript
+- Node.js
+- Express.js
+- Python
+- PHP
+- Flutter
+- React Native
+- AWS
+- Azure
+- Docker
+- Kubernetes
+- PostgreSQL
+- MySQL
+- MongoDB
+- Redis
+- GraphQL
+
+## Official Pages
+
+- Homepage: https://infrapulsetech.com/
+- About: https://infrapulsetech.com/about
+- Services: https://infrapulsetech.com/services
+- Products: https://infrapulsetech.com/products
+- Technologies: https://infrapulsetech.com/technologies
+- Portfolio: https://infrapulsetech.com/portfolio
+- Contact: https://infrapulsetech.com/contact
+
+## Contact
+
+Email: info@infrapulsetech.com
+Hotline: +91 83838 94651
+Website: https://infrapulsetech.com
