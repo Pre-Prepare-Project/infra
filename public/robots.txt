@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-Disallow: /design-system
-Disallow: /showcase
-Disallow: /animations
-
-Sitemap: https://infrapulsetech.com/sitemap.xml

@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import FeaturedTechStack from "@/components/organisms/technologies/FeaturedTechStack/FeaturedTechStack";
 import TechnologyCategories from "@/components/organisms/technologies/TechnologyCategories/TechnologyCategories";
 import ProcessSection from "@/components/organisms/home/ProcessSection/ProcessSection";
@@ -14,6 +15,12 @@ const TECHNOLOGIES_BREADCRUMBS = [
 export default function TechnologiesPage() {
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={TECHNOLOGIES_BREADCRUMBS}
+        title="Our Technologies"
+        description="We use industry-leading technologies to build scalable, secure, and high-performance software solutions."
+        path="/technologies"
+      />
       <PageHero
         title="Our Technologies"
         subtitle="We use industry-leading technologies to build scalable, secure, and high-performance software solutions."

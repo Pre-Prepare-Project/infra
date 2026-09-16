@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import LegalDocument from "@/components/organisms/legal/LegalDocument/LegalDocument";
 import { PRIVACY_POLICY } from "@/data/legal/privacyPolicy";
 
@@ -10,6 +11,12 @@ const PRIVACY_BREADCRUMBS = [
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={PRIVACY_BREADCRUMBS}
+        title="Privacy Policy"
+        description="Learn how InfraPulse collects, uses, and protects your personal information."
+        path="/privacy-policy"
+      />
       <PageHero
         title="Privacy Policy"
         subtitle="Learn how InfraPulse collects, uses, and protects your personal information."

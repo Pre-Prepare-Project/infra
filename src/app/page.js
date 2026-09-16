@@ -9,7 +9,7 @@ export const metadata = {
   },
   description: COMPANY.description,
   alternates: {
-    canonical: COMPANY.url,
+    canonical: "/",
   },
 };
 

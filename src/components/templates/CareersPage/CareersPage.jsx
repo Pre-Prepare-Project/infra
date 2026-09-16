@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import CareersBenefits from "@/components/organisms/careers/CareersBenefits/CareersBenefits";
 import CareersGrid from "@/components/organisms/careers/CareersGrid/CareersGrid";
 import ValuesSection from "@/components/organisms/about/ValuesSection/ValuesSection";
@@ -14,6 +15,12 @@ const CAREERS_BREADCRUMBS = [
 export default function CareersPage() {
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={CAREERS_BREADCRUMBS}
+        title="Careers at InfraPulse"
+        description="Join a team of passionate engineers, designers, and innovators building software that empowers businesses worldwide."
+        path="/careers"
+      />
       <PageHero
         title="Careers at InfraPulse"
         subtitle="Join a team of passionate engineers, designers, and innovators building software that empowers businesses worldwide."

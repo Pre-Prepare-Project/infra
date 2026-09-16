@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import PortfolioGrid from "@/components/organisms/portfolio/PortfolioGrid/PortfolioGrid";
 import { Statistics, CTA } from "@/components/organisms";
 import { ABOUT_STATISTICS } from "@/data/statistics";
@@ -16,6 +17,12 @@ const PORTFOLIO_STATS = mapStatisticsForComponent(ABOUT_STATISTICS);
 export default function PortfolioPage() {
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={PORTFOLIO_BREADCRUMBS}
+        title="Our Portfolio"
+        description="A showcase of successful software projects we've delivered for clients across industries."
+        path="/portfolio"
+      />
       <PageHero
         title="Our Portfolio"
         subtitle="A showcase of successful software projects we've delivered for clients across industries."

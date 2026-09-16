@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import Container from "@/components/atoms/Container/Container";
 import ContactQuickActions from "@/components/organisms/contact/ContactQuickActions/ContactQuickActions";
 import ContactInfo from "@/components/organisms/contact/ContactInfo/ContactInfo";
@@ -9,7 +10,7 @@ import styles from "./ContactPage.module.scss";
 
 const CONTACT_BREADCRUMBS = [
   { label: "Home", href: "/" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function ContactPage() {
@@ -17,6 +18,12 @@ export default function ContactPage() {
 
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={CONTACT_BREADCRUMBS}
+        title="Contact Us"
+        description={hero.subtitle}
+        path="/contact"
+      />
       <div className={styles.heroWrap}>
         <PageHero
           title={hero.title}

@@ -5,6 +5,7 @@ import { createNoIndexMetadata } from "@/lib/metadata";
 export const metadata = createNoIndexMetadata({
   title: "Design System",
   description: `Internal design system showcase for ${COMPANY.shortName}.`,
+  path: "/design-system",
 });
 
 export default function DesignSystemPage() {

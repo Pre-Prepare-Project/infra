@@ -6,14 +6,14 @@ export const PRODUCTS = getProductsForNav();
 
 export const MAIN_NAV = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About Us", href: "/about" },
   { label: "Services", href: "/services", megaMenu: "services" },
   { label: "Projects", href: "/products", megaMenu: "products" },
   // { label: "Technologies", href: "/technologies" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const MEGA_MENUS = {
@@ -42,7 +42,7 @@ export const FOOTER_QUICK_LINKS = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const FOOTER_SERVICES = SERVICES.map(({ title, href }) => ({

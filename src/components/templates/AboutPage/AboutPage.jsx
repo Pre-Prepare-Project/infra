@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import CompanySection from "@/components/organisms/about/CompanySection/CompanySection";
 import VisionMission from "@/components/organisms/about/VisionMission/VisionMission";
 import ValuesSection from "@/components/organisms/about/ValuesSection/ValuesSection";
@@ -20,6 +21,12 @@ const ABOUT_BREADCRUMBS = [
 export default function AboutPage() {
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={ABOUT_BREADCRUMBS}
+        title="About Us"
+        description="We are a team of innovators and problem solvers dedicated to building software that empowers businesses worldwide."
+        path="/about"
+      />
       <PageHero
         title="About InfraPulse"
         subtitle="We are a team of innovators and problem solvers dedicated to building software that empowers businesses worldwide."

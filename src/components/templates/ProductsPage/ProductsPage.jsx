@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import ProductsGrid from "@/components/organisms/products/ProductsGrid/ProductsGrid";
 import WhyChooseUs from "@/components/organisms/home/WhyChooseUs/WhyChooseUs";
 import { CTA } from "@/components/organisms";
@@ -13,6 +14,12 @@ const PRODUCTS_BREADCRUMBS = [
 export default function ProductsPage() {
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={PRODUCTS_BREADCRUMBS}
+        title="Our Projects"
+        description="Ready-to-deploy software platforms built by InfraPulse to solve real business challenges across industries."
+        path="/products"
+      />
       <PageHero
         title="Our Projects"
         subtitle="Ready-to-deploy software platforms built by InfraPulse to solve real business challenges across industries."

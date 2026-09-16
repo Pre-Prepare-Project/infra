@@ -1,8 +1,16 @@
 import { COMPANY } from "@/constants/theme";
-import { NOINDEX_ROUTES, getOgImageUrl } from "@/lib/seo";
+import { OG_IMAGE, getOgImageUrl } from "@/lib/seo";
+
+function toCanonicalPath(path = "") {
+  if (!path || path === "/") {
+    return "/";
+  }
+
+  return path.startsWith("/") ? path : `/${path}`;
+}
 
 export const defaultMetadata = {
-  metadataBase: new URL(COMPANY.url),
+  metadataBase: new URL("https://infrapulsetech.com"),
   title: {
     default: `${COMPANY.shortName} | ${COMPANY.tagline}`,
     template: `%s | ${COMPANY.shortName}`,
@@ -51,10 +59,10 @@ export const defaultMetadata = {
     description: COMPANY.description,
     images: [
       {
-        url: getOgImageUrl("/android-chrome-512x512.png"),
-        width: 512,
-        height: 512,
-        alt: `${COMPANY.shortName} logo`,
+        url: getOgImageUrl(OG_IMAGE.path),
+        width: OG_IMAGE.width,
+        height: OG_IMAGE.height,
+        alt: OG_IMAGE.alt,
       },
     ],
   },
@@ -62,10 +70,7 @@ export const defaultMetadata = {
     card: "summary_large_image",
     title: `${COMPANY.shortName} | ${COMPANY.tagline}`,
     description: COMPANY.description,
-    images: [getOgImageUrl("/android-chrome-512x512.png")],
-  },
-  alternates: {
-    canonical: COMPANY.url,
+    images: [getOgImageUrl(OG_IMAGE.path)],
   },
   verification: {
     google: "8VaFZHc0lQoIaBqP09nT5OY1_kxHGnasoZuKSf5N_OU",
@@ -78,17 +83,22 @@ export function createPageMetadata({
   path = "",
   noindex = false,
   openGraphType = "website",
+  includeCanonical = true,
 }) {
-  const url = `${COMPANY.url}${path}`;
-  const ogImage = getOgImageUrl("/android-chrome-512x512.png");
+  const canonicalPath = toCanonicalPath(path);
+  const url =
+    canonicalPath === "/" ? COMPANY.url : `${COMPANY.url}${canonicalPath}`;
+  const ogImage = getOgImageUrl(OG_IMAGE.path);
   const pageTitle = `${title} | ${COMPANY.shortName}`;
 
   return {
     title,
     description,
-    alternates: {
-      canonical: url,
-    },
+    ...(includeCanonical && {
+      alternates: {
+        canonical: canonicalPath,
+      },
+    }),
     openGraph: {
       type: openGraphType,
       locale: "en_IN",
@@ -99,9 +109,9 @@ export function createPageMetadata({
       images: [
         {
           url: ogImage,
-          width: 512,
-          height: 512,
-          alt: `${title} — ${COMPANY.shortName}`,
+          width: OG_IMAGE.width,
+          height: OG_IMAGE.height,
+          alt: OG_IMAGE.alt,
         },
       ],
     },
@@ -120,10 +130,11 @@ export function createPageMetadata({
   };
 }
 
-export function createNoIndexMetadata({ title, description }) {
+export function createNoIndexMetadata({ title, description, path }) {
   return createPageMetadata({
     title,
     description,
+    path,
     noindex: true,
   });
 }

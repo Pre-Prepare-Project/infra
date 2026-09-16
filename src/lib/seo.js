@@ -49,6 +49,13 @@ export function getSitemapEntries() {
   }));
 }
 
-export function getOgImageUrl(path = "/android-chrome-512x512.png") {
+export const OG_IMAGE = {
+  path: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "InfraPulse Technologies — Build Better. Grow Smarter. Complete digital solutions for modern businesses.",
+};
+
+export function getOgImageUrl(path = OG_IMAGE.path) {
   return `${COMPANY.url}${path}`;
 }

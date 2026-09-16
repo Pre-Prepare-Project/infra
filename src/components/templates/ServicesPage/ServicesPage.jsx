@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import ServicesGrid from "@/components/organisms/services/ServicesGrid/ServicesGrid";
 import WhyChooseUs from "@/components/organisms/home/WhyChooseUs/WhyChooseUs";
 import ProcessSection from "@/components/organisms/home/ProcessSection/ProcessSection";
@@ -14,6 +15,12 @@ const SERVICES_BREADCRUMBS = [
 export default function ServicesPage() {
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={SERVICES_BREADCRUMBS}
+        title="Our Services"
+        description="End-to-end software development services designed to help your business grow, scale, and succeed in the digital landscape."
+        path="/services"
+      />
       <PageHero
         title="Our Services"
         subtitle="End-to-end software development services designed to help your business grow, scale, and succeed in the digital landscape."

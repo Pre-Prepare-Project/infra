@@ -1,4 +1,5 @@
 import PageHero from "@/components/molecules/PageHero/PageHero";
+import PageJsonLd from "@/components/molecules/PageJsonLd/PageJsonLd";
 import CaseStudiesGrid from "@/components/organisms/caseStudies/CaseStudiesGrid/CaseStudiesGrid";
 import { Testimonials, CTA } from "@/components/organisms";
 import { getDefaultContactInfo } from "@/utils/contactInfo";
@@ -12,6 +13,12 @@ const CASE_STUDIES_BREADCRUMBS = [
 export default function CaseStudiesPage() {
   return (
     <>
+      <PageJsonLd
+        breadcrumbs={CASE_STUDIES_BREADCRUMBS}
+        title="Case Studies"
+        description="Real stories of how InfraPulse partners with clients to solve complex challenges and deliver measurable business outcomes."
+        path="/case-studies"
+      />
       <PageHero
         title="Case Studies"
         subtitle="Real stories of how InfraPulse partners with clients to solve complex challenges and deliver measurable business outcomes."
