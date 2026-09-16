@@ -11,7 +11,6 @@
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid $color-border;
   border-bottom: 1px solid $color-border;
-  box-shadow: $shadow-lg;
 }
 
 .header {
@@ -51,46 +50,55 @@
   gap: $spacing-md;
   padding: $spacing-md;
   border-radius: $radius-md;
-  border: 1px solid transparent;
+  border: 1.5px solid transparent;
   text-decoration: none;
   transition:
     background $transition-base,
     border-color $transition-base,
-    box-shadow $transition-base,
     transform $transition-base;
 
+  &:nth-child(6n + 1):hover {
+    border-color: #ec523f;
+    background: rgba(#ec523f, 0.05);
+  }
+
+  &:nth-child(6n + 2):hover {
+    border-color: #0d9488;
+    background: rgba(#0d9488, 0.05);
+  }
+
+  &:nth-child(6n + 3):hover {
+    border-color: #0284c7;
+    background: rgba(#0284c7, 0.05);
+  }
+
+  &:nth-child(6n + 4):hover {
+    border-color: #d97706;
+    background: rgba(#d97706, 0.05);
+  }
+
+  &:nth-child(6n + 5):hover {
+    border-color: #6366f1;
+    background: rgba(#6366f1, 0.05);
+  }
+
+  &:nth-child(6n + 6):hover {
+    border-color: #e11d48;
+    background: rgba(#e11d48, 0.05);
+  }
+
   &:hover {
-    background: rgba($color-primary, 0.04);
-    border-color: $color-border;
-    box-shadow: $shadow-sm;
     transform: translateY(-2px);
 
     .itemArrow {
       color: $color-accent;
       transform: translateX(4px);
     }
-
-    .iconWrap {
-      background: $gradient-primary;
-      color: $color-white;
-    }
   }
 }
 
 .iconWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
   flex-shrink: 0;
-  border-radius: $radius-sm;
-  background: rgba($color-primary, 0.08);
-  color: $color-primary;
-  font-size: 18px;
-  transition:
-    background $transition-base,
-    color $transition-base;
 }
 
 .itemContent {

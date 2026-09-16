@@ -2,15 +2,23 @@
 @use "../../../../styles/mixins" as *;
 
 .section {
+  position: relative;
   padding: $spacing-3xl 0;
-  background: $color-surface-muted;
+  overflow: hidden;
+  background: linear-gradient(150deg, rgba(#0284c7, 0.07), rgba(#0d9488, 0.06), rgba(#ec523f, 0.06));
+  background-size: 220% 220%;
+  animation: washShift 12s ease infinite;
 }
 
 .header {
+  position: relative;
+  z-index: 1;
   margin-bottom: $spacing-2xl;
 }
 
 .grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-xl;
@@ -22,29 +30,47 @@
 
 .card {
   height: 100%;
+  border: 1.5px solid rgba($color-primary, 0.12) !important;
+  transition: transform $transition-spring, border-color $transition-base !important;
+
+  &:nth-child(1):hover {
+    border-color: #ec523f !important;
+  }
+
+  &:nth-child(2):hover {
+    border-color: #0284c7 !important;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+  }
 }
 
 .iconWrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
   margin-bottom: $spacing-lg;
-  border-radius: $radius-md;
-  background: rgba($color-primary, 0.08);
-  color: $color-primary;
-  font-size: 22px;
-  transition:
-    background $transition-base,
-    color $transition-base;
-
-  .card:hover & {
-    background: $gradient-primary;
-    color: $color-white;
-  }
 }
 
 .cardTitle {
   margin-bottom: $spacing-md;
+}
+
+@keyframes washShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    animation: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
 }

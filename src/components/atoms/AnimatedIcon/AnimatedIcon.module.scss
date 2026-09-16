@@ -1,0 +1,308 @@
+@use "../../../styles/variables" as *;
+
+// Multi-color palette (flat, no shadows)
+$icon-blue: #1f4a75;
+$icon-coral: #ec523f;
+$icon-teal: #0d9488;
+$icon-amber: #d97706;
+$icon-violet: #6366f1;
+$icon-rose: #e11d48;
+$icon-sky: #0284c7;
+$icon-lime: #65a30d;
+
+.wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-size: 200% 200%;
+  color: $color-white;
+  transition:
+    transform $transition-base,
+    border-color $transition-base,
+    filter $transition-base;
+}
+
+.wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba($color-white, 0.35) 48%,
+    transparent 72%
+  );
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+
+.wrap:hover::after {
+  animation: iconShimmer 0.8s ease forwards;
+}
+
+.icon {
+  display: inline-flex;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.hit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sizes */
+.sm {
+  width: 34px;
+  height: 34px;
+  font-size: 15px;
+}
+
+.md {
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+}
+
+.lg {
+  width: 58px;
+  height: 58px;
+  font-size: 25px;
+}
+
+.xl {
+  width: 68px;
+  height: 68px;
+  font-size: 30px;
+}
+
+/* Shape */
+.round {
+  border-radius: $radius-full;
+}
+
+.soft {
+  border-radius: $radius-md;
+}
+
+.square {
+  border-radius: $radius-lg;
+}
+
+/* Multi-color animated fills */
+.accent,
+.solidAccent,
+.coral {
+  background-image: linear-gradient(135deg, $icon-coral, $icon-amber, $icon-rose, $icon-coral);
+  animation: colorShift 4s ease infinite;
+}
+
+.primary,
+.solid,
+.blue {
+  background-image: linear-gradient(135deg, $icon-blue, $icon-sky, $icon-violet, $icon-blue);
+  animation: colorShift 4.5s ease infinite;
+}
+
+.muted,
+.teal {
+  background-image: linear-gradient(135deg, $icon-teal, $icon-sky, $icon-lime, $icon-teal);
+  animation: colorShift 5s ease infinite;
+}
+
+.amber {
+  background-image: linear-gradient(135deg, $icon-amber, $icon-coral, $icon-lime, $icon-amber);
+  animation: colorShift 4.2s ease infinite;
+}
+
+.violet {
+  background-image: linear-gradient(135deg, $icon-violet, $icon-sky, $icon-rose, $icon-violet);
+  animation: colorShift 4.8s ease infinite;
+}
+
+.rainbow {
+  background-image: linear-gradient(
+    135deg,
+    $icon-coral,
+    $icon-amber,
+    $icon-lime,
+    $icon-teal,
+    $icon-sky,
+    $icon-violet,
+    $icon-rose,
+    $icon-coral
+  );
+  background-size: 300% 300%;
+  animation: colorShift 6s linear infinite;
+}
+
+/* Motion overlays (no shadow) */
+.float {
+  animation:
+    colorShift 4.5s ease infinite,
+    iconFloat 3.2s ease-in-out infinite;
+}
+
+.pulse {
+  animation:
+    colorShift 4s ease infinite,
+    iconPulse 2.2s ease-in-out infinite;
+}
+
+.bounce {
+  animation:
+    colorShift 4.2s ease infinite,
+    iconBounce 2.5s ease-in-out infinite;
+}
+
+.glow {
+  animation:
+    colorShift 3.8s ease infinite,
+    iconGlow 2.6s ease-in-out infinite;
+}
+
+.spinSlow {
+  animation: colorShift 5s ease infinite;
+
+  .icon {
+    animation: iconSpin 8s linear infinite;
+  }
+}
+
+.delay1 {
+  animation-delay: 0.12s, 0.12s;
+}
+
+.delay2 {
+  animation-delay: 0.24s, 0.24s;
+}
+
+.delay3 {
+  animation-delay: 0.36s, 0.36s;
+}
+
+.delay4 {
+  animation-delay: 0.48s, 0.48s;
+}
+
+.delay5 {
+  animation-delay: 0.6s, 0.6s;
+}
+
+@keyframes colorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: saturate(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+    filter: saturate(1.35);
+  }
+}
+
+@keyframes iconBounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  40% {
+    transform: translateY(-7px) scale(1.05);
+  }
+
+  60% {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+@keyframes iconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes iconGlow {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+
+  50% {
+    filter: brightness(1.15) saturate(1.4);
+  }
+}
+
+@keyframes iconShimmer {
+  to {
+    transform: translateX(130%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accent,
+  .solidAccent,
+  .coral,
+  .primary,
+  .solid,
+  .blue,
+  .muted,
+  .teal,
+  .amber,
+  .violet,
+  .rainbow,
+  .float,
+  .pulse,
+  .bounce,
+  .glow,
+  .spinSlow,
+  .spinSlow .icon {
+    animation: none;
+  }
+
+  .wrap:hover::after {
+    animation: none;
+  }
+}

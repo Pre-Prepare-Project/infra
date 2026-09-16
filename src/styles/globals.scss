@@ -7,11 +7,16 @@
   --color-primary: #{$color-primary};
   --color-secondary: #{$color-secondary};
   --color-accent: #{$color-accent};
+  --color-accent-light: #{$color-accent-light};
   --color-background: #{$color-background};
   --color-text: #{$color-text};
   --color-text-secondary: #{$color-text-secondary};
   --color-border: #{$color-border};
   --color-surface: #{$color-surface};
+
+  --gradient-primary: #{$gradient-primary};
+  --gradient-accent: #{$gradient-accent};
+  --gradient-section-soft: #{$gradient-section-soft};
 
   --spacing-xs: #{$spacing-xs};
   --spacing-sm: #{$spacing-sm};

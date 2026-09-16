@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRightOutlined } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Card from "@/components/atoms/Card/Card";
 import HoverEffect from "@/components/atoms/HoverEffect/HoverEffect";
 import Heading from "@/components/atoms/Heading/Heading";
@@ -21,9 +22,14 @@ export default function FeatureCard({
   const content = (
     <>
       {Icon && (
-        <span className={styles.iconWrap} aria-hidden="true">
-          <Icon />
-        </span>
+        <AnimatedIcon
+          icon={Icon}
+          size="md"
+          shape="soft"
+          animation="float"
+          variant="rainbow"
+          className={styles.iconWrap}
+        />
       )}
       <Heading level="h5" className={styles.title}>
         {title}

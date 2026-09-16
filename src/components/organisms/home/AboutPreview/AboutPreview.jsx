@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import {
-  AppstoreOutlined,
   ArrowRightOutlined,
   BulbOutlined,
   ClockCircleOutlined,
-  DeploymentUnitOutlined,
+  ExpandOutlined,
   PlayCircleOutlined,
-  TeamOutlined,
+  NodeIndexOutlined,
+  SolutionOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Container from "@/components/atoms/Container/Container";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import OptimizedImage from "@/components/atoms/OptimizedImage/OptimizedImage";
@@ -22,12 +23,14 @@ import styles from "./AboutPreview.module.scss";
 
 const HIGHLIGHT_ICONS = {
   user: UserOutlined,
-  process: DeploymentUnitOutlined,
+  process: NodeIndexOutlined,
   clock: ClockCircleOutlined,
-  scale: AppstoreOutlined,
+  scale: ExpandOutlined,
   bulb: BulbOutlined,
-  partnership: TeamOutlined,
+  partnership: SolutionOutlined,
 };
+
+const HIGHLIGHT_ANIMATIONS = ["float", "pulse", "bounce", "glow", "float", "pulse"];
 
 export default function AboutPreview() {
   const { overline, title, description, highlights, primaryCta, secondaryCta } = ABOUT_PREVIEW;
@@ -50,14 +53,20 @@ export default function AboutPreview() {
             </Text>
 
             <ul className={styles.highlights}>
-              {highlights.map((item) => {
+              {highlights.map((item, index) => {
                 const Icon = HIGHLIGHT_ICONS[item.icon] || UserOutlined;
 
                 return (
                   <li key={item.id} className={styles.highlightItem}>
-                    <span className={styles.highlightIcon} aria-hidden="true">
-                      <Icon />
-                    </span>
+                    <AnimatedIcon
+                      icon={Icon}
+                      size="sm"
+                      shape="round"
+                      animation={HIGHLIGHT_ANIMATIONS[index % HIGHLIGHT_ANIMATIONS.length]}
+                      colorIndex={index}
+                      delay={(index % 5) + 1}
+                      className={styles.highlightIcon}
+                    />
                     <span>{item.title}</span>
                   </li>
                 );
@@ -76,9 +85,14 @@ export default function AboutPreview() {
                 {primaryCta.label}
               </Button>
               <Link href={secondaryCta.href} className={styles.storyLink}>
-                <span className={styles.playButton} aria-hidden="true">
-                  <PlayCircleOutlined />
-                </span>
+                <AnimatedIcon
+                  icon={PlayCircleOutlined}
+                  size="md"
+                  shape="round"
+                  animation="pulse"
+                  colorIndex={2}
+                  className={styles.playButton}
+                />
                 <span>{secondaryCta.label}</span>
               </Link>
             </div>

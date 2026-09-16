@@ -24,16 +24,7 @@
 }
 
 .iconWrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
   margin-bottom: $spacing-lg;
-  border-radius: $radius-lg;
-  background: rgba($color-primary, 0.08);
-  color: $color-primary;
-  font-size: 24px;
 }
 
 .title {

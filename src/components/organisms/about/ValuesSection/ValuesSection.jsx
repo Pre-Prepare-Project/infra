@@ -8,6 +8,7 @@ import {
   TeamOutlined,
   TrophyOutlined,
 } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Container from "@/components/atoms/Container/Container";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import ScrollRevealGrid, {
@@ -29,6 +30,8 @@ const ICON_MAP = {
   excellence: RocketOutlined,
 };
 
+const ANIMATIONS = ["float", "pulse", "bounce", "glow", "float", "pulse"];
+
 export default function ValuesSection() {
   return (
     <section className={styles.section} aria-labelledby="values-title">
@@ -45,15 +48,21 @@ export default function ValuesSection() {
         </ScrollReveal>
 
         <ScrollRevealGrid className={styles.grid} stagger={0.08}>
-          {COMPANY_VALUES.map((value) => {
+          {COMPANY_VALUES.map((value, index) => {
             const Icon = ICON_MAP[value.id] || BulbOutlined;
 
             return (
               <ScrollRevealItem key={value.id} as="div">
                 <Card variant="flat" padding="lg" hoverable className={styles.card}>
-                  <span className={styles.iconWrap} aria-hidden="true">
-                    <Icon />
-                  </span>
+                  <AnimatedIcon
+                    icon={Icon}
+                    size="lg"
+                    shape="round"
+                    animation={ANIMATIONS[index % ANIMATIONS.length]}
+                    colorIndex={index}
+                    delay={(index % 5) + 1}
+                    className={styles.iconWrap}
+                  />
                   <Heading level="h5" className={styles.cardTitle}>
                     {value.title}
                   </Heading>

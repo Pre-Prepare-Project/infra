@@ -2,12 +2,13 @@
 
 import {
   BulbOutlined,
-  CloudOutlined,
+  CloudServerOutlined,
   RocketOutlined,
   SafetyCertificateOutlined,
-  TeamOutlined,
-  ToolOutlined,
+  CustomerServiceOutlined,
+  ExperimentOutlined,
 } from "@ant-design/icons";
+import AnimatedIcon from "@/components/atoms/AnimatedIcon/AnimatedIcon";
 import Container from "@/components/atoms/Container/Container";
 import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
 import ScrollRevealGrid, {
@@ -22,12 +23,14 @@ import styles from "./WhyChooseUs.module.scss";
 
 const ICON_MAP = {
   expertise: SafetyCertificateOutlined,
-  quality: ToolOutlined,
+  quality: ExperimentOutlined,
   agile: RocketOutlined,
-  support: TeamOutlined,
+  support: CustomerServiceOutlined,
   custom: BulbOutlined,
-  innovation: CloudOutlined,
+  innovation: CloudServerOutlined,
 };
+
+const ANIMATIONS = ["float", "pulse", "bounce", "glow", "float", "pulse"];
 
 export default function WhyChooseUs() {
   return (
@@ -45,15 +48,21 @@ export default function WhyChooseUs() {
         </ScrollReveal>
 
         <ScrollRevealGrid className={styles.grid} stagger={0.08}>
-          {WHY_CHOOSE_US.map((item) => {
+          {WHY_CHOOSE_US.map((item, index) => {
             const Icon = ICON_MAP[item.id] || BulbOutlined;
 
             return (
               <ScrollRevealItem key={item.id} as="div">
                 <Card variant="flat" padding="lg" hoverable className={styles.card}>
-                  <span className={styles.iconWrap} aria-hidden="true">
-                    <Icon />
-                  </span>
+                  <AnimatedIcon
+                    icon={Icon}
+                    size="md"
+                    shape="soft"
+                    animation={ANIMATIONS[index % ANIMATIONS.length]}
+                    colorIndex={index}
+                    delay={(index % 5) + 1}
+                    className={styles.iconWrap}
+                  />
                   <Heading level="h5" className={styles.cardTitle}>
                     {item.title}
                   </Heading>

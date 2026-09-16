@@ -106,6 +106,7 @@ export const TEAM_MEMBERS = [
     name: "J.K. Sinha",
     role: "Founder & CEO",
     department: "Leadership",
+    image: "/images/team/jk-sinha.png",
     bio: "Visionary entrepreneur with 15+ years of experience in the software industry, leading InfraPulse's innovation, strategic growth, and digital transformation initiatives.",
   },
   {
@@ -113,6 +114,7 @@ export const TEAM_MEMBERS = [
     name: "Keshav Kumar Kaushal",
     role: "Senior Business Development Manager",
     department: "Business Development",
+    image: "/images/team/keshav-kumar.jpg",
     bio: "Business development professional focused on building strategic partnerships, generating new business opportunities, and strengthening long-term client relationships.",
   },
   {
@@ -127,6 +129,7 @@ export const TEAM_MEMBERS = [
     name: "Ayushman Srivastava",
     role: "Sales Head",
     department: "Sales",
+    image: "/images/team/ayushman-srivastava-v2.png",
     bio: "Sales leader driving revenue growth through strategic planning, client relationship management, market expansion, and customer success initiatives.",
   },
   {
@@ -134,6 +137,7 @@ export const TEAM_MEMBERS = [
     name: "Manish Kumar",
     role: "Lead UI/UX Designer",
     department: "Design",
+    image: "/images/team/manish-kumar.png",
     bio: "Creative design leader focused on crafting intuitive user experiences, modern interfaces, and design systems that elevate digital products.",
   },
   {
@@ -141,6 +145,7 @@ export const TEAM_MEMBERS = [
     name: "Ram Krishna",
     role: "Senior Frontend Developer",
     department: "Engineering",
+    image: "/images/team/ram-krishna.png",
     bio: "Frontend specialist passionate about building responsive, high-performance web applications using modern JavaScript frameworks and best development practices.",
   },
   {
@@ -155,8 +160,7 @@ export const TEAM_MEMBERS = [
     name: "Saurabh Kumar",
     role: "Quality Analyst",
     department: "Quality Assurance",
+    image: "/images/team/saurabh-kumar.png",
     bio: "Dedicated quality professional ensuring software reliability through comprehensive testing, defect analysis, and continuous quality improvement.",
   },
-  
-  
 ];

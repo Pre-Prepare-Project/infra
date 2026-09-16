@@ -72,6 +72,14 @@
   width: 100%;
 }
 
+.formItem {
+  margin-bottom: 0;
+
+  :global(.ant-form-item-explain-error) {
+    margin-top: $spacing-xs;
+  }
+}
+
 .configNote {
   margin: $spacing-lg 0 0;
   padding: $spacing-md;

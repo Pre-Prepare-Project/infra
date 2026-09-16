@@ -12,7 +12,6 @@
   padding: 0;
 }
 
-/* Mobile — stacked list cards */
 .listMobile {
   display: grid;
   grid-template-columns: 1fr;
@@ -30,22 +29,39 @@
   width: 100%;
   padding: $spacing-md $spacing-lg;
   background: $color-white;
-  border: 1px solid $color-border;
+  border: 1.5px solid rgba($color-primary, 0.12);
   border-radius: $radius-md;
-  box-shadow: $shadow-sm;
-}
+  transition: transform $transition-spring, border-color $transition-base, background $transition-base;
 
-.item.mobile .iconWrap {
-  width: 36px;
-  height: 36px;
-  font-size: 16px;
+  &:nth-child(4n + 1):hover {
+    border-color: #ec523f;
+    background: rgba(#ec523f, 0.05);
+  }
+
+  &:nth-child(4n + 2):hover {
+    border-color: #0d9488;
+    background: rgba(#0d9488, 0.05);
+  }
+
+  &:nth-child(4n + 3):hover {
+    border-color: #0284c7;
+    background: rgba(#0284c7, 0.05);
+  }
+
+  &:nth-child(4n + 4):hover {
+    border-color: #6366f1;
+    background: rgba(#6366f1, 0.05);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+  }
 }
 
 .item.mobile .label {
   font-size: $font-size-body-sm;
 }
 
-/* Desktop — compact pill row */
 .listDesktop {
   display: none;
 
@@ -55,9 +71,14 @@
     gap: $spacing-sm;
     padding: $spacing-sm;
     background: $color-white;
-    border: 1px solid $color-border;
+    border: 1.5px solid transparent;
     border-radius: $radius-md;
-    box-shadow: $shadow-sm;
+    background-image: linear-gradient($color-white, $color-white),
+      linear-gradient(90deg, #ec523f, #d97706, #0d9488, #0284c7, #6366f1);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-size: 100% 100%, 250% 100%;
+    animation: borderFlow 8s linear infinite;
   }
 
   @include respond-to(xl) {
@@ -71,21 +92,36 @@
   gap: $spacing-sm;
   padding: $spacing-sm $spacing-md;
   background: $color-white;
-  border: 1px solid $color-border;
+  border: 1.5px solid transparent;
   border-radius: $radius-full;
-  box-shadow: $shadow-sm;
+  transition: transform $transition-spring, border-color $transition-base, background $transition-base;
+
+  &:nth-child(4n + 1):hover {
+    border-color: #ec523f;
+    background: rgba(#ec523f, 0.05);
+  }
+
+  &:nth-child(4n + 2):hover {
+    border-color: #0d9488;
+    background: rgba(#0d9488, 0.05);
+  }
+
+  &:nth-child(4n + 3):hover {
+    border-color: #0284c7;
+    background: rgba(#0284c7, 0.05);
+  }
+
+  &:nth-child(4n + 4):hover {
+    border-color: #6366f1;
+    background: rgba(#6366f1, 0.05);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .iconWrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: $radius-full;
-  background: rgba($color-primary, 0.08);
-  color: $color-primary;
-  font-size: 14px;
   flex-shrink: 0;
 }
 
@@ -101,8 +137,22 @@
   font-size: $font-size-caption;
 }
 
+@keyframes borderFlow {
+  to {
+    background-position: 0 0, 250% 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .listDesktop {
+    animation: none;
+  }
+
   .item {
     transition: none;
+
+    &:hover {
+      transform: none;
+    }
   }
 }

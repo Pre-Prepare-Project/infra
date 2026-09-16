@@ -56,8 +56,25 @@
 }
 
 .hoverable {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(#0284c7, 0.04), rgba(#ec523f, 0.05), rgba(#0d9488, 0.04));
+    opacity: 0;
+    transition: opacity $transition-base;
+    pointer-events: none;
+  }
+
   &:hover {
-    box-shadow: $shadow-card-hover;
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    border-color: #0d9488;
+
+    &::after {
+      opacity: 1;
+    }
   }
 }
