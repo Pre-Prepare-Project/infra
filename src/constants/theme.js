@@ -14,7 +14,7 @@ export const COMPANY = {
   shortName: "InfraPulse",
   tagline: "Building Software That Empowers Businesses",
   description:
-    "InfraPulse Technologies delivers innovative web, mobile, ERP, CRM, and cloud solutions that help businesses scale with confidence.",
+    "InfraPulse Technologies helps businesses grow with custom web and mobile apps, ERP and CRM software, UI/UX design, and digital marketing solutions. We build simple, reliable, and scalable technology that makes business operations easier and more efficient.",
   url: "https://infrapulsetech.com",
   email: "info@infrapulsetech.com",
   phone: "+91 83838 94651",
